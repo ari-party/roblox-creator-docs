@@ -10,9 +10,9 @@ When ready to export, see the [export requirements](../../art/characters/export-
 <Alert severity = 'warning'>
 <AlertTitle>If creating other types of 3D models:</AlertTitle>
 <ul>
-<li>When creating a generic mesh, your model must meet [general mesh specifications](../modeling/specifications.md).</li> <br />
-<li>When creating a rigid accessory model, see the [accessory specifications](../../art/accessories/specifications.md).</li> <br />
-<li>When creating a clothing accessory model, see the [clothing specifications](../../art/accessories/clothing-specifications.md).</li>
+<li>For generic meshes, see [general mesh specifications](../modeling/specifications.md) and [general export settings](../modeling/export-requirements.md).</li> <br />
+<li>For rigid accessories, see [accessory specifications](../accessories/specifications.md) and [accessory export settings](../accessories/export-settings.md).</li> <br />
+<li>For layered accessories, see [layered accessory specifications](../accessories/clothing-specifications.md) and [layered export settings](../accessories/clothing-export-settings.md).</li> <br />
 </ul>
 </Alert>
 
@@ -28,7 +28,7 @@ Avatar character models are made up of 15 separate mesh objects and require addi
 
 ### Body scale
 
-Roblox supports 3 standards of body scales: **Normal**, **Slender**, and **Classic**. These standards allow developers to create experiences and spaces with consistent body sizes for standardizing movement and interaction. While the minimum sizes for each body scale is the same, each body scale has a unique maximum total body size, as well as a range for each body asset.
+Roblox supports 3 standards of body scales: **Normal**, **Slender**, and **Classic**. These standards allow developers to create experiences and spaces with consistent body sizes for standardizing movement and interaction. You can select a body scale on import using [Rig Scale options](../modeling/3d-importer.md#rig-general), or modify the [body scale manually](../../art/accessories/body-scale.md). Body scale persists when the asset is [uploaded to the Marketplace](../../marketplace/publish-to-marketplace.md#upload-an-asset).
 
 <center>
 <figure>
@@ -85,7 +85,7 @@ In the [3D importer](../../art/modeling/3d-importer.md#avatar-general), use **Ri
   </tr>
   <tr>
     <td>Torso</td>
-    <td>.8</td>
+    <td>.85</td>
     <td>1.7</td>
     <td>.7</td>
   </tr>
@@ -455,7 +455,7 @@ To ensure that avatar sizes are visually consistent, you must standardize body p
 - **Opacity** - Body parts must be fully opaque.
 - **Bounding Boxes** - Body part assets must take up a significant visible portion of their bounding box in a front, side, and back view.
   - Body parts, such as Torso, Left Arm, Right Leg, must take up at least 50% of body part's bounding box.
-  - The head part must take up at least 35% of the mesh's bounding box.
+  - The head part must take up at least 50% of the mesh's bounding box.
     <GridContainer numColumns="2">
       <figure>
         <img src="../../assets/art/avatar/Valid-Visibility.png" />

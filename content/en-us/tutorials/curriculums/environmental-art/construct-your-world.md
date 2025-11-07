@@ -2159,15 +2159,13 @@ To apply your asset library to the left-most planter:
    <img src="../../../assets/tutorials/environmental-art-curriculum/Section4/Planters-1.jpg" width="100%"/>
 
 2. Select the divot part.
-3. In the menu bar, navigate to the **Model** tab, then click the **Negate** button. The part turns translucent.
+3. Navigate to Studio's **Model** tab toolbar, then click the **Negate** button. The part turns translucent.
 
-   <img src="../../../assets/studio/general/Model-Tab-Negate.png" alt="Negate tool indicated in Model tab" width="732" />
    <img src="../../../assets/tutorials/environmental-art-curriculum/Section4/Planters-3.jpg" width="100%"/>
 
 4. Select both the negated part and the planter exterior part.
-5. In the **Model** tab, click the **Union** button. The negated part is cut out from the overlapping planter exterior part.
+5. In Studio's **Model** tab toolbar, click the **Union** button. The negated part is cut out from the overlapping planter exterior part.
 
-   <img src="../../../assets/studio/general/Model-Tab-Union-Negated.png" alt="Union tool indicated in Model tab" width="732" />
    <img src="../../../assets/tutorials/environmental-art-curriculum/Section4/Planters-5.jpg" width="100%"/>
 
 6. Select the union, then in the **Properties** window,
@@ -3602,7 +3600,7 @@ To delete excess geometry:
 
 Right now your environment is mostly architectural aside from foliage in your planters. However, following the sample art style from [Develop Polished Assets](./develop-polished-assets.md), the 3D space should contain a healthy mix of futuristic technology and lush greenery to inform users that the world values technological advances, but not at the expense of the earth.
 
-Using the [Terrain Editor](../../../parts/terrain.md), you can quickly generate and sculpt detailed and realistic terrain to bring organic life to the outdoor space. Because you set material overrides as you created your custom materials in [Assemble an Asset Library](./assemble-an-asset-library.md), you can also utilize your tileable textures through Terrain Editor brushes to add moss, flowers, and stone paths that are cohesive with the rest of your environment.
+Using the [Terrain Editor](../../../parts/terrain.md), you can quickly generate and sculpt detailed and realistic terrain to bring organic life to the outdoor space. Because you set material overrides as you created your custom materials in [Assemble an Asset Library](./assemble-an-asset-library.md), you can also utilize your tileable textures through **Terrain Editor** brushes to add moss, flowers, and stone paths that are cohesive with the rest of your environment.
 
 <Alert severity="info">
     Sculpting terrain is an art form, and it's difficult to exactly recreate brush strokes and subtle material edits. As long as your terrain meets the needs of your own experience, it's normal and expected for your environment to look and feel different from the sample laser tag environment.
@@ -3613,13 +3611,7 @@ Using the [Terrain Editor](../../../parts/terrain.md), you can quickly generate 
 
 To apply your own terrain to the outdoor area:
 
-1. Open the **Terrain Editor**.
-
-   1. In the menu bar, navigate to the **Model** tab.
-   1. Click the **Editor** icon.
-
-   <img src="../../../assets/studio/general/Home-Tab-Terrain-Editor.png" width="716" alt="Terrain Editor indicated in Home tab" />
-
+1. From the toolbar's **Home** tab, click **Terrain**. The [Terrain Editor](../../../studio/terrain-editor.md) window opens.
 1. Navigate to the **Edit** tab, then click the **Draw** button.
 1. In the **Brush Settings** section, customize your brush according to the material you want to add to your map. For example, the sample starts this process with the settings in the following image.
 
@@ -3648,13 +3640,7 @@ To apply your own terrain to the outdoor area:
 
 To recreate the terrain within the sample [Environment Art - Constructing](https://www.roblox.com/games/14447826396/Environment-Art-Constructing) place file:
 
-1. Open the **Terrain Editor**.
-
-   1. In the menu bar, navigate to the **Model** tab.
-   1. Click the **Editor** icon.
-
-   <img src="../../../assets/studio/general/Home-Tab-Terrain-Editor.png" width="716" alt="Terrain Editor indicated in Home tab" />
-
+1. From the toolbar's **Home** tab, click **Terrain**. The [Terrain Editor](../../../studio/terrain-editor.md) window opens.
 2. Navigate to the **Edit** tab, then click the **Draw** button.
 3. In the **Brush Settings** section,
 
@@ -3675,7 +3661,7 @@ To recreate the terrain within the sample [Environment Art - Constructing](https
 
    <video controls src="../../../assets/tutorials/environmental-art-curriculum/Section4/Terrain-4.mp4" width="100%"></video>
 
-5. Navigate back to the Terrain Editor's **Brush Settings** section, then
+5. Navigate back to the **Brush Settings** section, then
 
    1. Set **Base Size** to `10`.
    1. Set **Height** to `10`.
@@ -3999,9 +3985,9 @@ Both lighting sources are important to consider because your experience has both
 
 Global lighting is the luminescence from either the sun or moon in an experience. By adjusting a couple of key default properties in the `Class.Lighting` service, you can dramatically change how that light appears to users, as well as how it interacts with any other object you place in the experience.
 
-Studio begins every experience with the `Enum.Technology.ShadowMap` lighting system, ensuring that the global lighting has precise shadows and illumination. However, to enhance the environment and equip your local light sources to also produce precise shadows and illumination, such as the lighting in the hallways and above the signage, you must enable the `Enum.Technology.Future` lighting system directly in Studio. This allows both your global and local lighting to work together and provide more realistic and immersive visuals.
+Studio begins every experience with `Enum.LightingStyle|Soft` lighting which renders a flatter look with softer lights and shadows. However, to enhance the environment and equip your local light sources to produce precise shadows and illumination, such as the lighting in the hallways and above the signage, you must enable `Enum.LightingStyle|Realistic` lighting. This allows both your global and local lighting to work together and provide more realistic and immersive visuals.
 
-For example, the `Enum.Technology.Future` lighting system automatically detects when a user is either in an interior or exterior space, then it responds by enabling the appropriate lighting model. This means that reflections are able to reflect off the floor and ceiling within the building, providing a richer visual experience as users navigate through combat pockets.
+For example, the `Enum.LightingStyle|Realistic` lighting style automatically detects when a user is either in an interior or exterior space, then it responds by enabling the appropriate lighting model. This means that reflections are able to reflect off the floor and ceiling within the building, providing a richer visual experience as users navigate through combat pockets.
 
 <Tabs>
   <TabItem key = "1" label="Create your own">
@@ -4029,8 +4015,8 @@ To exactly recreate the global lighting configuration within the sample [Environ
 
    1. Set **Ambient** to `26, 34, 36`.
    1. Set **OutdoorAmbient** to `26, 34, 36`.
+   1. Set **LightingStyle** to **Realistic**.
    1. Set **ShadowSoftness** to `0.15`.
-   1. Set **Technology** to **Future**.
    1. Set **GeographicLatitude** to `-18`.
    1. Set **TimeOfDay** to `-15:16:23`.
 

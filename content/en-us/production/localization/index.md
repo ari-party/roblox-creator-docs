@@ -5,7 +5,7 @@ description: An overview of localization tools you can use to make sure all user
 
 Roblox users come from a variety of cultures around the world and speak
 different languages. Using **localization** tools effectively makes sure all
-users can understand and enjoy your experience as intended. Any experience can immediately take advantage of Roblox's automatic localization tools instantly expand your potential audience. As your experience grows, use Roblox's various localization API tools, manual translator portals, and analytics, to ensure that users from around the world can fully participate and socialize in your experience.
+users can understand and enjoy your experience as intended. Any experience can immediately take advantage of Roblox's automatic localization tools to instantly expand your potential audience. As your experience grows, use Roblox's various localization API tools, manual translator portals, and analytics, to ensure that users from around the world can fully participate and socialize in your experience.
 
 <img src="../../assets/localization/Concept-Banner.jpg" width="80%" />
 
@@ -27,7 +27,7 @@ You can access your experience's localization settings through the Creator Dashb
 You can also access your experience's localization settings in the on your [Creations](https://create.roblox.com/dashboard/creations) page:
 
 1. Navigate to your Creator Dashboard [Creations](https://create.roblox.com/dashboard/creations).
-2. In the Experiences tab, find your experience and select the **...** button.
+2. In the Experiences tab, find your experience and select the **&ctdot;** button.
 3. Select **Configure Localization**.
 
    <img
@@ -36,7 +36,7 @@ You can also access your experience's localization settings in the on your [Crea
 
 A link to your experience's localization settings is also available in Studio. To find the link:
 
-1. In the **File** menu, navigate to **Game Settings**.
+1. Open Studio's **File**&nbsp;⟩ **Game Settings** window.
 2. In the **Localization** section, click the link indicated below to launch the
    localization settings in your default browser.
 
@@ -51,7 +51,7 @@ are translating from and which languages you are translating to.
 
 The **source language** is the primary language that the
 experience has been written in. Roblox currently only supports one source
-language at a time. The default is set to **English**.
+language at a time. The default is set to your [Roblox account language](https://www.roblox.com/my/account#!/info).
 
 To set the **source** language:
 

@@ -15,14 +15,11 @@ Before you begin, it's important to note that sculpting terrain is an art form, 
 
 ## Create the island
 
-The first step in creating your environment is to create a small island that players will spawn to when they start the experience, and when their health reaches zero after they fall off a platform. Using the Terrain Editor's **Draw** tool, you can click and drag anywhere within the viewport to generate a large sphere of terrain to start the island, which you can later shape and flatten for a wide surface area.
+The first step in creating your environment is to create a small island that players will spawn to when they start the experience, and when their health reaches zero after they fall off a platform. Using the **Draw** tool, you can click and drag anywhere within the viewport to generate a large sphere of terrain to start the island, which you can later shape and flatten for a wide surface area.
 
 To create the island:
 
-1. In the menu bar, navigate to the **Home** tab, then click the **Terrain Editor** button. The **Terrain Editor** window displays.
-
-   <img src="../../../../assets/studio/general/Home-Tab-Terrain-Editor.png" alt="Studio's Home tab with the Terrain Editor tool highlighted." width="716" />
-
+1. Navigate to the toolbar's **Home** tab and click the **Terrain** button.
 1. In the **Terrain Editor** window, click the **Edit** tab, then the **Draw** button.
 
    <img src="../../../../assets/studio/terrain-editor/Edit-Tab-Draw.png" alt="Studio's Terrain Editor window with both the Edit tab and Draw button highlighted." width="360" />
@@ -51,7 +48,7 @@ To create the island:
 
 ## Shape the island
 
-If you keep the island in its current shape, players would have a difficult time navigating without falling off the island. Using the Terrain Editor's **Flatten** tool, you can click and drag on the sphere to evenly level the terrain on a fixed plane, and provide players a relatively flat surface as they start your experience. While this shape initially looks unnatural, you can also use the Terrain Editor's **Sculpt** tool around the edges of the island to ensure it looks organic and realistic.
+If you keep the island in its current shape, players would have a difficult time navigating without falling off the island. Using the **Flatten** tool, you can click and drag on the sphere to evenly level the terrain on a fixed plane, and provide players a relatively flat surface as they start your experience. While this shape initially looks unnatural, you can also use the **Sculpt** tool around the edges of the island to ensure it looks organic and realistic.
 
 To shape the island:
 
@@ -133,7 +130,7 @@ To create the water around the island:
 
 ## Apply materials
 
-Now that you have the basis of your island, you can customize its appearance with different materials. Using the Terrain Editor's **Paint** tool,
+Now that you have the basis of your island, you can customize its appearance with different materials. Using the **Paint** tool,
 you can click and drag on your terrain to apply both a grassy surface and blades of grass to the middle of the island's surface.
 
 To apply materials to the island:
@@ -166,7 +163,7 @@ To apply materials to the island:
 1. In the viewport, drag along the edges of the island to apply blades of grass, leaving space in the middle of the island for
    the spawn location and the initial platforms.
 1. In the **Explorer** window, select the **SpawnLocation** object.
-1. In the **Home** tab, select the **Move** tool.
+1. From the toolbar, select the **Move** tool.
 1. In the viewport, move the spawn location toward the edge of the island to make space for the first platform. The sample [Island Jump - Building](https://www.roblox.com/games/14239096301/Island-Jump-Building) `.rbxl` file uses a position of `-127, -3, 9`.
 
    <video controls loop muted>
@@ -185,14 +182,12 @@ Once you are happy with your island's appearance, you can playtest your experien
 
 To playtest your experience:
 
-1. In the menu bar, click the **Play** button. Studio enters playtest mode.
+1. Choose **Test** from the dropdown menu and click the **Play** button to its right to begin the playtest.
 
-   <img src="../../../../assets/studio/general/Quick-Access-Toolbar-Play.png" alt="Studio's Home tab with the Play button highlighted in the menu bar." width="716" />
+   <img src="../../../../assets/studio/general/Mezzanine-Testing-Mode-Test.png" width="800" alt="Test option in the testing modes dropdown of Studio's mezzanine." />
 
-1. Walk around the island and check out how it looks while playing. When you're
-   done, navigate back to the menu bar and click the **Stop** button. Studio exits playtest mode.
+1. Walk around the island and check out how it looks while playing.
 
-   <img src="../../../../assets/studio/general/Quick-Access-Toolbar-Stop.png" alt="Studio's Home tab with the Stop button highlighted in the menu bar." width="716" />
    <video controls loop muted>
    <source src="../../../../assets/tutorials/create-an-environment-with-terrain/create-an-environment-with-terrain-walking.mp4" />
    </video>
@@ -200,5 +195,9 @@ To playtest your experience:
    <Alert severity="warning">
    If your character faces a different direction than expected upon spawning, such as out toward the ocean instead of toward the center of the island, rotate the `Class.SpawnLocation` object and playtest again, repeating the process until the character spawns in the appropriate direction.
    </Alert>
+
+1. When you're done, click the **Stop** button. Studio exits playtest mode.
+
+   <img src="../../../../assets/studio/general/Mezzanine-Testing-Stop.png" width="800" alt="Stop button indicated in Studio's mezzanine." />
 
 In the next section of the tutorial, you will learn how to create a playable area for players to follow in order to reach the highest platform.

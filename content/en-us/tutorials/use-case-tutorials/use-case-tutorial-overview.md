@@ -227,9 +227,9 @@ Use third-party modeling tools like Blender to create meshes, then import them i
  style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
  <img src="../../assets/tutorials/UCT-Overview/Background-Music.png" />
  </div>
-   <Typography variant='body1' >Playing background music</Typography>
+   <Typography variant='body1' >Add 2D audio</Typography>
      <div style={{marginTop:16}}>
-       <a underline="none" href="./audio/play-background-music.md">
+       <a underline="none" href="./audio/add-2D-audio.md">
        <Button variant="contained" color="secondary" size='large'
        style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
        </a>
@@ -243,9 +243,57 @@ Use third-party modeling tools like Blender to create meshes, then import them i
  style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
  <img src="../../assets/tutorials/UCT-Overview/Positional-Audio.png" />
  </div>
-   <Typography variant='body1' >Playing positional sounds</Typography>
+   <Typography variant='body1' >Add 3D audio</Typography>
      <div style={{marginTop:16}}>
-       <a underline="none" href="./audio/in-game-sounds.md">
+       <a underline="none" href="./audio/add-3D-audio.md">
+       <Button variant="contained" color="secondary" size='large'
+       style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
+       </a>
+     </div>
+ </Grid>
+ </Grid>
+
+ <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
+ <Grid item container wrap="nowrap" direction="column" style={{gap: 8, flex: 1}}>
+ <div class="container"
+ style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
+ <img src="../../assets/tutorials/UCT-Overview/Voice-Chat.png" />
+ </div>
+   <Typography variant='body1' >Add voice chat</Typography>
+     <div style={{marginTop:16}}>
+       <a underline="none" href="./audio/add-voice-chat.md">
+       <Button variant="contained" color="secondary" size='large'
+       style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
+       </a>
+     </div>
+ </Grid>
+ </Grid>
+
+ <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
+ <Grid item container wrap="nowrap" direction="column" style={{gap: 8, flex: 1}}>
+ <div class="container"
+ style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
+ <img src="../../assets/tutorials/UCT-Overview/Text-to-Speech.png" />
+ </div>
+   <Typography variant='body1' >Add text-to-speech</Typography>
+     <div style={{marginTop:16}}>
+       <a underline="none" href="./audio/add-text-to-speech.md">
+       <Button variant="contained" color="secondary" size='large'
+       style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
+       </a>
+     </div>
+ </Grid>
+ </Grid>
+
+ <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
+ <Grid item container wrap="nowrap" direction="column" style={{gap: 8, flex: 1}}>
+ <div class="container"
+ style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
+ <img src="../../assets/tutorials/UCT-Overview/Text-to-Speech.png" />
+ </div>
+   <Typography variant='body1' >Add speech-to-text</Typography>
+     <div style={{marginTop:16}}>
+       <a underline="none" href="./audio/speech-to-text.md">
        <Button variant="contained" color="secondary" size='large'
        style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
        </a>
@@ -261,10 +309,10 @@ Use third-party modeling tools like Blender to create meshes, then import them i
 </AccordionSummary>
 <AccordionDetails>
 
-- [Audio assets](../../sound/assets.md)
-- [Sound objects](../../sound/objects.md)
-- [Sound groups](../../sound/groups.md)
-- [Dynamic effects](../../sound/dynamic-effects.md)
+- [Audio overview](../../audio/index.md)
+- [Audio assets](../../audio/assets.md)
+- [Audio objects](../../audio/objects.md)
+- [Audio effects](../../audio/effects.md)
 
 </AccordionDetails>
 </BaseAccordion>
@@ -300,7 +348,7 @@ Use third-party modeling tools like Blender to create meshes, then import them i
  </div>
    <Typography variant='body1' >Enhance outdoor environments</Typography>
      <div style={{marginTop:16}}>
-       <a underline="none" href="./lighting/enhance-outdoor-environments-with-future-lighting.md">
+       <a underline="none" href="./lighting/enhance-outdoor-environments.md">
        <Button variant="contained" color="secondary" size='large'
        style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
        </a>
@@ -316,8 +364,8 @@ Use third-party modeling tools like Blender to create meshes, then import them i
 </AccordionSummary>
 <AccordionDetails>
 
-- [Local light sources](../../effects/light-sources.md)
-- [Global lighting overview](../../environment/lighting.md)
+- [Light sources](../../effects/light-sources.md)
+- [Global lighting](../../environment/lighting.md)
 - [Atmospheric effects](../../environment/atmosphere.md)
 - [Post-processing effects](../../environment/post-processing-effects.md)
 - [Skyboxes](../../environment/skybox.md)
@@ -477,7 +525,7 @@ Use third-party modeling tools like Blender to create meshes, then import them i
 
 <Typography variant='h2'>Studio animation</Typography>
 
-Use the Animation Editor directly in Studio to create animations for models or meshes with rigging and skinning data.
+Use the **Animation Editor** directly in Studio to create animations for models or meshes with rigging and skinning data.
 
 <Grid container spacing={2} style={{marginBottom: 24}}>
  <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
@@ -577,7 +625,7 @@ Use third-party modeling tools like Blender to create meshes with rigging and sk
 <Typography variant='h1' style={{marginTop: 48, marginBottom: 24}}>Scripting</Typography>
 
 <div style={{marginBottom: 24}}>
-**Scripting** in Studio is the use of the [Luau](https://luau-lang.org/) programming language to add custom, dynamic behavior to your experiences so that they are engaging and fun to play. Understanding how programming works on Roblox is important because it allows you to write and organize your scripts that control things like logic, movement, events, and interactions between objects in the 3D space in a way that improves performance and optimization.
+**Scripting** in Studio is the use of the [Luau](https://luau.org/) programming language to add custom, dynamic behavior to your experiences so that they are engaging and fun to play. Understanding how programming works on Roblox is important because it allows you to write and organize your scripts that control things like logic, movement, events, and interactions between objects in the 3D space in a way that improves performance and optimization.
 
 </div>
 
@@ -639,22 +687,6 @@ Use third-party modeling tools like Blender to create meshes with rigging and sk
    <Typography variant='body1' >Events</Typography>
      <div style={{marginTop:16}}>
        <a underline="none" href="../../scripting/events/index.md">
-       <Button variant="contained" color="secondary" size='large'
-       style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
-       </a>
-     </div>
- </Grid>
- </Grid>
-
- <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
- <Grid item container wrap="nowrap" direction="column" style={{gap: 8, flex: 1}}>
- <div class="container"
- style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
- <img src="../../assets/tutorials/UCT-Overview/Saving-Data.png" />
- </div>
-   <Typography variant='body1' >Save data</Typography>
-     <div style={{marginTop:16}}>
-       <a underline="none" href="../../tutorials/use-case-tutorials/scripting/intermediate-scripting/save-data.md">
        <Button variant="contained" color="secondary" size='large'
        style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
        </a>
@@ -759,6 +791,58 @@ Use third-party modeling tools like Blender to create meshes with rigging and sk
 - [Mouse and keyboard input](../../input/mouse-and-keyboard.md)
 - [Mobile input](../../input/mobile.md)
 - [Gamepad input](../../input/gamepad.md)
+
+</AccordionDetails>
+</BaseAccordion>
+
+<Typography variant='h1' style={{marginTop: 48, marginBottom: 24}}>Data storage</Typography>
+
+<div style={{marginBottom: 24}}>
+**Data stores** are a service you can use to save and load persistent player data across different game sessions. They store important information, like a player's progress or inventory, and allow you to retrieve it for the player next time they join your experience. Without data stores, your players would lose all of their progress every time they left the game.
+</div>
+
+<Grid container spacing={2} style={{marginBottom: 24}}>
+ <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
+ <Grid item container wrap="nowrap" direction="column" style={{gap: 8, flex: 1}}>
+ <div class="container"
+ style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
+ <img src="../../assets/tutorials/UCT-Overview/Score-Bars.png" />
+ </div>
+   <Typography variant='body1' >Save player data</Typography>
+     <div style={{marginTop:16}}>
+       <a underline="none" href="../../tutorials/use-case-tutorials/data-storage/save-player-data.md">
+       <Button variant="contained" color="secondary" size='large'
+       style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
+       </a>
+     </div>
+ </Grid>
+ </Grid>
+
+ <Grid item container Medium={12} Large={6} XLarge={4} direction="row" style={{gap: 24, marginBottom: 12}}>
+ <Grid item container wrap="nowrap" direction="column" style={{gap: 8, flex: 1}}>
+ <div class="container"
+ style={{position: "relative", paddingBottom: "56.25%", height: 0}}>
+ <img src="../../assets/tutorials/UCT-Overview/Saving-Data.png" />
+ </div>
+   <Typography variant='body1' >Create a custom leaderboard</Typography>
+     <div style={{marginTop:16}}>
+       <a underline="none" href="../../tutorials/use-case-tutorials/data-storage/create-leaderboard.md">
+       <Button variant="contained" color="secondary" size='large'
+       style={{marginRight:8, alignSelf: 'flex-start'}}>Get started</Button>
+       </a>
+     </div>
+ </Grid>
+ </Grid>
+</Grid>
+
+<BaseAccordion>
+<AccordionSummary>
+<Typography variant="h5">Related docs</Typography>
+</AccordionSummary>
+<AccordionDetails>
+
+- [Data stores vs memory stores](../../cloud-services/data-stores-vs-memory-stores.md)
+- [Data stores](../../cloud-services/data-stores/index.md)
 
 </AccordionDetails>
 </BaseAccordion>

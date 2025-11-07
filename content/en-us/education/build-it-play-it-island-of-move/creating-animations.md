@@ -13,32 +13,22 @@ Creating animations is like posing an action figure. For this tutorial, you'll c
 
 The poses and the final animation will be created using the Animation Editor.
 
-1. To find the Animation Editor, select the **Avatar** tab.
+1. To find the Animation Editor, click **Animation** from the **Avatar** tab. The Animation Editor will open at the bottom of your screen.
 
-   <img src="../../assets/studio/general/Avatar-Tab-Animation-Editor.png" width="640" />
+2. Next, you need a character to animate. On the pedestal, one has already been set up for you. Select the **figure** on top.
+   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/highlight-figure.jpg" width="100%" />
 
-2. Click on the **Animation Editor**.
+   The part names that make up the figure will appear in the animation editor.
 
-   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/open-animation-editor.png" width="50%" />
-
-   The Animation Editor will open at the bottom of your screen.
-
-   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/highlight-animation-editor.jpeg" width="100%" />
-
-3. Next, you need a character to animate. On the pedestal, one has already been set up for you. Select the **figure** on top.
-   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/highlight-figure.jpeg" width="50%" />
-
-   The camera will focus on the selected figure, and the part names that make up the figure will appear in the animation editor.
-
-   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/rig-selected.jpeg" width="50%" />
+   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/rig-selected.jpg" width="100%" />
 
 ## Prepare to pose
 
 Before creating the poses, make it easier to pose figures by changing a program setting and then position the camera.
 
-1. In the **Model** tab, find the **Snap to Grid** section. Make sure **Rotate** and **Move** are not checked.
+1. In the toolbar, find the snapping tools and make sure **Rotate** and **Move** are not checked.
 
-   <img src="../../assets/education/build-it-play-it-island-of-move/creating-animations/turn-off-snap.png" width="50%" />
+   <img src="../../assets/education/general/Snap-Settings-C.png" width="500" />
 
 2. Using the camera controls, move the camera to get a good view of the part you want to animate. When moving, hold <kbd>Shift</kbd> to slow down camera movements.
 
@@ -57,7 +47,7 @@ Before creating the poses, make it easier to pose figures by changing a program 
      <tbody>
        <tr>
          <td>**Move**</td>
-         <td><kbd>W A S D</kbd> </td>
+         <td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></td>
        </tr>
        <tr>
          <td>**Rotate**</td>
@@ -77,5 +67,5 @@ Before creating the poses, make it easier to pose figures by changing a program 
 
    <Alert severity="warning">
    <AlertTitle>Can't move the camera?</AlertTitle>
-   If the camera doesn't move when you press <kbd>W A S D</kbd>, click somewhere inside the game world.
+   If the camera doesn't move when you press <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>, click somewhere inside the game world.
    </Alert>

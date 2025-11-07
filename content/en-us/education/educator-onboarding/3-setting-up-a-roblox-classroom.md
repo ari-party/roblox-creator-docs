@@ -5,9 +5,7 @@ next: /education/educator-onboarding/4-running-classrooms
 prev: /education/educator-onboarding/2-playing-on-roblox
 ---
 
-<img
-src="../../assets/education/legacy/hero-classroomLab.jpg"
-width="75%" />
+<img src="../../assets/education/legacy/hero-classroomLab.jpg" width="100%" />
 
 Setting up a Roblox classroom is a quick process that includes tasks like getting accounts and software ready. Note, while this article overviews these topics, an in-depth, guided checklist is at the end of the course.
 
@@ -26,13 +24,8 @@ Account registration is through a form that asks for basic information like a bi
 
 Each account grants that user full access to:
 
-- Play experiences with **Roblox Client**.
+- Play experiences with the **Roblox client**.
 - Code and create experiences with **Roblox Studio**.
-
-<figure>
-    <img src="../../assets/education/legacy/module3-signinScreen.jpg" width="50%" />
-    <figcaption>Roblox account creation screen</figcaption>
-</figure>
 
 <Alert severity="info">
 <AlertTitle>Accounts for students under 13</AlertTitle>
@@ -55,7 +48,7 @@ We understand that password management can be a challenge for younger students. 
 
 ## Install software
 
-Roblox is two software packages (Client and Studio), each installed separately.
+Roblox is two software packages (client and Studio), each installed separately.
 
 Software can be installed in two ways:
 
@@ -77,9 +70,7 @@ With accounts and software ready, the next step is to find relevant content. Whe
 
 ### Virtual learning experiences
 
-<img
-src="../../assets/education/legacy/knnoss-palace-example.jpg"
-width="100%" />
+<img src="../../assets/education/legacy/knnoss-palace-example.jpg" width="80%" />
 
 The Roblox platform hosts millions of pre-made experiences created by the
 community. In the Learn and Explore sort, curated by educators at Roblox,
@@ -93,7 +84,7 @@ target="_blank" rel="noopener"><Button variant="contained">Browse experiences</B
 
 ### Code and creation
 
-<img src="../../assets/education/legacy/module1-exampleStudio.jpg" width="100%" />
+<img src="../../assets/education/legacy/module1-exampleStudio.jpg" width="80%" />
 
 For educators interested in creation, students can build and code using Roblox Studio. Our content is developed for a variety of ages and subjects, such as digital citizenship or teaching computer science.
 

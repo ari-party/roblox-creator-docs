@@ -38,17 +38,17 @@ The Roblox Engine doesn't guarantee the order in which objects are replicated fr
 
 1. When it finishes, the `Class.DataModel.Loaded|game.Loaded` event fires and `Class.DataModel:IsLoaded()|game:IsLoaded()` returns true.
 
-1. `LocalScripts` in `StarterPlayerScripts` run, as well as client `Scripts` in `Class.ReplicatedStorage`. These scripts can safely get objects from `StarterPlayerScripts` and `ReplicatedStorage` without using `WaitForChild()`.
+1. `LocalScripts` in `Players.Player.PlayerScripts` (copied from `StarterPlayerScripts`) run, as well as client `Scripts` in `Class.ReplicatedStorage`. These scripts can safely get objects from `ReplicatedStorage` without using `WaitForChild()`.
 
 1. The player's `Class.Player.Character|Character` model spawns in the experience.
 
-1. `LocalScripts` in `StarterCharacterScripts` run.
+1. `LocalScripts` in `Workspace.Character` (copied from `StarterCharacterScripts`) run.
 
 If your experience uses [instance streaming](../workspace/streaming.md) (`Class.Workspace.StreamingEnabled`), some or most objects might not have loaded into the workspace, so using `WaitForChild()` to access workspace objects becomes an even more important safety measure. In particular, see [Stream in](../workspace/streaming.md#stream-in) and [Per-model streaming controls](../workspace/streaming.md#per-model-streaming-controls) for additional information on loading and tuning streaming behavior.
 
 ## Get objects
 
-The first step to modifying object properties and attributes is to get a reference to the object. The simplest solution is to make the script a child of the object in the Explorer and use `script.Parent` to reference the object.
+The first step to modifying object properties and attributes is to get a reference to the object. The simplest solution is to make the script a child of the object in the **Explorer** and use `script.Parent` to reference the object.
 
 <img alt="A script parented to a model in the Explorer." src="../assets/studio/explorer/Script-Parent-Model.png" width="320" />
 
@@ -84,7 +84,7 @@ chair.LeftArmRest.Size = Vector3.new(10, 1, 10)
 
 Although you can create attributes programmatically, the more common solution is to create them with default values in the Studio user interface. Then you can use scripts to modify their values in response to player actions.
 
-<img alt="A script within a folder in ReplicatedStorage." src="../assets/studio/properties/Attributes-Example-B.png" width="320" />
+<img alt="A script within a folder in ReplicatedStorage." src="../assets/studio/properties/Attributes-Example.png" width="320" />
 
 For information on creating attributes in Studio, see [Instance attributes](../studio/properties.md#instance-attributes).
 
@@ -92,7 +92,7 @@ For information on creating attributes in Studio, see [Instance attributes](../s
 
 To modify an attribute's value, call `Class.Instance:SetAttribute()` with a name and value.
 
-```lua title='Create or Modify Attribute'
+```lua title="Create or Modify Attribute"
 local cabbage = script.Parent
 
 cabbage:SetAttribute("Harvestable", true)
@@ -104,7 +104,7 @@ If the attribute doesn't already exist, this method creates it.
 
 To get the value of one existing attribute, call `Class.Instance:GetAttribute()` on the instance.
 
-```lua title='Get Attribute Value'
+```lua title="Get Attribute Value"
 local cabbage = script.Parent
 
 cabbage:SetAttribute("Harvestable", true)
@@ -115,7 +115,7 @@ print(isHarvestable) --> true
 
 Similarly, you can get all attributes by calling `Class.Instance:GetAttributes()`. This method returns a dictionary of key-value pairs.
 
-```lua title='Get All Attributes'
+```lua title="Get All Attributes"
 local cabbage = script.Parent
 
 local cabbageAttributes = cabbage:GetAttributes()
@@ -129,9 +129,9 @@ end
 
 ## Delete attributes
 
-To delete an attribute, set its value to nil.
+To delete an attribute, set its value to `nil`.
 
-```lua title='Delete Attribute'
+```lua title="Delete Attribute"
 local cabbage = script.Parent
 
 cabbage:SetAttribute("GrowthRate", nil)
@@ -147,7 +147,7 @@ There are several ways to listen for changes to properties and attributes:
 
 Due to the minimal information that these events and methods pass as parameters, all of them are a good fit for anonymous functions, particularly `Class.Instance:GetPropertyChangedSignal()` and `Class.Instance:GetAttributeChangedSignal()`. To learn more about anonymous functions and working with events, see [Events](events/index.md).
 
-```lua title='Listen for Changes'
+```lua title="Listen for Changes"
 local cabbage = script.Parent
 
 -- Local functions

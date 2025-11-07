@@ -11,7 +11,7 @@ description: Explains the process for exporting avatar animations from Maya.
     <figcaption>R15 mannequin reference</figcaption>
   </figure>
   <figure>
-    <video controls src="../../assets/animation/exporting-avatar-animations-from-maya/Moving-Rig.mp4" alt="An angled side view of the same humnoid mannequin walking in place." width="40%"></video>
+    <video controls src="../../assets/animation/exporting-avatar-animations-from-maya/Moving-Rig.mp4" alt="An angled side view of the same humanoid mannequin walking in place." width="40%"></video>
     <figcaption>Example walking animation</figcaption>
   </figure>
 </GridContainer>
@@ -89,7 +89,7 @@ To export your avatar animation from Maya:
    1. In the menu bar, click **Windows**. A contextual menu displays.
    1. Hover over **Settings/Preferences**, then click **Plug-in Manager**. The **Plug-in Manager** window displays.
 
-      <img width="80%" img src="../../assets/animation/exporting-avatar-animations-from-maya/Plugin-Manager.jpg" alt="A close up view of the Windows dropdown menu in Maya. The Settings/Preferences menu item is highlighted, as well as the Plguin-in Manager submenu." />
+      <img width="80%" img src="../../assets/animation/exporting-avatar-animations-from-maya/Plugin-Manager.jpg" alt="A close up view of the Windows dropdown menu in Maya. The Settings/Preferences menu item is highlighted, as well as the Plug-in Manager submenu." />
 
    1. In the search field, input **fbxmaya**. The **fbxmaya.mll** plugin displays.
    1. Enable the **Loaded** and **Auto load** options.
@@ -117,7 +117,7 @@ To export your avatar animation from Maya:
 1. Click the **Advanced Options** dropdown for additional export settings, then in the **FBX File Format** section,
 
    1. Set **Type** to **Binary**.
-   1. Set **Version** to **FBX 2020**.
+   1. If required, set **Version** to **FBX 2020**.
 
       <img width="80%" img src="../../assets/animation/exporting-avatar-animations-from-maya/FBX-File-Format.jpg" alt="A close up view of the Options pane. The FBX File Format settings are highlighted." />
 
@@ -131,21 +131,14 @@ To test the animation in Studio:
 
 1. Open a pre-built character rig.
 
-   1. In the menu bar, navigate to the **Avatar** tab.
-   1. In the **Rig** section, click **Rig Builder**. The **Rig Builder** window displays with the R15 tab options open by default.
-
-      <img width="760" img src="../../assets/studio/general/Avatar-Tab-Rig-Builder.png" alt="Studio's Avatar tab with the Rig Builder tool highlighted." />
-
+   1. From the toolbar's **Avatar** tab, click **Character**.
    1. Select any rig you want to use as a test. The rig displays within the viewport.
 
 1. Connect the rig to the **Animation Editor**.
 
-   1. In the **Animation** section of the **Avatar** tab, click **Animation Editor**. The **Animation Editor** window displays.
-
-      <img width="760" img src="../../assets/studio/general/Avatar-Tab-Animation-Editor.png" alt="Studio's Avatar tab with the Animation Editor tool highlighted." />
-
-   1. In the viewport, click your rig. A dialog displays in the Animation Editor.
-   1. In the **Animation Name** field, enter a new animation name, then click the **Create** button. The Animation Editor window displays the media and playback controls, timeline, and track list.
+   1. From the toolbar's **Avatar** tab, click **Animation**. The [Animation Editor](../../animation/editor.md) window displays.
+   1. In the viewport, click your rig. A dialog displays in the editor.
+   1. In the **Animation Name** field, enter a new animation name, then click the **Create** button. The editor window displays the media and playback controls, timeline, and track list.
 
 1. Import your avatar animation into the rig.
 
@@ -154,6 +147,6 @@ To test the animation in Studio:
 
       <img width="60%" img src="../../assets/animation/exporting-avatar-animations-from-maya/Importing-From-FBX-Animation.jpg" alt="A close up view of the Animation Editor window. The ellipsis contextual menu displays, and the From FBX Animation submenu item is highlighted." />
 
-   1. Select the FBX animation you just exported from Maya, then click **Open**. The animation's keyframes load into the Animation Editor.
+   1. Select the FBX animation you just exported from Maya, then click **Open**. The animation's keyframes load into the **Animation Editor**.
 
 1. Navigate to the **Media and Playback Controls** and click the **Play button** to play the avatar animation.

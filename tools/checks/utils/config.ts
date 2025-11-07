@@ -47,6 +47,7 @@ export interface IConfig {
   checkUnusedAssets: boolean;
   debug: boolean;
   deleteUnusedAssets: boolean;
+  deleteMdxMismatchedErrorOnFail: boolean;
   files: FileOption;
   onlyRequiredChecks: boolean;
   postPullRequestComments: boolean;
@@ -60,9 +61,12 @@ enum DataType {
   String = 'string',
 }
 
-const getEnvVar = (key: string, type: DataType) => {
+const getEnvVar = (key: string, type: DataType, defaultValue?: unknown) => {
   const value = process.env[key];
   if (!value) {
+    if (value === undefined) {
+      return defaultValue;
+    }
     return undefined;
   }
 
@@ -189,7 +193,7 @@ export const getConfig = async (): Promise<IConfig> => {
     .option('checkMarkdownLint', {
       type: 'boolean',
       description: 'Whether to check markdownlint',
-      default: getEnvVar('CHECK_MARKDOWN_LINT', DataType.Boolean),
+      default: getEnvVar('CHECK_MARKDOWN_LINT', DataType.Boolean, true),
     })
     .option('checkProtectedFields', {
       type: 'boolean',
@@ -199,12 +203,12 @@ export const getConfig = async (): Promise<IConfig> => {
     .option('checkRelativeLinks', {
       type: 'boolean',
       description: 'Whether to check relative links',
-      default: getEnvVar('CHECK_RELATIVE_LINKS', DataType.Boolean),
+      default: getEnvVar('CHECK_RELATIVE_LINKS', DataType.Boolean, true),
     })
     .option('checkRetextAnalysis', {
       type: 'boolean',
       description: 'Whether to check retext analysis',
-      default: getEnvVar('CHECK_RETEXT_ANALYSIS', DataType.Boolean),
+      default: getEnvVar('CHECK_RETEXT_ANALYSIS', DataType.Boolean, true),
     })
     .option('checkUnusedAssets', {
       type: 'boolean',
@@ -220,6 +224,15 @@ export const getConfig = async (): Promise<IConfig> => {
       type: 'boolean',
       description: 'Whether to delete unused assets',
       default: getEnvVar('DELETE_UNUSED_ASSETS', DataType.Boolean),
+    })
+    .option('deleteMdxMismatchedErrorOnFail', {
+      type: 'boolean',
+      description:
+        'Whether to delete localized files with MDX mismatch errors beyond threshold',
+      default: getEnvVar(
+        'DELETE_MDX_MISMATCHED_ERROR_ON_FAIL',
+        DataType.Boolean
+      ),
     })
     .option('debug', {
       type: 'boolean',

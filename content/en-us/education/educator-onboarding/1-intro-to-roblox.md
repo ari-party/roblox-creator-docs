@@ -97,13 +97,13 @@ Roblox is actually two software packages with different hardware requirements.
 #### Common questions about software
 
 **Roblox client plays all experiences**
-Installing Roblox Client allows you to play any experience on Roblox. Experiences do not have their own installations.
+Installing the Roblox client allows you to play any experience on Roblox. Experiences do not have their own installations.
 
 **More detail on hardware specifications**
 For more details such as supported graphics cards or unique mobile device questions, see the <a href="https://en.help.roblox.com/hc/en-us/articles/203312800-Computer-Hardware-Operating-System-Requirements">Hardware Requirements</a> page.
 
 **Software Updates**
-Both Client and Studio require consistent internet access. Regular updates occur on a weekly basis. When the software does update, changes are often minor and do not disrupt curriculum.
+Both the Roblox client and Studio require consistent internet access. Regular updates occur on a weekly basis. When the software does update, changes are often minor and do not disrupt curriculum.
 
 ### Recommended ages
 
@@ -120,7 +120,7 @@ width="100%" />
 
 Students can primarily use Roblox to play or create. One method is using **virtual learning experiences** where students play on Roblox. They can go on virtual field trips, explore natural settings, and interact with simulations of real-world phenomena.
 
-Additionally, Roblox can be used for **code and creation** with Roblox Studio. In Studio, students can design virtual environments or learn computer science with Lua, a text-based coding language similar to Python.
+Additionally, Roblox can be used for **code and creation** with Roblox Studio. In Studio, students can design virtual environments or learn computer science with Luau, a text-based coding language similar to Python and Lua.
 
 ### Advantages of Roblox
 

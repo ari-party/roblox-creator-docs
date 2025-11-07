@@ -1,16 +1,16 @@
 ---
-title: Content maturity
+title: Content maturity and compliance
 description: Explains how to accurately disclose content in experiences to receive appropriate maturity labels and content descriptors.
 ---
 
-**Content maturity** provides information on the experience's main details page about what kinds of content the experience contains so that players can make informed decisions about what they interact with. Roblox uses this information to recommend experiences on the [Home](https://www.roblox.com/home) and [Discover](https://www.roblox.com/discover) pages based on each player's age group and regional content policies.
+**Content maturity** provides information on the experience's main details page about what kinds of content the experience contains so that players can make informed decisions about what they interact with. Roblox uses this information to recommend experiences on the [Home](https://www.roblox.com/home) and [Charts](https://www.roblox.com/charts#/) pages according to each user's age group and regional content policies.
 
 Content maturity consists of two components:
 
 - **Content maturity label** - Indicates the level of maturity suitable for the experience according to child development research and industry standards.
 - **Content descriptors** - Indicates what type of content is within an experience, such as realistic depictions of blood or paid item trading.
 
-If an experience does not have guidelines, Roblox restricts the playability of the experience on the platform for players younger than 13. In addition, experiences without guidelines cannot contain any [Restricted content](https://en.help.roblox.com/hc/en-us/articles/15869919570708-Roblox-17-Policy-Standards) without risk of moderation. For this reason, Roblox strongly recommends that you fill out the questionnaire for each of your experiences so that they're available to the largest appropriate audience as possible.
+If an experience does not have accurate or all content maturity information, Roblox restricts the playability of the experience on the platform for all players. In addition, experiences without content maturity information cannot contain any [Restricted content](https://en.help.roblox.com/hc/en-us/articles/15869919570708-Roblox-17-Policy-Standards) without risk of moderation. For this reason, Roblox strongly recommends that you fill out the questionnaire for each of your experiences so that they're available to the largest appropriate audience as possible.
 
 <Alert severity="warning">
    Content descriptors that generate content maturity labels are separate from [genres](../publishing/experience-genres.md) that classify experiences according to their core gameplay. In cases where there is overlap between genres and in-experience content or behavior, answer the Maturity & Compliance questionnaire as accurately as you can regardless of your genre selection or assignment from Roblox.
@@ -22,22 +22,19 @@ If an experience does not have guidelines, Roblox restricts the playability of t
 
 ## Generate labels
 
-If your Roblox account is at least 30 days old, you can generate content maturity information by filling out the **Maturity & Compliance Questionnaire**, which contains a set of questions about the type of content players can possibly encounter within your experience, as well as how frequently it occurs. Your answers give Roblox an understanding of the content in your experience and ensure that the experience is available to the appropriate audience.
+You can generate content maturity information by filling out the **Maturity & Compliance Questionnaire**, which contains a set of questions about the type of content players can possibly encounter within your experience, as well as how frequently it occurs. Your answers give Roblox an understanding of the content in your experience and ensure that the experience is available to the appropriate audience.
 
 <Alert severity="warning">
-   If your experience is going to have [Restricted content](https://en.help.roblox.com/hc/articles/15869919570708), it must first receive a Restricted maturity label so that its content is restricted to verified players who are at least 17 years old. You must not add any restricted content to your experience before adding content maturity information.
+   If your experience is going to have [Restricted content](https://en.help.roblox.com/hc/articles/15869919570708), it must first receive a Restricted maturity label so that its content is restricted to age-verified players who are at least 18 years old. You must not add any restricted content to your experience before adding content maturity information.
 </Alert>
 
 As you are completing the questionnaire, **base your answers on the most mature or extreme content players can encounter within your experience**. You can retake the questionnaire and generate a new maturity label at any time to accurately reflect the content in your experience. For restricted experiences, you can't change the maturity, but you can update its content descriptors.
 
 To generate content maturity information:
 
-1. **(Optional)** If you want your experience to include restricted content, confirm you are at least 17 years old by [verifying your account](../../production/publishing/account-verification.md) so the questionnaire can ask questions to generate the Restricted maturity label.
+1. **(Optional)** If you want your experience to include restricted content, confirm you are at least 18 years old by [verifying your account](../../production/publishing/account-verification.md) so the questionnaire can ask questions to generate the Restricted maturity label.
 1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations) and click on the thumbnail of the experience you want to generate content maturity information for. The experience's **Overview** page displays.
 1. In the left-hand navigation, navigate to the **Audience** section, then select **Maturity & Compliance**.
-
-   <img src="../../assets/creator-dashboard/Experience-Nav-Audience-Questionnaire.png" width="330" alt="Questionnaire button indicated for an experience on the Creator Dashboard" />
-
 1. If you've never taken the questionnaire before, read the notes and details, then click **Start** to proceed. If you've previously completed the questionnaire, the **Questionnaire Completed** page displays, but you can click the **Restart** button to start over.
 1. Answer each page of questions based on the content within your experience, then click the **Save and Continue** button. After you have answered every question, the **Questionnaire Preview** page displays all of your answers, the maturity label, applicable content descriptors, and any regions where your experience is non-compliant according to your answers.
 
@@ -45,7 +42,7 @@ To generate content maturity information:
    Please review your experience and confirm that your answers accurately reflect the content of your experience. If you intentionally misrepresent your experience, you may be subject to [moderation consequences](#content-maturity-moderation).
    </Alert>
 
-1. If you need to modify a previous answer, click the **Edit** button, otherwise click the **Submit** button to immediately publish the content maturity information to the experience's main page. If your experience receives a Restricted maturity label, servers running the experience restart to remove all players except those age-verified as 17+, and Studio removes all creators from any active [collaboration](../../projects/collaboration.md) session except those age-verified as 17+.
+1. If you need to modify a previous answer, click the **Edit** button, otherwise click the **Submit** button to immediately publish the content maturity information to the experience's main page. If your experience receives a Restricted maturity label, servers running the experience restart to remove all players except those age-verified as 18+, and Studio removes all creators from any active [collaboration](../../projects/collaboration.md) session except those age-verified as 18+.
 
 As long as your experience doesn't have a Restricted maturity label, if you believe that your content maturity information doesn't match your intended audience, you can update the content in your experience so that your experience is appropriate for your target audience, then resubmit the questionnaire. To learn how you can dynamically adjust the content of your experience for different audiences, see the `Class.PolicyService` API reference.
 
@@ -118,11 +115,11 @@ If your experience contains violence, you must specify the violence's maximum le
   </tr>
   <tr>
     <td>**Moderate**</td>
-    <td>Non-graphic, realistic-looking depictions of violence and/or death that don’t violate Roblox Community Standards, such as realistic depictions of real-life injuries.</td>
+    <td>Non-graphic, realistic-looking depictions of violence and/or death that don't violate Roblox Community Standards, such as realistic depictions of real-life injuries.</td>
   </tr>
   <tr>
     <td>**Restricted**</td>
-    <td>Graphic and realistic-looking depictions of violence and/or death that do not violate the [Restricted Content Policy](https://en.help.roblox.com/hc/en-us/articles/15869919570708-Roblox-17-Policy-Standards), such as non-real world beheadings/decapitation, impalement, hangings, dismemberment, mutilation, severed/severing body parts, presence of organs, maiming, disfiguration, and electrocution.<br></br><br></br>**Experiences with strong violence are only available to verified players that are at least 17 years old.**</td>
+    <td>Graphic and realistic-looking depictions of violence and/or death that do not violate the [Restricted Content Policy](https://en.help.roblox.com/hc/en-us/articles/15869919570708-Roblox-17-Policy-Standards), such as non-real world beheadings/decapitation, impalement, hangings, dismemberment, mutilation, severed/severing body parts, presence of organs, maiming, disfiguration, and electrocution.<br></br><br></br>**Experiences with strong violence are only available to age-verified players that are at least 18 years old.**</td>
     <td></td>
   </tr>
 </tbody>
@@ -229,7 +226,7 @@ If you answer realistic for question 2, you must also specify the blood's maximu
   </tr>
   <tr>
     <td>**Heavy**</td>
-    <td>The bloodshed is significant, such as pools of blood, gushing blood, and up-close blood spatter.<br></br><br></br>**Experiences with heavy, realistic blood are only available to verified players that are at least 17 years old.**</td>
+    <td>The bloodshed is significant, such as pools of blood, gushing blood, and up-close blood spatter.<br></br><br></br>**Experiences with heavy, realistic blood are only available to age-verified players that are at least 18 years old.**</td>
     <td></td>
   </tr>
 </tbody>
@@ -319,9 +316,9 @@ After you specify its intensity, you must also specify how often the scary eleme
 
 **Question 1: Does this experience depict, reference, or encourage crude humor?**
 
-Crude humor is a type of humor that depicts or references bodily functions, such as belching, flatulence, vomiting, urinating, and/or defecation for comical purposes. If your experience includes crude humor, including within any [asset type](../../projects/assets/index.md#asset-types), you must disclose it in the Maturity & Compliance Questionnaire.
+Crude humor is a type of humor that depicts or references crude bodily functions, such as burping, farting, vomit, pee, and/or poop for comical purposes. If your experience includes crude humor, including within any [asset type](../../projects/assets/index.md#asset-types), you must disclose it in the Maturity & Compliance Questionnaire.
 
-**Question 2: What level of crude humor is there?**
+**Question 2: What is the level of crude humor?**
 
 If your experience contains crude humor, you must specify the intensity of the elements according to the following table:
 
@@ -335,11 +332,11 @@ If your experience contains crude humor, you must specify the intensity of the e
 <tbody>
   <tr>
     <td>**Mild**</td>
-    <td>Depicts and/or references burping, farting (e.g. fart cloud), vomiting, and/or unrealistic looking poop  (e.g. poop coils, poop emoji).</td>
+    <td>Depicts and/or references burping, farting (e.g. fart cloud), and/or unrealistic looking vomit or poop (e.g. poop coils, poop emoji).</td>
   </tr>
   <tr>
     <td>**Moderate**</td>
-    <td>Realistically depicts and/or references urine or urination, and/or is an experience that is primarily themed on or set in a bathroom.</td>
+    <td>Depicts and/or references pee.</td>
   </tr>
 </tbody>
 </table>
@@ -352,6 +349,55 @@ Gambling is the practice of exchanging real world money, Robux, or in-experience
 
 You do **not** need to report depictions of, and/or references to, items or activities that are typically associated with gambling, but are not games of chance/luck, such as horse racing, car racing, and poker chips.
 
+### Strong language
+
+**Question 1: Do you depict and/or want to allow strong language in your experience?**
+
+Strong language is vulgar and obscene language that is not used to harass, discriminate, incite violence, or threaten others, or used in a sexual context. For example, strong language content could be depictions of a non-playable character (NPC) using obscenity like the "f-word" that is not directed towards another character or group of people (e.g. "f* off").
+
+If your experience includes strong language, you must disclose it within the Maturity & Compliance Questionnaire. Experiences that include strong language are only available to age-verified players that are at least 18 years old.
+
+<Alert severity="info">
+   If you want to enable strong language in player communication aside from content for your experiences with Restricted content maturity labels, see [Publish experiences and places](../../production/publishing/publish-experiences-and-places.md#creator-dashboard).
+</Alert>
+
+### Romantic themes
+
+**Question 1: Does this experience depict or reference romantic themes and/or primarily take place in private spaces (e.g. shower stalls, hotel rooms) or settings intended for adults (e.g. clubs, bars)?**
+
+To understand this question, it's important to understand three different definitions:
+
+- Romantic themes are non-sexual expressions of love or affection, such as a quick kiss on the mouth.
+- Private spaces are enclosed spaces that meet the following two criteria:
+  - They are designed for activities that are personal and secluded, such as sleeping, changing clothes, or bathing.
+  - They are designed for one person or for a very small number of people to engage in private activities, such as a bathroom stall, bedroom, or small tent.
+- Settings intended for adults are settings that are designed to cater to adult clientele. These settings are often legally restricted to individuals who have reached the age of majority and are otherwise deemed inappropriate or unsuitable for minors, such as clubs or bars.
+
+If your experience includes romantic themes and/or primarily takes place in private spaces or settings intended for adults, you must disclose it within the Maturity & Compliance Questionnaire, and it will only be available to age-verified players that are at least 18 years old.
+
+### Alcohol
+
+**Question 1: Does this experience depict, reference, or include use of alcohol?**
+
+Alcohol is an intoxicating adult beverage. If your experience includes, depicts, or references alcohol, or depicts adult business and locations that provide or sell alcohol, such as characters drinking alcohol at a bar, you must disclose it within the Maturity & Compliance Questionnaire. Experiences that depict alcohol are only available to age-verified players that are at least 18 years old.
+
+### Social hangout
+
+**Question 1: Is the primary theme or activity of this experience a social hangout?**
+
+Social hangouts are experiences in which the primary theme or activity is to chat or interact with other players with voice or text either as themselves or as their avatar. While this applies to vibe games, socializing spaces, and supportive places like sad rooms, it does not apply to roleplay and/or life simulation experiences where players adopt various roles like teacher or police officer, or are provided with items to role-play with.
+
+If your experience is a social hangout, you must disclose it within the Maturity & Compliance Questionnaire.
+
+**Question 2: Does your experience include private spaces?**
+
+If your experience is a social hangout, you must specify if it includes private spaces. Private spaces are enclosed spaces that meet the following two criteria:
+
+- They are designed for activities that are personal and secluded, such as sleeping, changing clothes, or bathing.
+- They are designed for one person or for a very small number of people, such as a bathroom stall, bedroom, or small tent.
+
+If your experience is a social hangout that includes private spaces, you must disclose it within the Maturity & Compliance Questionnaire. Social hangouts without private spaces are only available to players that are at least 13 years old, and social hangouts with private spaces are only available to age-verified players that are at least 18 years old.
+
 ### Free-form user creation
 
 **Question 1: Does this experience include free-form user creation?**
@@ -360,37 +406,24 @@ Free-form user creation are features that allow players to create anything withi
 
 If your experience includes free-form user creation features, you must disclose it within the Maturity & Compliance Questionnaire. Free-form user creation is only available to players that are at least 13 years old.
 
-### Social hangout
+### Sensitive issues
 
-**Question 1: Is the primary theme or activity of this experience a social hangout?**
+**Question 1: Is the primary theme of this experience a sensitive issue?**
 
-Social hangouts are experiences in which the primary theme or activity is to chat or interact with other players with voice or text either as themselves or as their avatar. While this applies to vibe games, clubs, socializing spaces, and supportive places like sad rooms, it does not apply to roleplay and/or life simulation experiences where players adopt various roles like teacher or police officer, or are provided with items to role-play with.
+Sensitive issues are any current social, political, and religious issue that meets the following criteria:
 
-If your experience is a social hangout, you must disclose it within the Maturity & Compliance Questionnaire. Social hangouts are only available to players that are at least 13 years old.
+- **Polarized Viewpoints** - The issue has a limited number of strongly opposing viewpoints, with little room for compromise or middle ground.
+- **Strong Emotional Response** - The issue evokes strong emotional reactions and/or passionate debate.
 
-### Strong language
+Sensitive issues are frequently in the news and inspire strong opinions and debate. For example: immigration, capital punishment, gun control, marriage equality, pay equity in sports, prayer in schools, racial profiling, affirmative action, vaccination policies, and reproductive rights. What meets the criteria can differ significantly depending on your location and cultural context, so answer from your local perspective.
 
-**Question 1: Do you depict and/or want to allow strong language in your experience?**
+If your experience includes content related to a sensitive issue or people implicated by them, but it isn't primarily themed on that issue, such as a religious building in a city, guns in a first-person shooter experience, or a national holiday parade in a hangout experience, you do **not** need to disclose it within the Maturity & Compliance Questionnaire.
 
-Strong language is vulgar and obscene language that is not used to harass, discriminate, incite violence, or threaten others, or used in a sexual context. For example, strong language content could be depictions of a non-playable character (NPC) using obscenity like the "f-word" that is not directed towards another character or group of people (e.g. "f* off").
-
-If your experience includes strong language, you must disclose it within the Maturity & Compliance Questionnaire. Experiences that include strong language are only available to verified players that are at least 17 years old.
+However, if the **majority of the content or gameplay of your experience** refers to a sensitive issue, you must disclose it within the Maturity & Compliance Questionnaire. Experiences with a primary theme of a social issue are only available to players that are at least 13 years old unless a parent has [manually allowed access](https://en.help.roblox.com/hc/en-us/articles/30428310121620-Parental-Controls-Overview) to these experiences.
 
 <Alert severity="info">
-   If you want to enable strong language in player communication aside from content for your 17+ experiences, see [Publish experiences and places](../../production/publishing/publish-experiences-and-places.md#creator-dashboard).
+Individual assets, as well as text and voice chat, do not qualify for this descriptor.
 </Alert>
-
-### Romantic themes
-
-**Question 1: Does this experience contain romantic, non-sexual expressions of love or affection?**
-
-Romantic themes are the non-sexual expression of love or affection. If your experience includes romantic themes, such as a quick kiss on the mouth, you must disclose it within the Maturity & Compliance Questionnaire. Experiences that include romantic themes are only available to verified players that are at least 17 years old.
-
-### Alcohol
-
-**Question 1: Does this experience depict, reference, or include use of alcohol?**
-
-Alcohol is an intoxicating adult beverage. If your experience includes, depicts, or references alcohol, or depicts adult business and locations that provide or sell alcohol, such as characters drinking alcohol at a bar, you must disclose it within the Maturity & Compliance Questionnaire. Experiences that depict alcohol are only available to verified players that are at least 17 years old.
 
 ### Paid random items
 
@@ -404,7 +437,7 @@ You do **not** need to report virtual items that you provide in exchange for pla
 
 If your experience contains paid random items, it's recommended to take the mandatory precautions to protect players in certain regions that don't allow paid random items so that they can still access your experience. To check when these precautions are necessary, use `Class.PolicyService.GetPolicyInfoForPlayerAsync` to return a dictionary of values that determine whether certain aspects of the experience need to change for that unique player.
 
-One entry within the policy information is `ArePaidRandomItemsRestricted`, a boolean that represents whether a player is eligible to pay for random items. Random items can remain purchaseable if `ArePaidRandomItemsRestricted` returns false, but if `ArePaidRandomItemsRestricted` returns true, include additional logic to hide, replace, or block the purchase of random items for those players so that your experience is available to the largest audience as possible.
+One entry within the policy information is `ArePaidRandomItemsRestricted`, a boolean that represents whether a player is eligible to pay for random items. Random items can remain purchasable if `ArePaidRandomItemsRestricted` returns false, but if `ArePaidRandomItemsRestricted` returns true, include additional logic to hide, replace, or block the purchase of random items for those players so that your experience is available to the largest audience as possible.
 
 ### Paid item trading
 
@@ -418,6 +451,37 @@ If your experience contains paid item trading, it's recommended to take the mand
 
 One entry within the policy information is `IsPaidItemTradingAllowed`, a boolean that represents whether a player is eligible to trade paid items. Paid items can remain tradeable if `IsPaidItemTradingAllowed` returns true, but if `IsPaidItemTradingAllowed` returns false, include additional logic to hide, replace, or block the trading of paid items for those players so that your experience is available to the largest audience as possible.
 
+### Media
+
+**Question 1: Does your experience allow users to share media content (videos, images, text, audio, 3D models) from their gameplay that other users can see?**
+
+This question only applies if your experience lets users share gameplay content using tools built into the experience itself.
+
+**Question 2: Does your experience contain content feeds with continuous loading or audio/video that plays automatically?**
+
+**Continuous loading** means that content loads automatically as the user scrolls, without requiring any specific user interaction (such as a manual "load more" button or pagination).
+
+**Question 3: Does your experience allow users to view content that was captured from other experiences on Roblox?**
+
+This question applies to any in-experience viewing functionality, such as a `Class.SurfaceGui` for static images, a `Class.VideoFrame`, or an asset viewer.
+
+### AI interaction
+
+**Question 1: Does your experience allow users to interact with generative AI components?**
+
+This question includes experiences in which a user can interact with a generative AI model in any way that triggers a response from the model. These interactions can include text chat, voice chat, images, 3D generations, avatar movement, etc.
+
+Your answer to this question should **not** consider whether you used generative AI to help develop the experience, only whether users can interact with it in the experience.
+
+**Question 2: What type of interactions does your experience allow between users and a generative AI model?**
+
+**Extended interactions** meet at least one of the following criteria:
+
+- Cross-session memory is enabled. The experience saves the context of a user's prior interactions with AI and loads it on subsequent sessions.
+- The experience's main purpose is to interact with a generative AI bot or character. Users can interact with the AI continuously with no time limit.
+
+Experiences that do not meet at least one of these criteria are considered **limited interactions**.
+
 ## Content maturity moderation
 
 Roblox relies on the information you provide in the Maturity & Compliance Questionnaire to generate accurate content maturity information, so the Moderation team may review your content maturity to ensure its validity based on the content of your experience. Whenever Roblox discovers a discrepancy between your submission and the content in your experience, the following actions occur:
@@ -427,4 +491,14 @@ Roblox relies on the information you provide in the Maturity & Compliance Questi
 - Roblox provides a moderation action.
   - If your experience contains restricted content without a Restricted maturity label, your experience is subject to moderation consequences.
   - If your experience contains content that is prohibited by Roblox's [Community Standards](https://en.help.roblox.com/hc/en-us/articles/203313410), [Terms of Use](https://en.help.roblox.com/hc/articles/115004647846), or [Restricted Content Policy](https://en.help.roblox.com/hc/articles/15869919570708), your experience is subject to moderation consequences.
-  - If your experience otherwise has inaccurate content maturity information according to its content, Roblox may remove the maturity label (or only some or all descriptors if the maturity label is Restricted) from your experience. If an experience does not have guidelines, Roblox restricts the playability of the experience on the platform for players younger than 13.
+  - If your experience otherwise has inaccurate content maturity information according to its content, Roblox may remove the maturity label (or only some or all descriptors if the maturity label is Restricted) from your experience. If an experience does not have content maturity information, Roblox restricts the playability of the experience on the platform for all players.
+  - If you repeatedly include inaccurate content maturity information, **your experience and/or account is subject to moderation consequences**.
+
+If receive a moderation action and believe Roblox made a mistake, you can appeal the decision:
+
+   1. Navigate to [roblox.com/support](http://roblox.com/support).
+   1. After you confirm your contact information and device type,
+      1. Set **Type of help category** to **Moderation**. A new dropdown menu displays.
+      1. Set **Help Subcategory Type** to **I was wrongly moderated for other content I created**.
+      1. In the input field, describe why the moderation action was a mistake.
+   1. Click the **Continue** button to submit your appeal.

@@ -15,12 +15,7 @@ width="100%"></video>
 
 ## Create beams
 
-Before you begin to create a beam, it's useful to toggle on visibility of attachments so you can see where the beam starts and ends.
-
-1. In the menu bar, navigate to the **Model** tab, then the **Constraints** section.
-2. If it's not currently enabled, toggle on **Constraint Details**.
-
-   <img src="../assets/studio/general/Model-Tab-Constraint-Details.png" width="754" alt="Constraint Details toggle indicated in Model tab" />
+Before you begin to create a beam, it's useful to toggle on visibility of attachments so you can see where the beam starts and ends. You can do so by enabling **Show Constraint Details** from Studio's **View** menu.
 
 To create a beam:
 
@@ -63,12 +58,12 @@ By experimenting with the following properties, you can customize a beam's visua
 </video>
 
 <Alert severity="info">
-The visual quality of your beams can change depending on the graphics settings on the player's device. To review your beam across quality levels, it's recommended to open **Studio Settings**, search for **Editor Quality Level**, and set it to the both the lowest and highest level after you finish customizing your beam.
+The visual quality of your beams can change depending on the graphics settings on the player's device. To review your beam across quality levels, it's recommended to open [Studio Settings](../studio/setup.md#customization), search for **Editor Quality Level**, and set it to the both the lowest and highest level after you finish customizing your beam.
 </Alert>
 
 ### Texture
 
-The `Class.Beam.Texture|Texture` property renders that texture across the length of the beam. You can set a beam's `Class.Beam.Texture|Texture` property to any asset ID. For more information, including how to add or upload your own textures, see [Importing Assets](../projects/assets/manager.md#importing-assets).
+The `Class.Beam.Texture|Texture` property renders that texture across the length of the beam. You can set a beam's `Class.Beam.Texture|Texture` property to any asset ID. For more information, including how to add or upload your own textures, see [here](../projects/assets/manager.md#asset-import).
 
 <img src="../assets/lighting-and-effects/beam/Texture-Applied.png" alt="A texture of dark gray circles against a grey background emits between two attachments." width="800" />
 

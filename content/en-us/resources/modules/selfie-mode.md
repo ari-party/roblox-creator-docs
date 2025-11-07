@@ -13,9 +13,7 @@ Players already take screenshots to commemorate fun moments in experiences. The 
 
 To use the **SelfieMode** module in an experience:
 
-1. From the [View](../../studio/view-tab.md) tab, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
-
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
+1. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
 
    <img src="../../assets/studio/toolbox/Creator-Store-Tab.png" width="360" />
 
@@ -23,17 +21,13 @@ To use the **SelfieMode** module in an experience:
 
    <img src="../../assets/studio/toolbox/Creator-Store-Categories-See-All.png" width="360" />
 
-1. Locate and click the **Dev Modules** tile.
-
-   <img src="../../assets/studio/toolbox/Creator-Store-Categories-Dev-Modules.png" width="200" />
+1. Locate and click the **Packages** tile.
 
 1. Locate the **Selfie Mode** module and click it, or drag-and-drop it into the 3D view.
 
    <img src="../../assets/developer-modules/selfie-mode/Toolbox-Icon.png" width="143" />
 
-1. In the [Explorer](../../studio/explorer.md) window, move the entire **SelfieMode** model into **ServerScriptService**. Upon running the experience, the module will distribute itself to various services and begin running.
-
-   <img src="../../assets/developer-modules/selfie-mode/Move-Package.png" width="320" />
+1. In the [Explorer](../../studio/explorer.md) window, move the entire **SelfieMode** package into `Class.ReplicatedStorage`. Upon running the experience the module will begin running.
 
 ### Configuration
 
@@ -42,10 +36,10 @@ The module is preconfigured to work for most use cases, but you can easily custo
 1. In **StarterPlayerScripts**, create a new `Class.LocalScript` and rename it to **ConfigureSelfieMode**.
 1. Paste the following code into the new script.
 
-   ```lua title='LocalScript - ConfigureSelfieMode' highlight='5-7'
+   ```lua title="LocalScript - ConfigureSelfieMode" highlight="5-7"
    local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-   local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+   local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
    SelfieMode.configure({
    	disableCharacterMovement = true
@@ -56,10 +50,10 @@ The module is preconfigured to work for most use cases, but you can easily custo
 
 It may be advantageous to prevent the player's character from moving while in selfie mode. You can achieve this by setting `disableCharacterMovement` to true in a [configure](#configure) call.
 
-```lua title='LocalScript - ConfigureSelfieMode' highlight='6'
+```lua title="LocalScript - ConfigureSelfieMode" highlight="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.configure({
 	disableCharacterMovement = true
@@ -84,16 +78,17 @@ By default, **SelfieMode** shows a generic **depth‑of‑field** effect (subtle
 </Tabs>
 
 <Alert severity="warning">
-<p>This effect does not render on mobile devices such as phones and tablets. As such, it will not be offered as an action on those devices.</p>
-On non-mobile devices, the player's graphics quality (**Settings**&nbsp;&rarr; **Graphics&nbsp;Quality**) must be eight or higher to render depth‑of‑field. If their graphics quality is less than eight, they'll be prompted to increase it.
+This effect does not render on mobile devices such as phones and tablets. As such, it will not be offered as an action on those devices.
+
+On non-mobile devices, the player's graphics quality must be eight or higher to render depth‑of‑field. If their graphics quality is less than eight, they'll be prompted to increase it.
 </Alert>
 
 To change the default depth‑of‑field effect, set `depthOfFieldEffect` to your own `Class.DepthOfFieldEffect` instance in a [configure](#configure) call.
 
-```lua title='LocalScript - ConfigureSelfieMode' highlight='5-9, 12'
+```lua title="LocalScript - ConfigureSelfieMode" highlight="5-9, 12"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 local customDepthOfField = Instance.new("DepthOfFieldEffect")
 customDepthOfField.NearIntensity = 0
@@ -201,10 +196,10 @@ Each action is represented by a dictionary with the following key-value pairs:
 </tbody>
 </table>
 
-```lua title='LocalScript'
+```lua title="LocalScript"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.actionActivated:Connect(function(action)
 	print(action.name, "activated")
@@ -252,10 +247,10 @@ end)
 </tbody>
 </table>
 
-```lua title='LocalScript' highlight='6'
+```lua title="LocalScript" highlight="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 -- Activate "Filter" action
 SelfieMode.activateAction(SelfieMode.Action.Filter)
@@ -293,10 +288,10 @@ Overrides default configuration options through the following keys/values in the
 </tbody>
 </table>
 
-```lua title='LocalScript - ConfigureSelfieMode' highlight='6'
+```lua title="LocalScript - ConfigureSelfieMode" highlight="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.configure({
 	disableCharacterMovement = true
@@ -311,10 +306,10 @@ openSelfieMode()
 
 A player will typically open selfie mode with the "camera" button on the right side of the screen, but this function lets you open it through code. When implementing a custom button as shown below, you should disable the default button through [setHudButtonEnabled](#sethudbuttonenabled). This function can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='8, 12'
+```lua title="LocalScript" highlight="8, 12"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 local button = script.Parent
 
@@ -335,10 +330,10 @@ closeSelfieMode()
 
 A player will typically close selfie mode with the **&CircleTimes;** button at the bottom of the screen, but this function lets you close it through code. Can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5'
+```lua title="LocalScript" highlight="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.closeSelfieMode()
 ```
@@ -351,10 +346,10 @@ isSelfieModeOpen(): `boolean`
 
 Returns `true` if selfie mode is open as a result of player action or through [openSelfieMode](#openselfiemode). This function can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='7'
+```lua title="LocalScript" highlight="7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.openSelfieMode()
 
@@ -369,10 +364,10 @@ setHudButtonEnabled()
 
 Sets whether the default button to enter selfie mode is shown. Useful when implementing [openSelfieMode](#openselfiemode) through a custom UI button. This function can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='8, 12'
+```lua title="LocalScript" highlight="8, 12"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 local button = script.Parent
 
@@ -393,10 +388,10 @@ getAction(action: [SelfieMode.Action](#selfiemodeaction)): [Action](#action)
 
 Gets an [Action](#action) type through a [SelfieMode.Action](#selfiemodeaction) enum.
 
-```lua title='LocalScript' highlight='5'
+```lua title="LocalScript" highlight="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 local lockGazeAction = SelfieMode.getAction(SelfieMode.Action.LockGaze)
 ```
@@ -409,10 +404,10 @@ activateAction(action: [SelfieMode.Action](#action))
 
 Programmatically activates one of the default [actions](#selfie-mode-actions). This is the same as when a player toggles the action on from the action bar. Can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='6'
+```lua title="LocalScript" highlight="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 -- Activate "Filter" action
 SelfieMode.activateAction(SelfieMode.Action.Filter)
@@ -426,10 +421,10 @@ deactivateAction(action: [SelfieMode.Action](#action))
 
 Programmatically deactivates one of the default [actions](#selfie-mode-actions). This is the same as when a player toggles the action off from the action bar. Can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='6'
+```lua title="LocalScript" highlight="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 -- Deactivate "Filter" action
 SelfieMode.deactivateAction(SelfieMode.Action.Filter)
@@ -443,10 +438,10 @@ toggleAction(action: [SelfieMode.Action](#action)): `boolean`
 
 Toggles an [action](#selfie-mode-actions) on if it's off, or toggles it off if it's on. This is the same as when a player clicks the action from the action bar. Returns the new "is&nbsp;toggled&nbsp;on" state as a boolean. Can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5, 7'
+```lua title="LocalScript" highlight="5, 7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 local lockGazeAction = SelfieMode.getAction(SelfieMode.Action.LockGaze)
 
@@ -580,10 +575,10 @@ Configures the selfie mode theme, including text size, font, button/tooltip colo
 </TabItem>
 </Tabs>
 
-```lua title='LocalScript' highlight=''
+```lua title="LocalScript" highlight=""
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.setTheme({
 	textSize = 20,
@@ -600,10 +595,10 @@ setEnabled(isEnabled: `boolean`)
 
 Sets whether selfie mode is enabled or not. When disabled, all UI for the module is removed and all events are disconnected. This function can only be called from a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5'
+```lua title="LocalScript" highlight="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.setEnabled(false)
 ```
@@ -614,10 +609,10 @@ SelfieMode.setEnabled(false)
 
 Fires when the player opens selfie mode or when [openSelfieMode](#openselfiemode) is called. This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5-7'
+```lua title="LocalScript" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.selfieModeOpened:Connect(function()
 	print("Selfie mode open")
@@ -628,10 +623,10 @@ end)
 
 Fires when the player closes selfie mode or when [closeSelfieMode](#closeselfiemode) is called. This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5-7'
+```lua title="LocalScript" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.selfieModeClosed:Connect(function()
 	print("Selfie mode closed")
@@ -656,10 +651,10 @@ end)
 
 Fires when an action is activated; this may be one of the primary actions like [Depth&nbsp;of&nbsp;Field](#depth-of-field), [Lock&nbsp;Gaze](#lock-gaze), or [Hide&nbsp;Others](#hide-others); alternatively it may be a sub-action like a [filter](#filter) or [pose](#pose). The connected function receives the activated [Action](#action). This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5-7'
+```lua title="LocalScript" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.actionActivated:Connect(function(action)
 	print(action.name, "activated")
@@ -684,10 +679,10 @@ end)
 
 Fires when a primary action or sub-action is deactivated. The connected function receives the deactivated [Action](#action). This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5-7'
+```lua title="LocalScript" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.actionDeactivated:Connect(function(action)
 	print(action.name, "deactivated")
@@ -716,10 +711,10 @@ end)
 
 Fires when a [filter](#filter) is applied or removed. The connected function receives the new filter name and the old filter name. This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5-7'
+```lua title="LocalScript" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.filterChanged:Connect(function(newFilter, oldFilter)
 	print("Filter changed from", oldFilter, "to", newFilter)
@@ -748,10 +743,10 @@ end)
 
 Fires when a [pose](#pose) is applied or removed. The connected function receives the new pose name and the old pose name. This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='5-7'
+```lua title="LocalScript" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local SelfieMode = require(ReplicatedStorage:WaitForChild("SelfieMode"))
+local SelfieMode = require(ReplicatedStorage.SelfieMode)
 
 SelfieMode.poseChanged:Connect(function(newPose, oldPose)
 	print("Pose changed from", oldPose, "to", newPose)

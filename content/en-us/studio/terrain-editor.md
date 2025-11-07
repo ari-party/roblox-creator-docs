@@ -3,12 +3,12 @@ title: Terrain Editor
 description: The Terrain Editor tools generate and sculpt realistic terrain environments such as mountains, bodies of water, grass-covered hills, or a flat desert.
 ---
 
-The **Terrain Editor**, accessible from the [Home](../studio/home-tab.md) or [View](../studio/view-tab.md) tab, lets you generate and manipulate [environmental terrain](../parts/terrain.md) through its [Create](#create-tab) and [Edit](#edit-tab) toolsets.
+The **Terrain Editor**, accessible from Studio's **Home** tab or **Window**&nbsp;⟩ **3D** menu, lets you generate and manipulate [environmental terrain](../parts/terrain.md) through its [Create](#create-tab) and [Edit](#edit-tab) toolsets.
 
-<img src="../assets/studio/general/Home-Tab-Terrain-Editor.png" width="716" alt="Terrain Editor indicated in Home tab" />
+<img src="../assets/studio/general/Toolbar-Terrain-Editor.png" width="800" alt="Terrain Editor indicated in Studio's toolbar" />
 
 <Alert severity="success">
-For detailed instructions on working with terrain, see the [Terrain](../parts/terrain.md) guide.
+For detailed instructions on working with terrain, see the [environmental terrain](../parts/terrain.md) guide.
 </Alert>
 
 ## Create tab
@@ -256,7 +256,7 @@ The **Transform** tool manipulates entire [selected](#select) regions to a new p
 </figure>
 
 <Alert severity="warning">
-Before rotating a region with the visual **rotate** rings, check the [rotation snapping](../studio/model-tab.md#transform-snapping) settings in Studio's [Model](../studio/model-tab.md) tab. Disable rotation snapping entirely for free-form rotation.
+Before rotating a region with the visual **rotate** rings, check the rotation snapping setting in Studio's toolbar. Disable rotation snapping entirely for free-form rotation.
 </Alert>
 
 <Alert severity="info">
@@ -306,7 +306,7 @@ The **Fill** tool fills an entire [selected](#select) region with a specific mat
 <figcaption>Selected region filled with Salt material</figcaption>
 </figure>
 
-### Sea level
+### Sea Level
 
 The **Sea Level** tool lets you create a consistent water level or remove all water within a region.
 

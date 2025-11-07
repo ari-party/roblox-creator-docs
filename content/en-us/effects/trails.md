@@ -16,12 +16,7 @@ After you [create a trail](#create-trails), you can:
 
 ## Create trails
 
-Before you begin to create a trail, it's useful to toggle on visibility of attachments so you can more easily discern how their spacing affects the trail's width.
-
-1. In the menu bar, navigate to the **Model** tab, then the **Constraints** section.
-2. If it's not currently enabled, toggle on **Constraint Details**.
-
-   <img src="../assets/studio/general/Model-Tab-Constraint-Details.png" width="754" alt="Constraint Details toggle indicated in Model tab" />
+Before you begin to create a trail, it's useful to toggle on visibility of attachments so you can more easily discern how their spacing affects the trail's width. You can do so by enabling **Show Constraint Details** from Studio's **View** menu.
 
 The following video demonstrates how attachments that are closer to each other create a trail with a smaller width:
 
@@ -55,12 +50,12 @@ Trails require attachments to function properly. If you remove either `Class.Att
 By experimenting with the following properties, you can customize a trail's visual appearance to make unique gameplay elements like wind gusts, sword slashes, and tire marks from fast cars.
 
 <Alert severity="info">
-The visual quality of your trails can change depending on the graphics settings on the player's device. To review your trail across quality levels, it's recommended to open **Studio Settings**, search for **Editor Quality Level**, and set it to the both the lowest and highest level after you finish customizing your trail.
+The visual quality of your trails can change depending on the graphics settings on the player's device. To review your trail across quality levels, it's recommended to open [Studio Settings](../studio/setup.md#customization), search for **Editor Quality Level**, and set it to the both the lowest and highest level after you finish customizing your trail.
 </Alert>
 
 ### Texture
 
-The `Class.Trail.Texture|Texture` property renders a texture across the length of the trail. You can set a trail's `Class.Trail.Texture|Texture` property to any asset ID. For more information, including how to add or import your own textures, see [Import assets](../projects/assets/manager.md#import-assets).
+The `Class.Trail.Texture|Texture` property renders a texture across the length of the trail. You can set a trail's `Class.Trail.Texture|Texture` property to any asset ID. For more information, including how to add or import your own textures, see [here](../projects/assets/manager.md#asset-import).
 
 <video src="../assets/lighting-and-effects/trail/Textures.mp4" controls width="800"></video>
 

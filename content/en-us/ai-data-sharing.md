@@ -3,11 +3,11 @@ title: AI data sharing
 description: Understand AI data sharing policies and how to update your preferences.
 ---
 
-Roblox has a suite of AI-powered solutions, including [Code Assist](studio/script-editor.md#code-assist), [Material Generator](studio/material-generator.md), [Assistant](assistant/guide.md), in-experience chat translation, [Texture Generator](studio/texture-generator.md), and [Avatar Setup](art/modeling/avatar-setup.md). These tools help you quickly find information, accelerate the creation process, and complement your existing skillset.
+Roblox has a suite of AI-powered solutions, including [Code Assist](studio/script-editor.md#code-assist), [Material Generator](studio/material-generator.md), [Assistant](assistant/guide.md), in-experience chat translation, [Texture Generator](studio/texture-generator.md), and [Avatar Setup](/avatar-setup/index.md). These tools help you quickly find information, accelerate the creation process, and complement your existing skillset.
 
 To improve these tools and build new ones, Roblox uses data to train its generative AI models.
 
-When you publish an experience in Studio, upload an avatar item, or upload a **paid** asset to the [Creator Store](production/creator-store.md) (coming soon), you have the option to share your data. The default choice in the user interface is based on a setting in the [Creator Hub](https://create.roblox.com/).
+When you publish an experience in Studio, upload an avatar item, or upload a **paid** asset to the [Creator Store](production/creator-store.md), you have the option to share your data. The default choice in the user interface is based on a setting in the [Creator Hub](https://create.roblox.com/).
 
 <img src="assets/misc/Data-Share-Dialog.png" alt="An image of the publish experience dialog showing the data sharing toggle." width="70%" />
 

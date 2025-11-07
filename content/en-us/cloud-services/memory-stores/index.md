@@ -15,7 +15,23 @@ Instead of directly accessing raw data, memory stores have three primitive data 
 - **Shared inventories** - Save inventory items and statistics in a shared **hash map**, where users can utilize inventory items concurrently with one another.
 - **Cache for Persistent Data** - Sync and copy your persistent data in a data store to a memory store **hash map** that can act as a cache and improve your experience's performance.
 
-<img src="../../assets/data/memory-store/Flow-Chart.svg" width="60%" />
+```mermaid
+graph TD
+    A[Does your data need to be sorted in a specific order?]
+    B[Use a sorted map.]
+    C[Do you need the ability to scan all of your items at once?]
+    D[Use a hash map.]
+    E[Do you expect to have fewer than 1,000 keys?]
+
+    A -- YES --> B
+    A -- NO --> C
+
+    C -- YES --> E
+    C -- NO --> D
+
+    E -- YES --> B
+    E -- NO --> D
+```
 
 In general, if you need to access data based on a specific key, use a hash map. If you need that data to be ordered, use a sorted map. If you need to process your data in a specific order, use a queue.
 
@@ -27,7 +43,7 @@ Memory stores have an eviction policy based on expiration time, also known as ti
 
 ### Memory size quota
 
-The memory quota limits the total amount of memory that an experience can consume. It's not a fixed value. Instead, it changes over time depending on the number of users in the experience according to the following formula: **64KB + 1KB \* [number of users]**. The quota applies on the experience level instead of the server level.
+The memory quota limits the total amount of memory that an experience can consume. It's not a fixed value; instead, it changes over time depending on the number of users in the experience according to the formula **64KB + 1.2KB \* [number of users]**. The quota applies on the experience level instead of the server level.
 
 When users join the experience, the additional memory quota is available immediately. When users leave the experience, the quota doesn't reduce immediately. There's a traceback period of eight days before the quota reevaluates to a lower value.
 
@@ -37,7 +53,7 @@ With the [observability](../../cloud-services/memory-stores/observability.md) da
 
 ### API request limits
 
-For API request limits, there's a **request unit** quota that applies for all `Class.MemoryStoreService` API calls. The quota is **1000 + 100 \* [number of concurrent users]** request units per minute.
+A **request unit** quota applies to all `Class.MemoryStoreService` API calls. This quota is **1000 + 120 \* [number of concurrent users]** request units per minute.
 
 Most API calls only consume one request unit, with a few exceptions:
 
@@ -99,6 +115,10 @@ To keep your memory usage pattern optimal and avoid hitting the [limits](#limits
 - Compress stored values.
 
   For example, consider using the [LZW](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch) algorithm to reduce the stored value size.
+
+- Enroll in Extended Services.
+
+  You can increase your Storage and Request Limit quotas by onboarding onto [Extended Services](https://create.roblox.com/docs/cloud-services/extended-services)
 
 ## Observability
 

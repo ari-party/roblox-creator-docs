@@ -12,7 +12,7 @@ At its most basic level, **raycasting** is the act of sending out an invisible r
 
 You can cast a ray with the `Class.WorldRoot:Raycast()` method (`Class.Workspace:Raycast()`) from a `Datatype.Vector3` origin in a `Datatype.Vector3` direction.
 
-```lua title='Basic Raycast' highlight='4'
+```lua title="Basic Raycast" highlight="4"
 local Workspace = game:GetService("Workspace")
 
 local rayOrigin = Vector3.new(0, 0, 0)
@@ -29,17 +29,17 @@ When applicable, you can calculate an unknown directional vector (`rayDirection`
 
 1. The origin plus a directional vector indicate the ray's destination:
 
-   <i>rayOrigin</i> + <i>rayDirection</i> = <i>rayDestination</i>
+   $\text{rayOrigin} + \text{rayDirection} = \text{rayDestination}$
 
-2. Subtract <i>rayOrigin</i> from both sides of the equation:
+2. Subtract $\text{rayOrigin}$ from both sides of the equation:
 
-   <i>rayOrigin</i> + <i>rayDirection</i> &minus; <i>rayOrigin</i> = <i>rayDestination</i> &minus; <i>rayOrigin</i>
+   $\text{rayOrigin} + \text{rayDirection} - \text{rayOrigin} = \text{rayDestination} - \text{rayOrigin}$
 
 3. The ray's direction equals the destination minus the origin:
 
-   <i>rayDirection</i> = <i>rayDestination</i> &minus; <i>rayOrigin</i>
+   $\text{rayDirection} = \text{rayDestination} - \text{rayOrigin}$
 
-```lua highlight='4'
+```lua highlight="4"
 local Workspace = game:GetService("Workspace")
 
 local rayOrigin = Workspace.TestOrigin.Position
@@ -81,7 +81,7 @@ local raycastResult = Workspace:Raycast(rayOrigin, rayDirection)
 </tbody>
 </table>
 
-```lua title='Raycast Filtering' highlight='4-7,9'
+```lua title="Raycast Filtering" highlight="4-7,9"
 local Workspace = game:GetService("Workspace")
 
 local rayOrigin = Vector3.zero
@@ -138,7 +138,7 @@ When used in a place with instance [streaming](../workspace/streaming.md) enable
 You can exempt any `Class.BasePart` from hit detection by setting its `Class.BasePart.CanQuery` property to `false`.
 </Alert>
 
-```lua title='Raycast Hit Detection' highlight='7-11'
+```lua title="Raycast Hit Detection" highlight="7-11"
 local Workspace = game:GetService("Workspace")
 
 local rayOrigin = Vector3.zero

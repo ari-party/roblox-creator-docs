@@ -33,11 +33,11 @@ For most situations, you shouldn't put an actor as a child of another actor in t
 
 ### Desynchronize threads
 
-Though putting scripts under actors grants them the capability for parallel execution, by default the code still runs on the single thread serially, which doesn't improve the runtime performance. You need to call the `Library.task.desynchronize()`, a yieldable function that suspends the execution of the current coroutine for running code in parallel and resumes it at the next parallel execution opportunity. To switch a script back to serial execution, call `Library.task.synchronize()`.
+Though putting scripts under actors grants them the capability for parallel execution, by default the code still runs on the single thread serially, which doesn't improve the runtime performance. You need to call `Library.task.desynchronize()`, a yieldable function that suspends the execution of the current coroutine for running code in parallel and resumes it at the next parallel execution opportunity. To switch a script back to serial execution, call `Library.task.synchronize()`.
 
 Alternatively, you can use `Datatype.RBXScriptSignal:ConnectParallel()` method when you want to schedule a signal callback to immediately run your code in parallel upon triggering. You don't need to call `Library.task.desynchronize()` inside the signal callback.
 
-```lua title='Desynchronize a Thread'
+```lua title="Desynchronize a Thread"
 local RunService = game:GetService("RunService")
 
 RunService.Heartbeat:ConnectParallel(function()
@@ -68,7 +68,7 @@ Scripts that are part of the same actor always execute sequentially with respect
 
 ### Thread safety
 
-During the parallel execution, you can access most instances of the `DataModel` hierarchy as usual, but some API properties and functions aren't safe to read or write. If you use them in your parallel code, Roblox Engine can automatically detect and prevent these accesses from occurring.
+During the parallel execution, you can access most instances of the `Class.DataModel` hierarchy as usual, but some API properties and functions aren't safe to read or write. If you use them in your parallel code, the Roblox engine can automatically detect and prevent these accesses from occurring.
 
 API members have a thread safety level that indicates whether and how you can use them in your parallel code, as the following table shows:
 
@@ -320,7 +320,7 @@ end)
 
 ## Best practices
 
-To apply the maximum benefits of parallel programming, refer to the following best practices when adding your Lua code:
+To apply the maximum benefits of parallel programming, refer to the following best practices when adding your Luau code:
 
 - **Avoid Long Computations** — Even in parallel, long computations can block execution of other scripts and cause lag. Avoid using parallel programming to handle a large volume of long, unyielding calculations.
 
@@ -330,4 +330,4 @@ To apply the maximum benefits of parallel programming, refer to the following be
 
    <img src="../assets/scripting/scripts/FewerVsMoreActorsDark.png" width="100%" alt="Demonstration of how using more actors balances the load across cores" />
 
-   This doesn't mean you should use as many `Class.Actor|Actors` as possible. You should still divide code into `Class.Actor|Actors` based on logic units rather than breaking code with connected logic to different `Class.Actor|Actors`. For example, if you want to enable [raycasting validation](#server-side-raycasting-validation) in parallel, it's reasonable to use 64 `Class.Actor|Actors` and more instead of just 4, even if you're targeting 4-core systems. This is valuable for scalability of the system and allows it to distribute the work based on the capability of the underlying hardware. However, you also shouldn't use too many `Class.Actor|Actors`, which are hard to maintain.
+  This doesn't mean you should use as many `Class.Actor|Actors` as possible. You should still divide code into `Class.Actor|Actors` based on logic units rather than breaking code with connected logic to different `Class.Actor|Actors`. For example, if you want to enable [raycasting validation](#server-side-raycasting-validation) in parallel, it's reasonable to use 64 `Class.Actor|Actors` and more instead of just 4, even if you're targeting 4-core systems. This is valuable for scalability of the system and allows it to distribute the work based on the capability of the underlying hardware. However, you also shouldn't use too many `Class.Actor|Actors`, which are hard to maintain.

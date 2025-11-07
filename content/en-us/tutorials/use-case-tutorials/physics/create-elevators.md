@@ -20,18 +20,15 @@ A `Class.Part` is Roblox's primary building block that you can move, resize, rot
 
 To create the platform and track of your elevator:
 
-1. In the menu bar, select the **Model** tab.
-1. In the **Parts** section, click the dropdown arrow and select **Block**. A block part displays in the workspace that's about to become the platform users ride up and down the elevator.
-
-   <img width="50%" img src="../../../assets/tutorials/creating-neon-signs/Add-Block.jpg" />
-
+1. Navigate to Studio's **Home** or **Model** tab toolbar.
+1. Click the dropdown arrow under **Part** and select **Block**. A block part displays in the workspace that's about to become the platform users ride up and down the elevator.
 1. In the **Explorer** window, select the block, then in the **Properties** window,
 
    1. Set **Name** to **Platform**.
    1. Set **Size** to **[8,1,4]**.
 
 1. In the **Explorer** window, select the platform, then press <kbd>Ctrl</kbd><kbd>D</kbd> (<kbd>⌘</kbd><kbd>D</kbd>) to duplicate the part. This duplicate part is about to become the track the platform uses to move up and down.
-1. In the menu bar, select the **Move** tool, then use one of the axis arrows to pull the duplicate part away from the original position so there is a small gap between each object.
+1. In the toolbar, select the **Move** tool, then use one of the axis arrows to pull the duplicate part away from the original position so there is a small gap between each object.
 1. In the **Properties** window,
 
    1. Set **Name** to **Track**.
@@ -89,22 +86,11 @@ To create a PrismaticConstraint and its attachments:
 
 If you keep both attachments at their default positions within the center of their parent parts, the attachments will try to pull each part inside of the other, causing the physics of both parts to collide and render the elevator non-functional. To ensure this doesn't happen, you must move the attachments outside of their parent parts so the platform can freely travel through an unobstructed space along the outside of the track, then align them along their X and Z axes so that the platform only moves up and down the Y axis.
 
-Before you begin to reposition and align your attachments, make sure you are able to view them within the viewport by enabling constraint details:
-
-1. In the menu bar, navigate to the **Model** tab, then the **Constraints** section.
-1. If it's not currently enabled, click **Constraint Details** and **Draw On Top** to display constraint and attachment visual aids.
-
-   <img width="60%" img src="../../../assets/tutorials/creating-elevators/Constraint-Details.jpg" />
-
-1. If you want to make the visualization of each attachment larger, increase **Scale**.
-
-   <img width="60%" img src="../../../assets/tutorials/creating-elevators/Constraint-Details-Scale.jpg" />
-
-It's important to view attachments so that you can visualize how the constraint is using both attachments to connect and move the platform.
+Before you begin to reposition and align your attachments, make sure you are able to view them within the viewport by enabling **Show Constraint Details** from Studio's **View** menu.
 
 To align the constraint's attachments:
 
-1. In the menu bar, select the **Rotate** tool and rotate the **TrackAttachment** and **PlatformAttachment** so that the yellow arrow of each attachment points upwards on the Y axis.
+1. In the toolbar, select the **Rotate** tool and rotate the **TrackAttachment** and **PlatformAttachment** so that the yellow arrow of each attachment points upwards on the Y axis.
 
    <img width="60%" img src="../../../assets/tutorials/creating-elevators/Rotating-Attachments.jpg" />
 
@@ -182,4 +168,4 @@ platform.ProximityPrompt.Triggered:Connect(function(player)
 end)
 ```
 
-When you [playtest your experience](../../../studio/test-tab.md) and input the key for the elevator's proximity prompt, the script runs to check if the platform is below or above 9 studs from the constraint. If it's below 9 studs and a user interacts with the proximity prompt, the platform moves upwards until it reaches the constraint's upper limit; conversely, if it's above 9 studs and a user interacts with the proximity prompt, the platform moves downwards until it reaches the constraint's lower limit.
+When you [playtest your experience](../../../studio/testing-modes.md#playtesting) and input the key for the elevator's proximity prompt, the script runs to check if the platform is below or above 9 studs from the constraint. If it's below 9 studs and a user interacts with the proximity prompt, the platform moves upwards until it reaches the constraint's upper limit; conversely, if it's above 9 studs and a user interacts with the proximity prompt, the platform moves downwards until it reaches the constraint's lower limit.

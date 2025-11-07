@@ -8,30 +8,23 @@ prev: /education/build-it-play-it-story-games/third-challenge
 
 **Congratulations**, you just finished the latest Roblox Creator Challenge!
 
-Now that you've completed the game, here are a few ideas to take your game further and keep learning.
+Now that you've completed the experience, here are a few ideas to take your experience further and keep learning.
 
 ## Share your experience
 
-One of the most exciting features of Roblox is that it's really easy to share your game with friends. Currently your game is probably private, meaning only you can play it. For your friends to see the game, you need to make it public.
+One of the most exciting features of Roblox is that it's really easy to share your experience with connections. Currently your experience is probably private, meaning only you can play it. For your connections to see the experience, you need to make it public.
 
-1. In the **Home** tab, click **Game Settings**.
+1. Select **File** (top left of Studio) and click **Game Settings**.
 
-   <img src="../../assets/education/story-games/ccs2020_3_gameSettings.png" />
+1. On the left bar, select **Permissions**, then choose **Public**.
 
-2. On the left bar, select **Permissions**.
+   <img src="../../assets/education/general/make-public.png" width="800" />
 
-   <img src="../../assets/education/story-games/cc2020_3_gameSettingsPermissions.png" />
+1. Click the **Save** button.
 
-3. Choose **Public**. Click **Save**.
+1. In the top right of Studio, click on the **Share** button. A pop-up menu displays.
 
-   <img src="../../assets/education/story-games/ccs2020_3_makePublic.png" />
-
-4. In the top right of Studio, click on the **Share** button. This will give you links to share the experience.
-
-   <img src="../../assets/education/story-games/click-share-icon.png" />
-
-5. In the pop-up, click the desired way you'd like to share.
-   <img src="../../assets/education/story-games/shareGameFriends.png" width="75%" />
+1. Click the **Copy Link** button, then share the link with your connections.
 
 ## Add more to the story
 

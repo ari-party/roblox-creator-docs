@@ -2,10 +2,11 @@
 import dictionary from 'dictionary-en';
 import { Plugin, unified } from 'unified';
 import remarkFrontMatter from 'remark-frontmatter';
+import remarkMath from 'remark-math';
 import remarkMdx from 'remark-mdx';
+import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRetext from 'remark-retext';
-import remarkStringify from 'remark-stringify';
 import retextContractions from 'retext-contractions';
 import retextEnglish from 'retext-english';
 import retextEquality from 'retext-equality';
@@ -15,7 +16,6 @@ import retextProfanities from 'retext-profanities';
 import retextQuotes from 'retext-quotes';
 import retextReadability from 'retext-readability';
 import retextRepeatedWords from 'retext-repeated-words';
-import retextSimplify from 'retext-simplify';
 import retextSpell from 'retext-spell';
 import retextStringify from 'retext-stringify';
 import retextSyntaxUrls from 'retext-syntax-urls';
@@ -32,6 +32,7 @@ import {
   canIgnoreWordInSpellCheck,
 } from './words.js';
 import { areArraysEqual } from './array.js';
+import remarkStringify from 'remark-stringify/lib/index.js';
 
 export const MDAST_UTIL_MDX_JSX = 'mdast-util-mdx-jsx';
 export const MICROMARK_EXTENSION_MDX_JSX = 'micromark-extension-mdx-jsx';
@@ -283,6 +284,8 @@ export const compileMdx = async (text: string) => {
     const file = await unified()
       .use(remarkParse)
       .use(remarkMdx)
+      .use(remarkGfm)
+      .use(remarkMath)
       .use(remarkStringify)
       .process(text);
     return;
@@ -294,6 +297,76 @@ export const compileMdx = async (text: string) => {
   }
 };
 
+const simpleMarkdownProcessor = unified()
+  .use(remarkParse)
+  .use(remarkMdx)
+  .use(remarkGfm)
+  .use(remarkMath);
+
+type Node = {
+  type: string;
+  tagName?: string;
+  children?: Node[];
+  [key: string]: any;
+};
+
+// Tags that should not have children
+// HTML void elements that must not have children
+// Reference: https://developer.mozilla.org/en-US/docs/Glossary/Void_element
+const VOID_TAGS_SET = new Set([
+  'area',
+  'base',
+  'br',
+  'col',
+  'embed',
+  'hr',
+  'img',
+  'input',
+  'link',
+  'meta',
+  'param',
+  'source',
+  'track',
+  'wbr',
+  // SVG void elements
+  'circle',
+  'ellipse',
+  'line',
+  'path',
+  'polygon',
+  'polyline',
+  'rect',
+]);
+
+const assertVoidTagsHaveNoChildren = (node: Node): void => {
+  if (
+    node.name &&
+    VOID_TAGS_SET.has(node.name) &&
+    node.children &&
+    node.children.length > 0
+  ) {
+    const hasOnlyWhitespaceChildren = node.children.every(
+      (child) => child.type === 'text' && child.value.trim() === ''
+    );
+    if (hasOnlyWhitespaceChildren) {
+      return;
+    }
+    throw new Error(
+      `line ${node.position?.start?.line}, column ${node.position?.start?.column}, <${node.name}> tag must not have children`
+    );
+  }
+  node.children?.forEach(assertVoidTagsHaveNoChildren);
+};
+
+export const validateVoidTagsAreEmpty = (text: string): VFileMessage | void => {
+  try {
+    const tree = simpleMarkdownProcessor.parse(text);
+    visit(tree, assertVoidTagsHaveNoChildren);
+  } catch (e) {
+    return e as VFileMessage;
+  }
+};
+
 interface IComponentDetails {
   count: number;
   components: string[];
@@ -301,9 +374,8 @@ interface IComponentDetails {
 
 export const getMdxComponents = async (text: string) => {
   try {
-    const processor = unified().use(remarkParse).use(remarkMdx);
     // Parse the text into a syntax tree, not process it
-    const tree = processor.parse(text);
+    const tree = simpleMarkdownProcessor.parse(text);
     // console.log('Syntax Tree:', JSON.stringify(tree, null, 2));
 
     let components: string[] = [];

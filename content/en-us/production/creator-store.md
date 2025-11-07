@@ -3,9 +3,11 @@ title: Creator Store
 description: The Creator Store is where you can find all assets for public use in your experiences.
 ---
 
+import ToolboxFindUse from '../includes/studio/toolbox-find-use.md'
+
 The **Creator Store** features assets made by Roblox and the Roblox community for the community to use within their experiences, including models, images, meshes, audio, fonts, videos, and plugins.
 
-You can create and distribute models, images, meshes, plugins, and audio sound effects under 10 seconds to the Creator Store for others to use as long as you are the original creator, and it adheres to Roblox's [Community Rules][CommunityRulesURL] and [Terms&nbsp;of&nbsp;Use][TermsUseURL]. If you have a [seller account](./sell-on-creator-store.md), you can also sell your plugins to other creators.
+You can create and [distribute](#distribute-and-sell-assets) models, images, meshes, plugins, and audio files to the Creator Store for others to use as long as you are the original creator, and it adheres to Roblox's [Community Rules][CommunityRulesURL] and [Terms of Use][TermsUseURL]. If you have a [seller account](./sell-on-creator-store.md), you can also sell your plugins and models to other creators.
 
 <Alert severity="warning">
 To maintain community safety, Roblox may terminate accounts that publish spam or assets with malicious or obfuscated code.
@@ -13,13 +15,14 @@ To maintain community safety, Roblox may terminate accounts that publish spam or
 
 ## Asset moderation
 
-Roblox performs both human and automated asset moderation on a proactive and reactive basis to ensure assets adhere to the [Community Rules][CommunityRulesURL], [Terms&nbsp;of&nbsp;Use][TermsUseURL], and [Digital Millennium Copyright Act](../production/publishing/dmca-guidelines.md) (DMCA). If any asset violates these moderation policies, such as including discriminatory or adult content, the moderation team flags and removes the asset to protect users from harmful or non-compliant content. This process generally happens within a few hours after you upload the asset.
+Roblox performs both human and automated asset moderation on a proactive and reactive basis to ensure assets adhere to the [Community Rules][CommunityRulesURL], [Terms of Use][TermsUseURL], and [Digital Millennium Copyright Act](../production/publishing/dmca-guidelines.md) (DMCA). If any asset violates these moderation policies, such as including discriminatory or adult content, the moderation team flags and removes the asset to protect users from harmful or non-compliant content. This process generally happens within a few hours after you upload the asset.
 
 In addition, the Creator Store **restricts** use of the following practices to ensure asset safety:
 
 - **Obscuring engine features within scripts**, including LuaVMs, `Global.LuaGlobals.getfenv()`, and `Global.LuaGlobals.setfenv()`.
 - **Requiring remote assets,** including `Global.RobloxGlobals.require(assetId)`, `Global.LuaGlobals.loadstring()`, `Class.InsertService:LoadAsset()`, and `Class.ModuleScript.LinkedSource`. Assets that may look useful on the surface could load another "virus" asset at runtime.
 - **Including obfuscated code**. For publicly-shared assets, it's important for creators to understand what they are putting into their experiences. If code is obfuscated, creators cannot trust that the script is only doing what it should be doing.
+- **Extremely large scripts**. Assets with unnecessarily large scripts, including multiple repeat lines or large strings that are unused, especially if they cause rendering issues in editors.
 
 <Alert severity="info">
 These policies only apply to assets on the Creator Store, **not** private models or scripts inside experiences.
@@ -27,72 +30,25 @@ These policies only apply to assets on the Creator Store, **not** private models
 
 ## Open the Creator Store
 
-To open the Creator Store:
+The Creator Store is available on the [web](https://create.roblox.com/store/) and directly inside Studio's [Toolbox](../projects/assets/toolbox.md). To open it in Studio, select **Toolbox** from the **Window** menu. The **Creator Store** tab is shown by default.
 
-1. Navigate to the [View](../studio/view-tab.md) tab of Studio's menu bar.
+<img src="../assets/studio/toolbox/Creator-Store-Tab.png" width="360" />
 
-   <img src="../assets/studio/general/Toolbar-View-Tab.png" width="876" alt="View tab indicated in Studio toolbar" />
+## Find and use assets
 
-2. Select **Toolbox**. The [Toolbox](../projects/assets/toolbox.md) window displays with the **Creator Store** tab open.
+With millions of assets available, it's helpful to narrow the search results to find exactly what you are looking for. To browse and use assets:
 
-   <img src="../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
-
-   <img src="../assets/studio/toolbox/Creator-Store-Tab.png" width="360" />
-
-## Find assets
-
-With millions of assets available, it's helpful to narrow the search results to find exactly what you are looking for. To find a specific asset:
-
-1. In the top-left corner within the **Creator Store** tab, select the filter dropdown and choose an asset filter category.
-
-2. **(Optional)** In the top-right corner, select the filter icon. The **All Views** and **Creator** filter display.
-
-   1. To view an individual creator's assets, enter a specific creator's username within the **Search for users** field.
-   2. Click the **Apply** button.
-
-3. In the **Search** field, type what you want to find and select the search icon.
-
-The Creator Store curates a selection of assets according to your filters.
-
-<img src="../assets/studio/toolbox/Model-Search-Example.png" width="360" />
-
-### Community ratings
-
-In addition to the Creator Store's filters, you can view an asset's community approval when you hover over its tile. There are four asset community ratings:
-
-- **Gray** - The asset has minimal data for the Creator Store to determine community confidence.
-- **Red** - The asset has low community confidence.
-- **Yellow** - The asset has moderate community confidence.
-- **Green** - The asset has high community confidence.
-
-### Trusted reviews
-
-Users can now leave reviews on Creator Store assets in addition to the currently available thumbs up or down ratings. To improve reliability and ensure authentic feedback, only users that acquire the asset are able to submit reviews. After submitting a review:
-
-- Asset creators can respond to reviews, closing the feedback loop.
-- The community can mark reviews as helpful for future users.
-
-## Add assets to experiences
-
-To add an asset to your experience from the [Toolbox](../projects/assets/toolbox.md), click it or drag‑and‑drop it into the 3D viewport.
-
-- If the asset is a model, mesh, image, video, or audio file, it displays in the [Explorer](../studio/explorer.md) window. Assets with 3D content also display in the 3D viewport.
-- If the asset is a plugin, it displays in the [Plugins](../studio/plugins-tab.md) tab of the menu bar.
-- If the asset is a font, it displays in your font library within user interface elements such as [text labels](../ui/labels.md) or [buttons](../ui/buttons.md), as well as your [inventory](../projects/assets/toolbox.md#inventory).
-
-<Alert severity="info">
-Some assets include scripts that perform specific actions, such as animating at runtime or triggering a sound. If you want to use an asset without allowing any of its scripts to run, right-click the object in the [Explorer](../studio/explorer.md) window and select **Disable&nbsp;Scripts** from the context menu.
-</Alert>
+<ToolboxFindUse components={props.components} />
 
 ## Verify your account
 
-In addition to being able to distribute more of each asset type, verifying your account ensures that you are eligible to distribute audio assets under 10 seconds, and that your assets are visible to creators, as the default option for discoverability for assets on the Creator Store is reserved for verified accounts. In order to verify your account, you must:
+In addition to being able to distribute more of each asset type, verifying your account ensures that you are eligible to distribute audio assets and that your assets are visible to creators, as the default option for discoverability for assets on the Creator Store is reserved for verified accounts. In order to verify your account, you must:
 
 - Be at least 13 years of age.
 - Have a government-issued photo ID with your picture on it, such as a driver's license, passport, or residency permit.
 - Have a mobile device with a camera that can take photos of your face and ID.
 
-For information on how to verify your account either through a government-issued ID or through a phone number, see [Account verification](../production/publishing/account-verification.md).
+For information on how to verify your account either through a government-issued ID or through a phone number, see [account verification](../production/publishing/account-verification.md).
 
 <Alert severity="warning">
 
@@ -102,9 +58,11 @@ For information on how to verify your account either through a government-issued
 
 ## Distribute and sell assets
 
-Distributing to the Creator Store is the only way to make your assets publicly available to all users to use within their own experiences in Studio. You can distribute any mesh or image that you have imported through the [Asset Manager](../projects/assets/manager.md), or any [model](../parts/models.md), [plugin](../studio/plugins.md), or [audio asset](../sound/assets.md) sound effect under 10 seconds that you have uploaded to your inventory.
+Distributing to the Creator Store is the only way to make your assets publicly available to all users to use within their own experiences in Studio. You can distribute any mesh or image that you have imported through the [Asset Manager](../projects/assets/manager.md), or any [model](../parts/models.md), [plugin](../studio/plugins.md), or [audio assets](../audio/assets.md) that you have uploaded to your inventory.
 
-Every asset that you import must adhere to the [Community Rules][CommunityRulesURL] and [Terms&nbsp;of&nbsp;Use][TermsUseURL], and respect the [DMCA Guidelines](../production/publishing/dmca-guidelines.md) regarding copyright. In addition, there are limits on the number of assets you can distribute per 30 days, depending on whether you've [verified your account](../production/publishing/account-verification.md):
+Every asset that you import must adhere to the [Community Rules][CommunityRulesURL] and [Terms&nbsp;of&nbsp;Use][TermsUseURL], and respect the [DMCA guidelines](../production/publishing/dmca-guidelines.md) regarding copyright. If you suspect a rights violation involving your asset, you can submit the content for removal using the [Rights Manager](../production/publishing/rights-manager.md).
+
+In addition, there are limits on the number of assets you can distribute per 30 days, depending on whether you've [verified your account](../production/publishing/account-verification.md):
 
 <table>
 <thead>
@@ -137,31 +95,29 @@ Every asset that you import must adhere to the [Community Rules][CommunityRulesU
 </tbody>
 </table>
 
-You can also choose to **sell** plugins on the Creator Store for **United States Dollars**. Roblox offers a market-leading revenue share for these sales, as only taxes and payment processing fees are deducted. Note that you can only set USD pricing for plugins through the Creator Dashboard. For more information, see [Sell on the Creator Store](./sell-on-creator-store.md).
+Eligible creators can also choose to [sell](./sell-on-creator-store.md) plugins and models on the Creator Store for **United States Dollars** (USD). Roblox offers a market-leading revenue share for these sales, as only taxes and payment processing fees are deducted. For more information, see [Sell on the Creator Store](./sell-on-creator-store.md).
 
 ### Through Creator Dashboard
 
 To distribute an asset through the [Creator Dashboard](https://create.roblox.com/dashboard/creations):
 
-1. In the horizontal navigation, select [Development Items](https://create.roblox.com/dashboard/creations?activeTab=Model). All assets you have [previously imported](../projects/assets/manager.md#import-assets) display within their respective category.
+1. In the horizontal navigation, select [Development Items](https://create.roblox.com/dashboard/creations?activeTab=Model). All assets you have [previously imported](../projects/assets/manager.md#asset-import) display within their respective category.
 1. Select the asset that you want to distribute. The asset's **Configure** page displays.
-1. In the **Settings** section, enable the **Distribute on Creator Store** toggle.
-1. **(Optional)** If you have a [seller account](./sell-on-creator-store.md) and are distributing a plugin, set a price in USD for the asset in the **USD Pricing** field. If you keep the default value of **Free**, the asset will be free to all creators.
-1. **(Optional)** If you are [ID or phone verified](../production/publishing/account-verification.md), add up to 5 supplementary thumbnails for your asset.
+1. In the **Configure** ⟩ **Distribution** section, toggle on **Distribute on Creator Store**.
+1. <Chip label="OPTIONAL" size="small" variant="outlined" /> If you have a [seller account](./sell-on-creator-store.md) and are distributing a plugin or model, set a price in USD for the asset in the **USD Pricing** field. If you keep the default value of **Free**, the asset will be free to all creators.
+1. <Chip label="OPTIONAL" size="small" variant="outlined" /> If you are [ID or phone verified](../production/publishing/account-verification.md), add up to 5 supplementary thumbnails for your asset.
 1. Click the **Save** button.
-1. If you are distributing an audio asset for the first time, enable all legal agreements, then click the **Submit** button.
-
-The asset will become public and visible to everyone within the Creator Store, provided it adheres to the [moderation rules](#asset-moderation).
+1. If you are distributing an audio asset for the first time, enable all legal agreements, then click the **Submit** button. The asset will become public and visible to everyone within the Creator Store, provided it adheres to the [moderation rules](#asset-moderation).
 
 ### Through Studio
 
-You can upload assets directly in Studio from the [Toolbox](../projects/assets/toolbox.md) or [Explorer](../studio/explorer.md) window. However, you must complete the process on the [Creator Dashboard](#through-creator-dashboard) to list an asset for sale on the Creator Store, distribute audio assets under 10 seconds, or set a [USD price](./sell-on-creator-store.md) for a plugin.
+You can upload assets directly in Studio from the [Toolbox](../projects/assets/toolbox.md) or [Explorer](../studio/explorer.md) window. However, you must complete the process on the [Creator Dashboard](#through-creator-dashboard) to list an asset for sale on the Creator Store, distribute audio assets, or set a [USD price](./sell-on-creator-store.md) for a plugin or model.
 
 <Tabs>
 <TabItem label="Toolbox">
 Assuming the asset is in your [inventory](../projects/assets/toolbox.md#inventory) and you want to distribute it in the Creator Store:
 
-1. In the [Toolbox](../projects/assets/toolbox.md), select the **Creations** tab. All assets you have [previously imported](../projects/assets/manager.md#import-assets) display within the chosen category.
+1. In the [Toolbox](../projects/assets/toolbox.md), select the **Creations** tab. All assets you have [previously imported](../projects/assets/manager.md#asset-import) display within the chosen category.
 
    <img src="../assets/studio/toolbox/Creations-Tab.png" width="360" />
 
@@ -174,7 +130,7 @@ Assuming the asset is in your [inventory](../projects/assets/toolbox.md#inventor
 <TabItem label="Explorer">
 To upload an asset from the [Explorer](../studio/explorer.md) and distribute it in the Creator Store:
 
-1. In the [Explorer](../studio/explorer.md) hierarchy, right-click the asset you'd like to distribute and select **Save to Roblox...** from the context menu.
+1. In the **Explorer** window, right-click the asset you'd like to distribute and select **Save&nbsp;/&nbsp;Export** ⟩ **Save&nbsp;to&nbsp;Roblox...** from the contextual menu.
 2. In the **Asset Configuration** window that opens, confirm and/or update asset details such as **Title** and **Description**. Additionally:
 
    - For **Content Type**, make sure **Development Item** is selected.

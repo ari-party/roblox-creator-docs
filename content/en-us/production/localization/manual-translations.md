@@ -5,7 +5,7 @@ description: Learn how to manually add, edit, and remove entries to your experie
 
 When localizing your content, you might need to manually modify your localization table to improve translation quality, add context for when a translation should be used, or even remove unused translation entries.
 
-Whether you have translation entries automatically captured or manually added, all the translation entries are saved to the [**cloud localization table**](#cloud-localization-table). To modify the localization table, you can perform the following actions:
+Whether you have translation entries automatically captured or manually added, all the translation entries are saved to the [cloud localization table](#cloud-localization-table). To modify the localization table, you can perform the following actions:
 
 - [Add source content](#add-source-content) to the table, either manually or automatically.
 - [Remove content](#remove-content-from-localization-table) from the table, such as usernames or other strings that shouldn't be translated.
@@ -117,14 +117,10 @@ You can add source content to your localization table with a `.csv` upload. You 
 
 To add source content through the `.csv` upload:
 
-1. In Studio, navigate to the **Plugins** tab.
-2. In the **Localization** section, select **Tools**.
-
-   <img src="../../assets/studio/general/Plugins-Tab-Localization-Tools.png" width="800" alt="Localization tools button indicated in Plugins tab" />
-
-3. In the **Cloud Localization Table** section, select **Download** to save the `.csv`.
-4. Open the `.csv` in your preferred spreadsheet editor.
-5. Under the **Source** column, add source text and save. You can leave the other columns blank.
+1. In Studio, open **Localization Tools** from the **Window**&nbsp;⟩ **Localization**
+2. In the **Cloud Localization Table** section, select **Download** to save the `.csv`.
+3. Open the `.csv` in your preferred spreadsheet editor.
+4. Under the **Source** column, add source text and save. You can leave the other columns blank.
 
       <table>
    <thead>
@@ -151,8 +147,8 @@ To add source content through the `.csv` upload:
    </tbody>
    </table>
 
-6. In Studio, in the **Cloud Localization Table** section, select **Update** and upload the new `.csv` file.
-7. Click **Confirm** on the **Confirm Upload** prompt to save the new entry to the cloud localization table.
+5. In Studio, in the **Cloud Localization Table** section, select **Update** and upload the new `.csv` file.
+6. Click **Confirm** on the **Confirm Upload** prompt to save the new entry to the cloud localization table.
 
 ## Remove content from localization table
 
@@ -190,13 +186,12 @@ To remove source content through the localization table on Creator Dashboard:
 
 To remove source content through a `.csv` upload:
 
-1. In Roblox Studio, navigate to the **Plugins** tab.
-2. In the Localization section, select **Tools**.
-3. In the Cloud Localization Table section, select **Download** to save the .csv.
-4. Open the `.csv` in your preferred spreadsheet editor.
-5. Delete the entire row for any entries you would like to remove, and save.
-6. In Studio, in the **Cloud Localization Table** section, select **Update** and upload the new `.csv` file.
-7. Click **Confirm** on the **Confirm Upload** prompt to save the new entry to the cloud localization table.
+1. In Studio, open **Localization Tools** from the **Window**&nbsp;⟩ **Localization** menu.
+2. In the **Cloud Localization Table** section, select **Download** to save the `.csv`.
+3. Open the `.csv` in your preferred spreadsheet editor.
+4. Delete the entire row for any entries you would like to remove, and save.
+5. In Studio, in the **Cloud Localization Table** section, select **Update** and upload the new `.csv` file.
+6. Click **Confirm** on the **Confirm Upload** prompt to save the new entry to the cloud localization table.
 
 ## Add translations
 
@@ -298,7 +293,7 @@ When modifying or adding translations with file upload, the following behavior a
     <td>Source string removed</td>
     <td>No change - entry will not be deleted. <br /><br />To delete an entry through `.csv`, either: <br />
      — In Creator Hub, use **Delete Table** and then **Upload CSV**.<br />
-     — In Studio, use **Advanced** > **Replace** in the Cloud Localization Table section.</td>
+     — In Studio, use **Advanced** ⟩ **Replace** in the Cloud Localization Table section.</td>
   </tr>
 </tbody>
 </table>
@@ -313,8 +308,8 @@ To begin adding a new supported language, you need to manually add the country c
 
 <ul>
 <li>Max total entries: **10,000**</li>
-<li>Max <InlineCode>.csv</InlineCode> file size: **2MB**</li>
-<li>Max number of modified or added entries per <InlineCode>.csv</InlineCode> upload: **1,000**</li>
+<li>Max `.csv` file size: **2MB**</li>
+<li>Max number of modified or added entries per `.csv` upload: **1,000**</li>
 </ul>
 </Alert>
 
@@ -334,13 +329,9 @@ To translate text using the `.csv` in Creator Hub:
 
 To translate text using the `.csv` through Studio:
 
-1. In Studio, navigate to the **Plugins** tab.
-2. In the Localization section, select **Tools**.
-
-   <img src="../../assets/studio/general/Plugins-Tab-Localization-Tools.png" width="800" alt="Localization tools button indicated in Plugins tab" />
-
-3. In the **Cloud Localization Table** section, select **Download** to save the .csv.
-4. Open the `.csv` in your preferred spreadsheet editor.
-5. Add translations on the same row as the source text, under the column with the specific country code you are localizing to. **Save** when finished.
-6. In the **Cloud Localization Table** section, select **Update** and upload the updated `.csv`.
-7. Click **Confirm** on the prompt to save the new entries to the cloud localization table.
+1. In Studio, open **Localization Tools** from the **Window**&nbsp;⟩ **Localization** menu.
+2. In the **Cloud Localization Table** section, select **Download** to save the `.csv`.
+3. Open the `.csv` in your preferred spreadsheet editor.
+4. Add translations on the same row as the source text, under the column with the specific country code you are localizing to. **Save** when finished.
+5. In the **Cloud Localization Table** section, select **Update** and upload the updated `.csv`.
+6. Click **Confirm** on the prompt to save the new entries to the cloud localization table.

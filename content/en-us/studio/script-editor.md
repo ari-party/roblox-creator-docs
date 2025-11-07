@@ -1,9 +1,9 @@
 ---
-title: Script editor
+title: Script Editor
 description: Roblox's built-in, fully-featured script editor includes modern conveniences like autocomplete, code highlighting, and multi-cursor editing.
 ---
 
-The **script editor** in Studio is the primary tool for scripting on Roblox. It's a self-improving environment that can help you write high-impact code, shorten your development time, and iterate on your experiences. It can improve your scripting experience by:
+The **Script Editor** in Studio is the primary tool for scripting on Roblox. It's a self-improving environment that can help you write high-impact code, shorten your development time, and iterate on your experiences. It can improve your scripting experience by:
 
 - Formatting and highlighting syntax in your code.
 - Offering ways to [autocomplete](#autocomplete-features) phrases in your code as you type.
@@ -14,7 +14,7 @@ The **script editor** in Studio is the primary tool for scripting on Roblox. It'
 The Script Editor supports all types of [scripts](../scripting/index.md) and opens automatically when you create a new script or double-click an existing script in the [Explorer](../studio/explorer.md) window.
 
 <Alert severity="success">
-You can [customize](#editor-settings) the Script Editor to suit your preferences and workflows, including font family/size, formatting behavior, and colors for syntax highlighting. You can also toggle features such as [autocomplete](#autocomplete), [signature help](#signature-help), and [script analysis](#script-analysis).
+You can [customize](#editor-settings) the Script Editor to suit your preferences and workflows, including font family/size, formatting behavior, and colors for syntax highlighting. You can also toggle features such as [autocomplete](#autocomplete-features), and [script analysis](#script-analysis).
 </Alert>
 
 ## Autocomplete features
@@ -77,7 +77,7 @@ For broader searches, the **Find All / Replace All** window lets you find/replac
 
 ### Script Analysis
 
-The **Script Analysis** window, accessible from the [View](./view-tab.md) tab, performs static analysis on your scripts and displays active errors and warnings. For more information on the errors and warnings, see the [Luau linting](https://luau-lang.org/lint) documentation.
+The **Script Analysis** window, accessible through the **Analysis** button in Studio's **Script** tab toolbar, performs static analysis on your scripts and displays active errors and warnings. For more information on the errors and warnings, see the [Luau linting](https://luau.org/lint) documentation.
 
 <figure>
 <img src="../assets/studio/script-editor/Script-Analysis-1.png" width="800" alt="Script with various marked errors" />
@@ -90,7 +90,7 @@ The **Script Analysis** window, accessible from the [View](./view-tab.md) tab, p
 
 ### Output
 
-The **Output** window, accessible from the [View](./view-tab.md) tab, displays errors captured from running scripts, messages from Roblox Engine, messages from calls to `print()`, and errors from calls to `warn()`. For details on configuring it for your workflow, see [Output](../studio/output.md).
+The [Output](../studio/output.md) window displays errors captured from running scripts, messages from the Roblox engine, messages from calls to `print()`, and errors from calls to `warn()`.
 
 <img src="../assets/studio/general/Output-Window.png" width="800" />
 
@@ -99,7 +99,7 @@ The **Output** window, accessible from the [View](./view-tab.md) tab, displays e
 **Code Assist** is a feature that suggests lines or functions of code as you type, helping you code more efficiently and stay focused. Based on contexts from your comment and code, suggestions will be triggered in two ways:
 
 - **Automatically** when you pause on a line for a few seconds and the AI model has enough context for a suggestion.
-- **Manually** with shortcut <kbd>Alt</kbd><kbd>&Backslash;</kbd> on Windows or <kbd>⌥</kbd><kbd>&Backslash;</kbd> on Mac (you can [customize](../studio/shortcuts.md) this shortcut).
+- **Manually** with shortcut <kbd>Alt</kbd><kbd>&Backslash;</kbd> on Windows or <kbd>⌥</kbd><kbd>&Backslash;</kbd> on Mac.
 
 Press <kbd>Tab</kbd> to accept a suggestion, or ignore it by continuing to type. Currently, your script needs to contain at least a few lines of code to trigger a suggestion.
 
@@ -342,11 +342,7 @@ the previous line. If the previous line starts with an incomplete block, the for
 
 ## Editor settings
 
-Many customization options are accessible via **File**&nbsp;&rang; **Studio Settings** (<kbd>Alt</kbd><kbd>S</kbd> on Windows; <kbd>⌥</kbd><kbd>S</kbd> on Mac).
-
-<img src="../assets/studio/general/Studio-Settings-Script-Editor.png" width="750" alt="A close up view of the Studio Settings window with the Script Editor tab selected." />
-
-Commonly modified options include:
+Many customization options are accessible via the **Script Editor** tab of [Studio Settings](../studio/setup.md#customization). Commonly modified options include:
 
 <table>
 <thead>
@@ -381,7 +377,7 @@ Commonly modified options include:
 
 ## Keyboard shortcuts
 
-The Script Editor has the following keyboard shortcuts. You can also access many commands from the [Script](../studio/script-tab.md) tab which appears in the Studio toolbar whenever you're viewing or editing a script.
+The Script Editor has the following keyboard shortcuts.
 
 <Tabs>
 <TabItem label="File and display">

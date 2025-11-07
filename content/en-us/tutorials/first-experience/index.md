@@ -57,7 +57,7 @@ To keep things simple, this tutorial instructs you to create a project with the 
 - **Spawn location** – A `Class.SpawnLocation` object is where player characters appear in the 3D space when they join an experience, as well as where they respawn when their health reaches zero.
 - **Baseplate** – A baseplate is a floor with a 4x4 grid texture.
 
-This template is a great starting point to create your first experience because it provides a neutral world with high-fidelity lighting technology, and a floor that aligns with stud measurements that you can use to position and orient 3D objects along a grid. Studs are Studio's base unit of length, and each stud equates to about 28 cm. For more information on Studio's primary units, see [Roblox Units](../../physics/units.md).
+This template is a great starting point to create your first experience because it provides a neutral world and a floor that aligns with stud measurements that you can use to position and orient 3D objects along a grid. Studs are Studio's base unit of length, and each stud equates to about 28 cm. For more information on Studio's primary units, see [Roblox Units](../../physics/units.md).
 
 <GridContainer numColumns="2">
   <figure>
@@ -103,8 +103,6 @@ To help you become familiar with both types of 3D objects, this tutorial provide
 
 You can find this asset pack on the **Creator Store**, a marketplace that features assets from Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. The Creator Store is accessible directly in Studio within the **Toolbox**, as well as on the [Creator Hub](https://create.roblox.com/store/models). For more information about this marketplace, see [Creator Store](../../production/creator-store.md).
 
-<img src="../../assets/studio/toolbox/Creator-Store-Tab-Extended.png" width="100%" />
-
 To insert this tutorial's asset pack from the Creator Store to your Studio inventory, click the **Add to Inventory** link in the following component. Once assets are within your inventory, you can reuse them in any project on the platform.
 
 <BrowseSampleCard href='https://create.roblox.com/store/asset/17266332444/Intro-to-Studio-Catapult-Platforms' description='Create your first experience using this high-quality catapult model.' title='Intro to Studio - Catapult & Platforms' assetId={17266332444}  />
@@ -113,11 +111,7 @@ To insert this tutorial's asset pack from the Creator Store to your Studio inven
 
 To get this asset pack from your inventory into your experience:
 
-1. In the menu bar, select the **View** tab.
-1. In the **Show** section, click **Toolbox**. The **Toolbox** window displays.
-
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" alt="Studio's View tab with the Toolbox tool highlighted." width="876" />
-
+1. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../projects/assets/toolbox.md).
 1. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
 
    <img src="../../assets/studio/toolbox/Inventory-Tab.png" alt="Studio's Toolbox window with the Inventory tab highlighted." width="360" />
@@ -128,7 +122,7 @@ To get this asset pack from your inventory into your experience:
 
 ## Customize targets
 
-When you add a 3D object into your experience, Studio updates the **Explorer** window to display the name of the object and a nest of its children within the `Class.Workspace` service. For example, after you add the catapult model into your viewport, the Explorer window displays the **IntrotoStudioCatapult** folder and its child assets alongside the spawn location and baseplate.
+When you add a 3D object into your experience, Studio updates the **Explorer** window to display the name of the object and a nest of its children within the `Class.Workspace` service. For example, after you add the catapult model into your viewport, the **Explorer** window displays the **IntrotoStudioCatapult** folder and its child assets alongside the spawn location and baseplate.
 
 <GridContainer numColumns="2">
   <figure>
@@ -138,9 +132,9 @@ When you add a 3D object into your experience, Studio updates the **Explorer** w
   </figure>
 </GridContainer>
 
-The Explorer window is a fundamental Studio window that represents the data model for the place in your experience that you have open. This means that if you have an experience with multiple places, this window displays different objects depending on the place you're currently working on.
+The **Explorer** window is a fundamental Studio window that represents the data model for the place in your experience that you have open. This means that if you have an experience with multiple places, this window displays different objects depending on the place you're currently working on.
 
-When you select an object in the Explorer window, Studio updates the **Properties** window to display a selection of properties you can customize for that object without using a script, such as the object's size, color, position, or orientation. To demonstrate this process, this section of the tutorial provides guidance on customizing the visual and behavioral characteristics of the gray targets on the floating platforms.
+When you select an object in the **Explorer** window, Studio updates the **Properties** window to display a selection of properties you can customize for that object without using a script, such as the object's size, color, position, or orientation. To demonstrate this process, this section of the tutorial provides guidance on customizing the visual and behavioral characteristics of the gray targets on the floating platforms.
 
 To customize your targets:
 
@@ -219,12 +213,12 @@ To organize folders into their correct container services for the catapult to wo
 
 1. Delete the **ReplicatedStorage** and **ServerScriptService** folders.
    1. Select both folders.
-   1. Press `Delete`.
+   1. Press <kbd>Delete</kbd>.
 
 1. Playtest to verify that the catapult now works properly.
-   1. In the menu bar, click the **Play** button. Studio enters playtest mode.
-
-      <img src="../../assets/studio/general/Quick-Access-Toolbar-Play.png" alt="Studio's Home tab with the Play button highlighted in the menu bar." width="800" />
+   1. Choose **Test** from the dropdown menu and click the **Play** button to its right to begin the playtest.
+	 
+      <img src="../../assets/studio/general/Mezzanine-Testing-Mode-Test.png" width="800" alt="Test option in the testing modes dropdown of Studio's mezzanine." />
 
    1. Equip the **Ice** projectile to the catapult, aim it toward the nearest floating platform, then launch it at the targets.
 
@@ -238,9 +232,9 @@ To organize folders into their correct container services for the catapult to wo
          <video src="../../assets/getting-started/Scripts-5C.mp4" controls width="80%" alt=""></video>
       </figure>
 
-   1. When you're done playtesting, navigate back to the menu bar and click the **Stop** button. Studio exits playtest mode.
+   1. When you're done playtesting, click the **Stop** button. Studio exits playtest mode.
 
-      <img src="../../assets/studio/general/Quick-Access-Toolbar-Stop.png" alt="Studio's Home tab with the Stop button highlighted in the menu bar." width="800" />
+      <img src="../../assets/studio/general/Mezzanine-Testing-Stop.png" width="800" alt="Stop button indicated in Studio's mezzanine." />
 
 ## Customize projectiles
 
@@ -265,7 +259,7 @@ To customize the third projectile:
 
 1. Create a third floating platform of targets.
    1. In the **Explorer** window, select a **TargetPlatform** object.
-   1. Press `CMD` + `D` to duplicate the platform and targets.
+   1. Press <kbd>Ctrl</kbd><kbd>D</kbd> (<kbd>⌘</kbd><kbd>D</kbd>) to duplicate the platform and targets.
    1. Use the **Move** tool to move the new platform to a new position.
 
    <img width="80%" img src="../../assets/getting-started/Projectiles-1.jpg" />
@@ -290,7 +284,7 @@ Almost everything in Roblox is represented as a cloud-based asset with a unique 
 
 <Alert severity="info">
 
-`Class.DataModel.GameID|UniverseIDs` and `Class.DataModel.PlaceId|PlaceIDs` are useful for managing Roblox resources through Open Cloud APIs, such as automating internal workflows, improving efficiency with content creation and management, and supporting experience operations from the web. For more information, see the [Open Cloud](../../cloud/open-cloud/index.md) overview.
+`Class.DataModel.GameID|UniverseIDs` and `Class.DataModel.PlaceId|PlaceIDs` are useful for managing Roblox resources through Open Cloud APIs, such as automating internal workflows, improving efficiency with content creation and management, and supporting experience operations from the web. For more information, see the [Open Cloud](../../cloud/guides/index.md) overview.
 
 </Alert>
 
@@ -316,17 +310,14 @@ To publish your experience for the first time:
 1. Make the experience public to all players.
    1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations). The **Creations** landing page displays your first experience.
 
-      <img width="80%" img src="../../assets/getting-started/Publish-2A.png" />
+      <img width="200" img src="../../assets/getting-started/Publish-2A.png" />
 
-   1. Hover over the experience's tile, click the ⋯ button, and select **Make Public** from the contextual menu.
+   1. Hover over the experience's tile, click the **&ctdot;** button, and select **Make Public** from the contextual menu.
 
-      <img width="45%" img src="../../assets/getting-started/Publish-2B.png" />
+      <img width="200" img src="../../assets/getting-started/Publish-2B.png" />
 
 1. **(Optional)** Share your experience with others.
-   1. From the **Creator Dashboard**, hover over your experience's tile, click the ⋯ button, and select **Copy URL** from the contextual menu.
-
-      <img width="45%" img src="../../assets/getting-started/Publish-3A.png" />
-
+   1. Hover over the experience's tile, click the **&ctdot;** button, and select **Copy URL** from the contextual menu.
    1. Share the URL with others as a direct link to your experience's landing page.
 
 <Alert severity="success">

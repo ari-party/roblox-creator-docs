@@ -14,7 +14,7 @@ You must enable rich text on a per-object basis through its **RichText** propert
 <img src="../assets/ui/rich-text/Enable-Rich-Text.png"
    width="320" />
 
-```lua highlight='2'
+```lua highlight="2"
 local title = Instance.new("TextLabel")
 title.RichText = true
 
@@ -39,7 +39,7 @@ You can also nest tags inside each other as long as you close them in the revers
 
 `<b><i><u>Formatted text</u></i></b>`
 
-### Color
+### Font color
 
 `<font color=""> </font>`
 
@@ -49,7 +49,7 @@ You can also nest tags inside each other as long as you close them in the revers
 <img src="../assets/ui/rich-text/Example-Color.png" width="600" />
 </blockquote>
 
-### Size
+### Font size
 
 `<font size=""> </font>`
 
@@ -95,20 +95,7 @@ Font face/family names are listed on the `Datatype.Font` enum reference page.
 Font weight can be a case-insensitive string name including `Thin`, `ExtraLight`, `Light`, `Regular`, `Medium`, `SemiBold`, `Bold`, `ExtraBold`, or `Heavy`; it can also be a number in factors of 100 between `100` and `900`.
 </Alert>
 
-### Stroke
-
-`<stroke> </stroke>`
-
-<blockquote>
-`You won <stroke color="#00A2FF" joins="miter" thickness="2" transparency="0.25">25 gems</stroke>.`
-<img src="../assets/ui/rich-text/Example-Stroke.png" width="600" />
-</blockquote>
-
-<Alert severity="info">
-See [Appearance Modifiers](../ui/appearance-modifiers.md) for details on `<stroke>` tag parameters such as `joins` and `thickness`.
-</Alert>
-
-### Transparency
+### Font transparency
 
 `<font transparency=""> </font>`
 
@@ -116,6 +103,56 @@ See [Appearance Modifiers](../ui/appearance-modifiers.md) for details on `<strok
 `Text at <font transparency="0.5">50% transparency</font>.`
 <img src="../assets/ui/rich-text/Example-Transparency.png" width="600" />
 </blockquote>
+
+### Stroke
+
+`<stroke> </stroke>`
+
+<table size="small">
+<thead>
+	<tr>
+		<th>Parameter</th>
+		<th>Equivalent Property</th>
+		<th>Example Values</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>`color`</td>
+		<td>`Class.UIStroke.Color`</td>
+		<td>`"rgb(255,125,0)"`, `"#FF7800"`</td>
+	</tr>
+	<tr>
+		<td>`thickness` or `th`</td>
+		<td>`Class.UIStroke.Thickness`</td>
+		<td>`"1"`, `"4"`, `"0.5"`</td>
+	</tr>
+	<tr>
+		<td>`transparency` or `tr`</td>
+		<td>`Class.UIStroke.Transparency`</td>
+		<td>`"0"`, `"0.5"`, `"1"`</td>
+	</tr>
+	<tr>
+		<td>`joins`</td>
+		<td>`Class.UIStroke.LineJoinMode`</td>
+		<td>`"round"`, `"bevel"`, `"miter"`</td>
+	</tr>
+	<tr>
+		<td>`sizing`</td>
+		<td>`Class.UIStroke.StrokeSizingMode`</td>
+		<td>`"fixed"`, `"scaled"`</td>
+	</tr>
+</tbody>
+</table>
+
+<blockquote>
+`You won <stroke color="#00A2FF" thickness="2" transparency="0.25" joins="miter">25 gems</stroke>.`
+<img src="../assets/ui/rich-text/Example-Stroke.png" width="600" />
+</blockquote>
+
+<Alert severity="info">
+See [UI appearance modifiers](../ui/appearance-modifiers.md#stroke) for details on `<stroke>` tag parameters such as `thickness` and `joins`.
+</Alert>
 
 ### Bold
 
@@ -155,10 +192,10 @@ See [Appearance Modifiers](../ui/appearance-modifiers.md) for details on `<strok
 
 ### Line break
 
-`<br />`
+`<br/>`
 
 <blockquote>
-`New line occurs after this sentence.<br />Next sentence...`
+`New line occurs after this sentence.<br/>Next sentence...`
 <img src="../assets/ui/rich-text/Example-Line-Break.png" width="600" />
 </blockquote>
 
@@ -215,31 +252,31 @@ If you want to render certain characters like `<` or `>` and exempt them from co
 </thead>
 <tbody>
   <tr>
-    <td>**&lt;**</td>
+    <td>`<`</td>
     <td>`&lt;`</td>
     <td>`10 &lt; 100`</td>
     <td>10 &lt; 100</td>
   </tr>
   <tr>
-    <td>**&gt;**</td>
+    <td>`>`</td>
     <td>`&gt;`</td>
     <td>`100 &gt; 10`</td>
     <td>100 &gt; 10</td>
   </tr>
   <tr>
-    <td>**"**</td>
+    <td>`"`</td>
     <td>`&quot;`</td>
     <td>`Meet &quot;Diva Dragonslayer&quot;`</td>
     <td>Meet "Diva Dragonslayer"</td>
   </tr>
   <tr>
-    <td>**'**</td>
+    <td>`'`</td>
     <td>`&apos;`</td>
     <td>`Diva&apos;s pet is a falcon!`</td>
     <td>Diva's pet is a falcon!</td>
   </tr>
   <tr>
-    <td>**&amp;**</td>
+    <td>`&`</td>
     <td>`&amp;`</td>
     <td>`Render another escape form <b>&amp;lt;</b> by escaping an ampersand`</td>
     <td>Render another escape form **&amp;lt;** by escaping an ampersand</td>

@@ -1,37 +1,19 @@
 ---
-title: OpenAPI descriptions
-description: Provides links to the Open Cloud JSON files that are compliant to the OpenAPI Specification, explains their use cases, and outlines additional information.
+title: OpenAPI document
+description: Provides a link to a OpenAPI document for the Roblox Cloud APIs that is compliant to the OpenAPI specification.
 ---
 
-The reference pages in the **Resources** section are rendered from JSON files that are [OpenAPI descriptions](https://learn.openapis.org/glossary.html). These files use [version 3.0.4](https://spec.openapis.org/oas/v3.0.4) of the OpenAPI specification.
+Roblox publishes an [OpenAPI 3.0.4 document](https://spec.openapis.org/oas/v3.0.4) (formerly known as a Swagger file) that contains **all** of the Roblox Cloud APIs. You can find this file, `openapi.json`, in the open source [creator-docs](https://github.com/Roblox/creator-docs/tree/main/content/en-us/reference/cloud) repository.
 
-These files are open source and can be used with tools like the [Swagger Editor](https://editor.swagger.io/) and [Postman](https://www.postman.com/) to test API calls and help streamline development.
+You can use OpenAPI documents with tools like the [Swagger Editor](https://editor.swagger.io/) and [Postman](https://www.postman.com/) to test calls and help streamline development. Tools like [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) can also generate client libraries for your preferred programming languages.
 
-These OpenAPI descriptions are still under active development and may contain issues. The pages under the **Resources** section are the official reference.
+<Alert severity="warning">
+This document is still under active development and may contain issues. Report a bug if you notice inaccurate information.
+</Alert>
 
-## OpenAPI description files
-
-OpenAPI description files are available at the following locations within the [creator-docs](https://github.com/Roblox/creator-docs/tree/main/content/en-us/reference/cloud) repository:
-
-```text
-# All V2 Resources
-https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/cloud.docs.json
-
-# V1 Assets
-https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/assets/v1.json
-
-# V1 Ordered Data Stores
-https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/datastores-api/ordered-v1.json
-
-# V1 Standard Data Stores
-https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/datastores-api/v1.json
-
-# V1 Messaging
-https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/messaging-service/v1.json
-
-# V1 Universes
-https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/universes-api/v1.json
-```
+<a href="https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/">
+  <Button variant="contained">Download openapi.json here</Button>
+</a><br />
 
 ### Vendor extensions
 
@@ -39,27 +21,12 @@ Roblox uses [specification extensions](https://spec.openapis.org/oas/v3.0.4#spec
 
 The majority of these specification extensions are experimental. The extensions used are subject to change without notice in favor of fields found within the official OpenAPI specification.
 
-<Alert severity="info">
-The OpenAPI descriptions for V1 and V2 resources utilitize distinct specification extensions due to underlying implementation differences.
-</Alert>
-
-**V1 resource specification extensions**
-
-| Extension                                       	| Location         	| Description                                                                                     	|
-|-------------------------------------------------	|------------------	|-------------------------------------------------------------------------------------------------	|
-| `x-roblox-cloud-api-operation`                  	| Operation Object 	| Boolean. Whether the operation is an Open Cloud operation.                                      	|
-| `x-roblox-cloud-api-operation-name`             	| Operation Object 	| String. The name of the operation.                                                              	|
-| `x-roblox-cloud-api-operation-code-samples`     	| Operation Object 	| Object. A list of code samples, an object with the language/title and the corresponding script. 	|
-| `x-roblox-cloud-api-operation-throttling-limit` 	| Operation Object 	| Object. The throttling limits for the operation.                                                	|
-
-**V2 resource specification extensions**
-
-| Extension                             	| Location         	| Description                                                                                                   	|
-|---------------------------------------	|------------------	|---------------------------------------------------------------------------------------------------------------	|
-| `x-categories`                        	| OpenAPI Object   	| List of strings. All resource categories.                                                                     	|
-| `x-visibility`                        	| Operation Object 	| Boolean. The visibility of the operation.                                                                     	|
-| `x-roblox-docs`                       	| Operation Object 	| Object. Associates an operation with a category and resource.                                                 	|
-| `x-long-running-operation-parameters` 	| Operation Object 	| Object. References the metadata and response for the operation's long running response.                       	|
-| `x-oneOf`                             	| Schema Object    	| Object. Each field contains a list of properties in the schema. Only one of the properties should be present. 	|
-| `x-resource`                          	| Schema Object    	| Boolean. Whether the schema is a resource.                                                                    	|
-| `x-immutable`                         	| Schema Object    	| Boolean. Whether the schema is immutable.                                                                     	|
+| Extension                     | Location         | Description                                                                                                                            |
+| ----------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `x-roblox-extensions-version` | OpenAPI object   | A version string, using semantic versioning, that represents the versions of the extensions specified here and other common structures |
+| `x-roblox-stability`          | Operation object | A string that represents an operation's stability level.                                                                               |
+| `x-roblox-deprecated`         | Operation object | An object that provides additional information related to an endpoint's deprecation status.                                            |
+| `x-roblox-alternatives`       | Operation object | An object that provides additional information related to an endpoint's alternatives.                                                  |
+| `x-roblox-rate-limits`        | Operation object | An object that provides rate limiting information for an endpoint.                                                                     |
+| `x-roblox-scopes`             | Operation object | An object that provides the list of required, conditional, and optional scopes that are associated with an endpoint.                   |
+| `x-roblox-engine-usability`   | Operation object | An object indicating the endpoint's usability with the Roblox engine.                                                                  |

@@ -266,7 +266,7 @@ After we [rig and skin](../../art/modeling/rigging.md) the Beechwood tree, we co
 
 <figure>
   <img src="../../assets/resources/mystery-of-duvall-drive/developing-a-moving-world/redwood-tree-animation.png" width="80%" />
-  <figcaption>Using the Animation Editor, we could apply the same Redwood tree animation to the Beechwood tree!</figcaption>
+  <figcaption>Using the **Animation Editor**, we could apply the same Redwood tree animation to the Beechwood tree!</figcaption>
 </figure>
 
 Once we had all the tree types we wanted animated, we made each into [packages](../../projects/assets/packages.md) so we could continue to edit and update while playing several of the animations around the main area of the experience. Since we knew they had a performance cost, we used them sparingly around the house where the effect was most valuable! In the future as this becomes more performant, you'll be able to add more and more skinned mesh instances!
@@ -413,11 +413,7 @@ The false wall was a model group that we would move back the moment players ente
   </figure>
 </GridContainer>
 
-Because `Class.TweenService` is such a general system, all our wall data model had to contain was the same components. For example, the following image is an example of a general door script that calls a sound defined by a "value" below the "Grow_Wall" model.
-
-<img src="../../assets/resources/mystery-of-duvall-drive/developing-a-moving-world/general-door-script.png" width="100%" />
-
-That same script, with some modifications in the following code sample, also triggered audio for the pantry moving. This added a lot to the movement!
+Because `Class.TweenService` is such a general system, all our wall data model had to contain was the same components. For example, a general "Door_Script" script plays a sound defined by a "value" below the "Grow_Wall" model. That same script, with some modifications in the following code sample, also triggered audio for the pantry moving. This added a lot to the movement!
 
 ```lua
 local Players = game:GetService("Players")
@@ -530,7 +526,7 @@ Why did we use constraints here? Because `Class.TweenService` or other methods w
 
 <figure>
   <img src="../../assets/resources/mystery-of-duvall-drive/developing-a-moving-world/friends-spinning.png" width="80%" />
-  <figcaption>You could watch your friends spinning around while trying to navigate the obstacle course too.</figcaption>
+  <figcaption>You could watch your connections spinning around while trying to navigate the obstacle course too.</figcaption>
 </figure>
 
 To do this, we needed to first use assets from our current kit and add any new content for a visual effect. We made a few incomplete walls and platforms with holes in them to tell the story of the grandmother building the treehouse. Because we didn't want to create a bunch of unique platforms, we made 4 different base pieces and railing pieces separately. This allowed us to mix and match individual base and railing pieces to have plenty of variety.

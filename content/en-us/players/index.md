@@ -3,7 +3,7 @@ title: Users and players
 description: The Player instance contains information on the individual users within your experience.
 ---
 
-When a user joins an experience, Roblox represents them as a **Player** in the data model. The `Class.Player` object contains information about the user that's universal across experiences, such as their username, friend list, saved [avatar character](../characters/index.md#avatar-characters), and Roblox membership type, as well as properties, methods, and events that affects the user's lifecycle between joining and leaving your experience.
+When a user joins an experience, Roblox represents them as a **Player** in the data model. The `Class.Player` object contains information about the user that's universal across experiences, such as their username, connection list, saved [avatar character](../characters/index.md#avatar-characters), and Roblox membership type, as well as properties, methods, and events that affects the user's lifecycle between joining and leaving your experience.
 
 The `Class.Players` service contains all the `Class.Player` instances in an experience. Each `Class.Player` object represents a user in the experience, and it parents four important containers that you can use to customize a user's experience: `Class.Backpack`, `Class.StarterGear`, `Class.PlayerGui`, and `Class.PlayerScripts`.
 
@@ -55,7 +55,7 @@ Notice that the event is called `Class.Player.PlayerRemoving`, not `Class.Player
 
 To save a user's data when they leave an experience, use the `Class.Players.PlayerRemoving` event in a `Class.Script`. The following example `Class.Script` listens to the event and attempts to save a user's data using their user ID as the data store key.
 
-```lua title='Script in ServerScriptService'
+```lua title="Script in ServerScriptService"
 local DataStoreService = game:GetService("DataStoreService")
 local playerDataStore = DataStoreService:GetDataStore("PlayerData")
 
@@ -92,7 +92,7 @@ When the player's `Class.Humanoid` dies, its body parts fall to the ground and t
 
 You can use the `Class.Humanoid.Died` event to handle scoring for a kill or create a custom ragdoll model. The following `Class.Script` connects to `Class.Player.CharacterAdded` to retrieve each user's character model, then connects to the character's `Class.Humanoid` object. When the humanoid's `Class.Humanoid.Died` event fires, the script increments the number of times the user's humanoid has died and outputs that number.
 
-```lua title='Script in ServerScriptService'
+```lua title="Script in ServerScriptService"
 game:GetService("Players").PlayerAdded:Connect(function(player)
 	local deaths = 0
 	player.CharacterAdded:Connect(function(character)
@@ -107,9 +107,11 @@ end)
 
 ## Ban users
 
-To ensure civility and fair play in your experiences, you can ban users who violate your experience rules and community guidelines. You can modify ban durations, ban messages, and even extend bans to potential alternate accounts. When using this feature, you must also follow guidelines for [banning](#ban-guidelines) and [messaging](#message-guidelines).
+To ensure civility and fair play in your experiences, you can ban users who violate your experience rules and community guidelines. You can modify ban durations, ban messages, and even extend bans to potential alternate accounts. When using this feature, you must also follow guidelines for [banning](#ban-guidelines) and [messaging](#message-guidelines). You have several options for working with bans:
 
-For implementation and usage instructions, see `Class.Players.BanAsync`.
+- Each experience page on the [Creator Hub](https://create.roblox.com/) has a [Bans dashboard](../production/bans.md).
+- For programmatic usage with the Engine API, see `Class.Players:BanAsync()`.
+- For Open Cloud, see [Bans and blocks](/cloud/features/bans-and-blocks).
 
 ### Ban guidelines
 

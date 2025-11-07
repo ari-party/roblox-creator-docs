@@ -7,7 +7,7 @@ This page describes common performance problems and best practices for mitigatin
 
 ## Script computation
 
-Expensive operations in Lua code take longer to process and can thus impact frame rate. Unless it is being executed in parallel, Lua code runs synchronously and blocks the main thread until it encounters a function that yields the thread.
+Expensive operations in Luau code take longer to process and can thus impact frame rate. Unless it is being executed in parallel, Luau code runs synchronously and blocks the main thread until it encounters a function that yields the thread.
 
 ### Common problems
 
@@ -120,10 +120,9 @@ To clean up all used values for preventing memory leaks:
   - Destroying the instance the event belongs to with the `Destroy()` function.
   - Destroying the script object that the connection traces back to.
 
-- **Remove player objects and characters after leaving** - Implement code to
-  ensure no connections persist after a user leaves, like in the following example:
+- **Remove player objects and characters after leaving** - Enable `Class.Workspace.PlayerCharacterDestroyBehavior` to automatically destroy player objects and character models after a user leaves. If you prefer, you can instead clean them up manually:
 
-   ```lua title="Example"
+   ```lua title="Example player and character cleanup"
    Players.PlayerAdded:Connect(function(player)
      player.CharacterRemoving:Connect(function(character)
        task.defer(character.Destroy, character)
@@ -186,11 +185,11 @@ per frame on both the server and the client.
   - For objects that don't require collisions, disable collisions and use box or
     hull fidelity, since the collision geometry is still stored in memory.
   - You can render collision geometry for debug purposes in Studio by toggling
-  	on **Collision&nbsp;fidelity** from the [Visualization&nbsp;Options](../studio/ui-overview.md#visualization-options) widget in the upper‑right corner of the 3D viewport.
+  	on **Collision fidelity** from the [Visualization&nbsp;Options](../studio/ui-overview.md#visualization-options) widget in the upper‑right corner of the 3D viewport.
 
-    Alternatively, you can apply the `CollisionFidelity = Precise` filter to the [Explorer](../studio/explorer.md#property-filters) which shows a count of all mesh parts with the precise fidelity and allows you to easily select them.
+    Alternatively, you can apply the `CollisionFidelity=PreciseConvexDecomposition` filter to the [Explorer](../studio/explorer.md#property-filters) which shows a count of all mesh parts with the precise fidelity and allows you to easily select them.
 
-  - For an in-depth walkthrough on how to choose a collision fidelity option that balances your precision and performance requirements, see [Set Physics and Rendering Parameters](../tutorials/environmental-art/assemble-an-asset-library.md#collisionfidelity).
+  - For an in-depth walkthrough on how to choose a collision fidelity option that balances your precision and performance requirements, see [Set physics and rendering parameters](../tutorials/curriculums/environmental-art/assemble-an-asset-library.md#collisionfidelity).
 
 ### MicroProfiler scopes
 
@@ -313,7 +312,7 @@ A draw call is a set of instructions from the engine to the GPU to render
 something. Draw calls have significant overhead. Generally, the fewer draw
 calls per frame, the less computational time is spent rendering a frame.
 
-You can see how many draw calls are currently occurring with the **Render Stats** > **Timing** item in Studio. You can view **Render Stats** in the client by pressing <kbd>Shift</kbd><kbd>F2</kbd>.
+You can see how many draw calls are currently occurring with the **Render Stats** ⟩ **Timing** item in Studio. You can view **Render Stats** in the client by pressing <kbd>Shift</kbd><kbd>F2</kbd>.
 
 The more objects that need to be drawn in your scene in a given frame, the more
 draw calls are made to the GPU. However, the Roblox Engine utilizes a process
@@ -338,7 +337,7 @@ same `MeshId` are handled in a single draw call when:
   Objects like decals, textures, and particles don't batch well and introduce
   additional draw calls. Pay extra attention to these object types in a scene. In particular, property changes to `Class.ParticleEmitter|ParticleEmitters` can have a dramatic impact on performance.
 
-- **Missed Instancing Opportunities** - Often, a scene will include the same mesh
+- **Missed instancing opportunities** - Often, a scene will include the same mesh
   duplicated a number of times, but each copy of the mesh has different mesh or
   texture asset IDs. This prevents instancing and can lead to unnecessary draw
   calls.
@@ -347,22 +346,47 @@ same `MeshId` are handled in a single draw call when:
   rather than individual assets being imported into Roblox and then duplicated
   post-import to assemble the scene.
 
+  Even a simple script like this one can help you identify mesh parts with the
+  same name that use different mesh IDs:
+
+  ```lua
+  local Workspace = game:GetService("Workspace")
+  for _, descendant in Workspace:GetDescendants() do
+    if descendant:IsA("MeshPart") then
+      print(descendant.Name .. ", " .. descendant.MeshId)
+    end
+  end
+  ```
+
+  The output (with **Stack Lines** enabled) might look something like this. Repeated lines indicate reuse of the same mesh, which is good. Unique lines aren't necessarily bad, but depending on your naming scheme, could indicate duplicate meshes in your experience:
+
+  ```text
+  LargeRock, rbxassetid://106420009602747 (x144) -- good
+  LargeRock, rbxassetid://120109824668127
+  LargeRock, rbxassetid://134460273008628
+  LargeRock, rbxassetid://139288987285823
+  LargeRock, rbxassetid://71302144984955
+  LargeRock, rbxassetid://90621205713698
+  LargeRock, rbxassetid://113160939160788
+  LargeRock, rbxassetid://135944592365226 -- all possible duplicates
+  ```
+
 - **Excessive object complexity** - Although not as important as the number of
   draw calls, the number of triangles in a scene does influence how long a frame
   takes to render. Scenes with a very large number of very complex meshes are a
-  common problem, as are scenes with the `MeshPart.RenderFidelity` property set
+  common problem, as are scenes with the `Class.MeshPart.RenderFidelity` property set
   to `Enum.RenderFidelity.Precise` on too many meshes.
 
 - **Excessive shadow casting** - Handling shadows is an expensive process, and
   maps that contain a high number and density of light objects that cast shadows
-  (or a high number and density of small parts influenced by shadows) are likely to
-  have performance issues.
+  (or a high number and density of small parts influenced by shadows) can have
+  performance issues.
 
 - **High transparency overdraw** - Placing objects with partial transparency
   near each other forces the engine to render the overlapping pixels multiple
   times, which can hurt performance. For more information on identifying and
   fixing this issue, see
-  [Delete Layered Transparencies](../tutorials/environmental-art/optimize-your-experience.md#delete-layered-transparencies).
+  [Delete layered transparencies](../tutorials/curriculums/environmental-art/optimize-your-experience.md#delete-layered-transparencies).
 
 ### Mitigation
 
@@ -377,24 +401,24 @@ same `MeshId` are handled in a single draw call when:
 - **Culling** - Culling describes the process of eliminating draw calls for
   objects that don't factor into the final rendered frame. By default, the
   engine skips draw calls for objects outside the camera's field of view
-  (frustum culling), but doesn't skip draw calls for objects occluded from view
-  by other objects (occlusion culling). If your scene has a large number of draw
-  calls, consider implementing your own additional culling at runtime
-  dynamically for every frame, such as applying the following common strategies:
-  - Hide `Class.MeshPart` and `Class.BasePart` that are far away from the camera
-    or setting.
-  - For indoor environments, implement a room or portal system that hides
-    objects not currently occupied by any users.
+  (frustum culling) and parts, meshes, and terrain occluded from view by other
+  objects (occlusion culling). In certain scenarios, such as indoor
+  environments, you might be able to implement a room or portal system and
+  manually cull objects to further reduce draw calls or overall computational
+  load.
 - **Reducing render fidelity** - Set render fidelity to **Automatic** or
   **Performance**. This allows meshes to fall back to less complex
   alternatives, which can reduce the number of polygons that need to be drawn.
 - **Disabling shadow casting on appropriate parts and light objects** - The
-  complexity of the shadows in a scene can be reduced by selectively disabling
-  shadow casting properties on light objects and parts. This can be done at edit
-  time or dynamically at runtime. Some examples are:
+  Roblox engine automatically degrades shadow quality as client graphics quality
+  level decreases, eventually disabling shadows altogether at quality levels
+  below 4. However, you can selectively disable shadow casting properties on
+  light objects and parts to improve performance while shadows are enabled and
+  increase the likelihood that shadows remain enabled. Some examples of
+  optimizations you can make either at edit time or dynamically at runtime:
   - Use the `Class.BasePart.CastShadow` property to disable shadow casting on
-    small parts where shadows are unlikely to be visible. This can be
-    particularly effective when only applied to parts that are far away from the
+    small parts where shadows are unlikely to be visible. This strategy is
+    particularly effective when applied to parts that are far away from the
     user's camera.
 
     <Alert severity="warning">
@@ -402,10 +426,12 @@ same `MeshId` are handled in a single draw call when:
     </Alert>
 
   - Disable shadows on moving objects when possible.
-  - Disable `Class.Light.Shadows` on light instances where the object does
-    not need to cast shadows.
+  - Disable `Class.Light.Shadows` on light instances where the object does not
+    need to cast shadows.
   - Limit the range and angle of light instances.
   - Use fewer light instances.
+  - Consider disabling lights that are outside of a specific range or on a
+    room-by-room basis for indoor environments.
 
 ### MicroProfiler scopes
 
@@ -462,7 +488,7 @@ every frame, but larger amounts of information require more compute time.
   means creating and destroying large instance hierarchies like maps at runtime
   can be very network intensive.
 
-  A common culprit here is the complex animation data saved by Animation Editor
+  A common culprit here is the complex animation data saved by **Animation Editor**
   plugins in rigs. If these aren't removed before the game is published and
   the animated model is cloned regularly, a large amount of data will be
   replicated unnecessary.
@@ -512,7 +538,7 @@ You can employ the following tactics to reduce unnecessary replication:
 
 ## Asset memory usage
 
-The highest impact mechanism available to creators to improve client memory usage is to enable [Instance Streaming](../workspace/streaming.md).
+The highest impact mechanism available to creators to improve client memory usage is to enable [Instance streaming](../workspace/streaming.md).
 
 ### Instance streaming
 
@@ -525,13 +551,13 @@ If instance streaming is enabled, you can increase the aggressiveness of it. For
 - Reducing use the persistent **StreamingIntegrity**.
 - Reducing the **streaming radius**.
 
-For more information on streaming options and their benefits, see [Streaming Properties](../workspace/streaming.md#streaming-properties).
+For more information on streaming options and their benefits, see [Streaming properties](../workspace/streaming.md#streaming-properties).
 
 ### Other common problems
 
 - **Asset duplication** - A common mistake is to upload the same asset multiple times resulting in different asset IDs. This can lead to the same content being loaded into memory multiple times.
 - **Excessive asset volume** - Even when assets are not identical, there are cases when opportunities to reuse the same asset and save memory are missed.
-- **Audio files** - Audio files can be a surprising contributor to memory usage, particularly if you load all of them into the client at once rather than only loading what you need for a portion of the experience. For strategies, see [Load Times](#load-times).
+- **Audio files** - Audio files can be a surprising contributor to memory usage, particularly if you load all of them into the client at once rather than only loading what you need for a portion of the experience. For strategies, see [Load times](#load-times).
 - **High resolution textures** - Graphics memory consumption for a texture is unrelated to the size of the texture on the disk, but rather the number of pixels in the texture.
   - For example, a 1024x1024 pixel texture consumes four times the graphics memory of a 512x512 texture.
   - Images uploaded to Roblox are transcoded to a fixed format, so there is no memory benefit to uploading images in a color model associated with fewer bytes per pixel. Similarly, compressing images prior to upload or removing the alpha channel from images that don't need it can decrease image size on disk, but either doesn't improve or only minimally improves memory usage. Though the engine automatically downscales texture resolution on some devices, the extent of the downscale depends on the device characteristics, and excessive texture resolution can still cause problems.
@@ -544,9 +570,11 @@ For more information on streaming options and their benefits, see [Streaming Pro
   - Though there is no API to detect similarity of assets automatically, you can collect all the image asset IDs in your place (either manually or with a script), download them, and compare them using external comparison tools.
   - For mesh parts, the best strategy is to take unique mesh IDs and organize them by size to manually identify duplicates.
   - Instead of using separate textures for different colors, upload a single texture and use the `Class.SurfaceAppearance.Color` property to apply various tints to it.
-- **Importing assets in map separately** - Instead of importing an entire map at once, import and reconstruct assets in the map individually and reconstruct them. The 3D importer doesn't do any de-duplication of meshes, so if you were to import a large map with a lot of separate floor tiles, each of those tiles would be imported as a separate asset (even if they are duplicates). This can lead to performance and memory issues down the line, as each mesh is treated as individually and takes up memory and draw calls.
+- **Import assets in map separately** - Instead of importing an entire map at once, import and reconstruct assets in the map individually and reconstruct them. The 3D importer doesn't do any de-duplication of meshes, so if you were to import a large map with a lot of separate floor tiles, each of those tiles would be imported as a separate asset (even if they are duplicates). This can lead to performance and memory issues down the line, as each mesh is treated as individually and takes up memory and draw calls.
 - **Limit the pixels of images** to no more than the necessary amount. Unless an image is occupying a large amount of physical space on the screen, it usually needs at most 512x512 pixels. Most minor images should be smaller than 256x256 pixels.
-- **Use Trim Sheets** to ensure maximum texture reuse in 3D maps. For steps and examples on how to create trim sheets, see [Creating Trim Sheets](../resources/beyond-the-dark/building-architecture.md#creating-trim-sheets).
+- **Use trim sheets** to ensure maximum texture reuse in 3D maps. For steps and examples on how to create trim sheets, see [Create trim sheets](../resources/beyond-the-dark/building-architecture.md#create-trim-sheets).
+
+  You might also consider using sprite sheets to load many smaller UI images as a single image. You can then use `Class.ImageLabel.ImageRectOffset` and `Class.ImageLabel.ImageRectSize` to display portions of the sheet.
 
 ## Load times
 
@@ -554,7 +582,7 @@ Many experiences implement custom loading screens and use the `Class.ContentProv
 
 The advantage of this approach is that it lets you ensure important parts of your experience are fully loaded without pop-in. However, a common mistake is overutilizing this method to preload more assets than are actually required.
 
-An example of a bad practice is loading the _entire_ `Class.Workspace`. While this might prevent texture pop-in, it significantly increases load time.
+An example of a bad practice is loading the entire `Class.Workspace`. While this might prevent texture pop-in, it significantly increases load time.
 
 Instead, only use `Class.ContentProvider:PreloadAsync()` in necessary situations, which include:
 

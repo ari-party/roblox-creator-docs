@@ -19,6 +19,8 @@ Automatic Text Capture (ATC) captures text strings from UI elements in your expe
 
 ATC evaluates over time which strings should be added to your translation table, so it may take up to a few days for new strings to appear in Translator Portal after users encounter them. If you require strings to be captured immediately, you can use the [Studio text capture process](#text-capture-in-studio).
 
+ATC only captures text objects that have `Class.GuiBase2d.AutoLocalize|AutoLocalize` enabled. If you do not want ATC to collect a certain text string, such as a name or unique text entry, disable this property. Note that for `Class.TextBox` objects, only `Class.TextBox.PlaceholderText|PlaceholderText` is captured; the assumption is that strings in `Class.TextBox.Text|Text` were provided by the player.
+
 To enable Automatic Text Capture:
 
 1. In localization settings, navigate to **Settings**.
@@ -26,8 +28,6 @@ To enable Automatic Text Capture:
 
    <img src="../../assets/localization/Portal-Enable-ATC.png"
    width="800" alt="The Localization Settings section highlighting the toggle for Capture text from Experience UI while users play."/>
-
-ATC adds text strings to the localization table within 1–2 minutes of encountering the text in the experience. If you do not want ATC to collect a certain text string, such as a name or unique text entry, disable the `Class.GuiBase2d.AutoLocalize|AutoLocalize` property of the text object.
 
 <Alert severity="info">
 ATC can not capture some experience objects. These objects may require special handling with <a href="./localize-with-scripting.md">localization scripts</a>. The current exemptions are:
@@ -46,10 +46,7 @@ There may be situations in which you need to immediately capture strings to your
 
 To enable text capture in Studio:
 
-1. In Studio, open **Plugins** > **Localization** > **Tools**.
-
-   <img src="../../assets/studio/general/Plugins-Tab-Localization-Tools.png" width="60%" alt="The Studio ribbon plugins tab with localization tools button highlighted." />
-
+1. In Studio, open **Localization Tools** from the **Window**&nbsp;⟩ **Localization** menu.
 2. Enable **Automatic Text Capture**.
 
    <img src="../../assets/localization/ATC-Studio-Enabled.png" width="45%" alt="The in-Studio localization tool showing ATC toggle enabled." />
@@ -123,11 +120,14 @@ Roblox supports automatic translation between the languages listed below. Curren
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>Chinese - simplified</td>
+    <tr>
+    <td>Arabic</td>
   </tr>
   <tr>
-    <td>Chinese - traditional</td>
+    <td>Chinese (Simplified)</td>
+  </tr>
+  <tr>
+    <td>Chinese (Traditional)</td>
   </tr>
    <tr>
     <td>English</td>

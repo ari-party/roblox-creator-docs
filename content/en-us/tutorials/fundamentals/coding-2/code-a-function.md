@@ -1,11 +1,11 @@
 ---
 title: Code a function
-description: What a function is, and how to code a function in Roblox Lua
+description: What a function is, and how to code a function in Luau
 next: /tutorials/fundamentals/coding-2/use-parameters-and-events
 prev: /tutorials/fundamentals/coding-1/parents-and-children
 ---
 
-**Functions** are sets of instructions that can be used many times in a script. There are pre-made functions (also called methods) like `print()` and `Library.task.wait()` that are built into most programming languages. Coders can also create their own custom functions for code they want to use more than once, but don't feel like writing over and over. In Lua, this is done by typing:
+**Functions** are sets of instructions that can be used many times in a script. There are pre-made functions (also called methods) like `print()` and `Library.task.wait()` that are built into most programming languages. Coders can also create their own custom functions for code they want to use more than once, but don't feel like writing over and over. In Luau, this is done by typing:
 `local function nameOfTheFunction()`
 
 Functions can be thought of like a recipe. They're both lists of specific instructions. For example, you could use a function to teach a robot how to make spaghetti. First, make a `local function` that lists the steps to prep the meal. Then, whenever you want dinner, just say, "Robot, run makeSpaghetti()".
@@ -51,7 +51,7 @@ end
 ```
 
 <Alert severity="warning">
-Type end yourself if the code doesn't autocomplete for some reason. If the function doesn't have an end, your code won't run.
+Type `end` yourself if the code doesn't autocomplete for some reason. If the function doesn't have an `end`, your code won't run.
 </Alert>
 
 ### Add code to functions
@@ -82,7 +82,7 @@ As you typed, your code should have indented automatically. This makes it easier
 
 ### Tell the function to run
 
-There's one more thing we need to do before the function will work, and that's to tell it to run, also known as **calling** a function. Functions won't run until they are called. To call a function, type the function's name including the `()` at the end.
+There's one more thing we need to do before the function will work, and that's to tell it to run, also known as **calling** a function. Functions won't run until they are called. To call a function, type the function's name including the `()`.
 
 1. Under `end`, type `printFood()`.
 
@@ -94,14 +94,12 @@ There's one more thing we need to do before the function will work, and that's t
    printFood()
    ```
 
-2. Test the code. Your favorite food should appear in the Output window.
-
-   <img src="../../../assets/education/coding-2/output-function-example.png" width="70%" />
+2. Test the code. Your favorite food should appear in the [Output](../../../studio/output.md) window.
 
 ### Troubleshooting tips
 
 If your code doesn't run, check for errors such as the following:
 
 - Check that `print("Your Food Here")` is between `local function printFood()` and `end`.
-- Make that your food is a string, with quotations on `"each side"`.
+- Make sure that your food is a string, with quotations on `"each side"`.
 - Check that the function is called after it's been created. `printFood()` should be below `end`.

@@ -1,9 +1,9 @@
 ---
-title: Build Studio widgets
+title: Studio widgets
 description: Building custom widgets in Studio allows you to customize workflows and views.
 ---
 
-Studio gives you the power to create custom **widgets** and use them as Studio tools and extensions. These widgets behave as custom windows/panels in Studio, and you can dock them inside of your interface or have them float as separate windows.
+Studio gives you the power to create custom **widgets** and use them as tools and extensions. These widgets behave as custom windows/panels in Studio, and you can dock them inside of your interface or have them float as separate windows.
 
 ## Create widget UIs
 
@@ -261,7 +261,7 @@ Reference the following table for a list of mouse cursors and their potential us
 
 ## Gather user input
 
-UI elements such as `Class.TextBox` and `Class.TextButton` work normally in Studio widgets, and you can build interfaces just like you normally would on Roblox. However, `Class.UserInputService` and `Class.ContextActionService` don't work since these services expect the main game window to be in focus.
+UI elements such as `Class.TextBox` and `Class.TextButton` work normally in Studio widgets, and you can build interfaces just like you normally would on Roblox. However, `Class.UserInputService` doesn't work since these services expect the main game window to be in focus.
 
 One workaround for generic input events is to create a transparent `Class.Frame` and overlay it over the entire screen. The following code sample creates a frame, and when the user clicks on the frame, the `Class.GuiObject.InputBegan` event captures keyboard input on the frame until the user clicks away:
 

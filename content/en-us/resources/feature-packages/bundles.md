@@ -5,7 +5,11 @@ description: Learn about the bundles feature package.
 
 The **Bundles** feature package offers out-of-the-box functionality to sell collections of items to players at a discount. You can choose whether to allow players to purchase bundles using a custom in-experience currency or Robux, which bundle type you want to use, what set of items you want to sell, and how you want to prompt players during their gameplay.
 
-Using the package's customization options, you can tailor your bundles to meet the design and monetization goals of your experiences.
+Using the package's customization options, you can tailor your bundles to meet the design and monetization goals of your experiences, such as:
+
+- Targetting a low [conversion rate](../../production/game-design/analytics-essentials.md#monetization-metrics) metric by offering discounted [starter packs](../../production/game-design/starter-pack-design.md) that provide value to new players and encourage early spend.
+- Increasing [spend depth](../../production/game-design/analytics-essentials.md#monetization-metrics) by bundling items at various price points to appeal to a range of players.
+- Monetizing live operations (LiveOps) [events](../../production/game-design/liveops-essentials.md#content-cadence) by offering limited-time bundles of exclusive items.
 
 <img src="../../assets/resources/feature-packages/Bundles/Bundles-Intro.png" width="100%" />
 
@@ -15,7 +19,7 @@ For information on how to strategically provide purchase opportunities to meet p
 
 ## Get package
 
-The **Creator Store** is a tab of the Toolbox that you can use to find all assets that are made by Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. You can use the Creator Store to add one or more assets directly into an open experience, including feature packages!
+The **Creator Store** is a tab of the **Toolbox** that you can use to find all assets that are made by Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. You can use the Creator Store to add one or more assets directly into an open experience, including feature packages!
 
 Every feature package requires the **Core** feature package to function properly. Once the **Core** and **Bundles** feature package assets are within your inventory, you can reuse them in any project on the platform.
 
@@ -27,7 +31,7 @@ To get the packages from your inventory into your experience:
 
     <Grid item container xs={12} sm={6} direction='row'>
     <Grid item container direction='column'>
-    <BrowseSampleCard href='https://create.roblox.com/store/asset/94918533221001' description='The Core Feature Package offers shared DataStore table logic for all feature packages.' title='Core Feature Package' assetId={94918533221001}  />
+    <BrowseSampleCard href='https://create.roblox.com/store/asset/94918533221001' description='The Core feature package offers shared data store logic for all feature packages.' title='Core Feature Package' assetId={94918533221001}  />
     </Grid>
     </Grid>
 
@@ -39,22 +43,15 @@ To get the packages from your inventory into your experience:
 
     </Grid>
 
-2. In the menu bar, select the **View** tab.
-3. In the **Show** section, click **Toolbox**. The **Toolbox** window displays.
-
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" alt="Studio's View tab with the Toolbox tool highlighted." width="876" />
-
-4. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
+2. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../projects/assets/toolbox.md).
+3. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
 
    <img src="../../assets/studio/toolbox/Inventory-Tab.png" alt="Studio's Toolbox window with the Inventory tab highlighted." width="360" />
 
-5. Click the **Feature Package Core** tile, then the **Bundle Feature Package** tile. Both package folders display in the **Explorer** window.
-6. Drag the package folders into **ReplicatedStorage**.
-7. Allow DataStore calls to track player purchases with the packages.
-   1. In the **Home** tab of the menu bar, select **Game Settings**.
-
-      <img src="../../assets/studio/general/Home-Tab-Game-Settings.png" width="760" alt="Game Settings button indicated in Home tab" />
-
+4. Click the **Feature Package Core** tile, then the **Bundle Feature Package** tile. Both package folders display in the **Explorer** window.
+5. Drag the package folders into `Class.ReplicatedStorage`.
+6. Allow data store calls to track player purchases with the packages.
+   1. Open Studio's **File**&nbsp;⟩ **Game Settings** window.
    1. Navigate to the **Security** tab, then enable **Enable Studio Access to API Services**.
 
 ## Define currencies
@@ -374,7 +371,7 @@ You mainly need to hook up four things once dragging the **Bundles** feature pac
    ```
 
 <Alert severity="warning">
-When awarding purchases, ensure that you also check and record `receiptInfo.PurchaseId` in your DataStores.
+When awarding purchases, ensure that you also check and record `receiptInfo.PurchaseId` in your data stores.
 </Alert>
 
 Consider the following best practice guidance on redundant recordings of ReceiptIds:
@@ -383,7 +380,7 @@ Consider the following best practice guidance on redundant recordings of Receipt
 
 - The **Bundles** feature package will not record the ReceiptId if the purchase fails at any step, so you should ensure that you are recording the ReceiptId in your tables before processing the receipt as part of your purchaseHandler.
 
-- This redundancy helps ensure that all purchase logic has been appropriately handled and that your DataStore+Bundles Feature Package's DataStore reaches eventual consistency, with the your data store being the source of truth.
+- This redundancy helps ensure that all purchase logic has been appropriately handled and that your data store and the **Bundles** feature package's data store reach eventual consistency, with your data store being the source of truth.
 
 ## Configure constants
 
@@ -395,7 +392,7 @@ Constants for the **Core** feature package live in two spots:
 
 The main things you might want to adjust to meet the design requirements of your experience:
 
-- Sound assetIDs
+- Sound asset IDs
 - Purchase effect duration and particle colors
 - Heads up display collapsibility
 

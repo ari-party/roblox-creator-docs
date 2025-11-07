@@ -69,13 +69,7 @@ Roblox Battle Royale must be structured as a game with six unique places. To beg
 
 Once the lobby place is published, you'll need to add **five additional places** to the game:
 
-1. If it's not already visible, open the **Asset Manager** window (View → Asset Manager).
-
-   <img
-   alt="Toggle Game Explorer"
-   src="../../assets/resources/battle-royale/installation-and-setup/Toggle-Game-Explorer.png"
-   width="80%" />
-
+1. If it's not already visible, open the **Asset Manager** window.
 2. Double-click the **Places** folder.
 
    <img
@@ -91,20 +85,20 @@ Once the lobby place is published, you'll need to add **five additional places**
    src="../../assets/resources/battle-royale/installation-and-setup/Battle-Royale-Place-Names.png"
    width="80%" />
 
-5. Publish the game again (File → Publish to Roblox).
+5. Publish the game again (**File** → **Publish to Roblox**).
 
 ## Copy and paste place IDs
 
 Each place must be cross-associated so that players can teleport from the lobby to various play mode queues and vice-versa. To achieve this, you'll need to gather the place IDs of the places you created above.
 
-1. In the Asset Manager window, right-click **Lobby** and select **Copy ID to Clipboard**.
+1. In the **Asset Manager** window, right-click **Lobby** and select **Copy ID to Clipboard**.
 
    <img
    alt="Copy Lobby ID"
    src="../../assets/resources/battle-royale/installation-and-setup/Battle-Royale-Lobby-Copy-ID.png"
    width="80%" />
 
-2. If it's not already visible, open the **Explorer** window (**View** → **Explorer**).
+2. If it's not already visible, open the **Explorer** window.
 3. Open the **MainConfiguration** script within **ReplicatedFirst** → **Configurations**.
 
    <img
@@ -114,7 +108,7 @@ Each place must be cross-associated so that players can teleport from the lobby 
 
 4. Locate the `_places` table and paste the copied ID from step #1 as the value of the `lobby` key.
 
-   ```lua title='Lobby-MainConfiguration'
+   ```lua title="Lobby-MainConfiguration"
    local ReplicatedStorage = game:GetService("ReplicatedStorage")
    local RunService = game:GetService("RunService")
    local Players = game:GetService("Players")
@@ -196,13 +190,7 @@ Each place must be cross-associated so that players can teleport from the lobby 
 
 By default, Roblox balances players/servers for an optimal social gameplay experience, but a battle royale should allow for bigger and more intense battles. To achieve this:
 
-1. Click on the **Game Settings** button from the **Home** tab.
-
-   <img
-   alt="Game Settings"
-   src="../../assets/resources/battle-royale/installation-and-setup/Game-Settings.png"
-   width="80%" />
-
+1. Open Studio's **File**&nbsp;⟩ **Game Settings** window.
 2. Select the **Places** tab.
 3. For each of the six places, click the button and select **Edit**.
 

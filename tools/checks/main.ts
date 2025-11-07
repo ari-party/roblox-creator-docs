@@ -4,6 +4,7 @@ console.time(timeMessage);
 import { FileOption, getConfig } from './utils/config.js';
 const config = await getConfig();
 
+import fs from 'fs';
 import path from 'path';
 import { VFile } from 'vfile';
 import { VFileMessage } from 'vfile-message';
@@ -43,6 +44,8 @@ import {
   checkMdxEquality,
   isLocaleFile,
   outdatedTranslationFiles,
+  translationFilesWithMdxMismatchErrors,
+  checkVoidTagsHaveNoChildren,
 } from './utils/localization.js';
 import { Emoji } from './utils/utils.js';
 import { deduplicate } from './utils/utils.js';
@@ -60,6 +63,10 @@ import {
 } from './utils/console.js';
 import { checkMarkdownLint } from './utils/markdownlint.js';
 import { checkEngineReferenceContent } from './utils/engineReferenceChecks.js';
+import {
+  containsOpenApiSchema,
+  validateOpenApiSchema,
+} from './utils/openapi/index.js';
 
 let filesToCheck: string[] = [];
 let labelPullRequestAsInappropriate = false;
@@ -78,6 +85,10 @@ const getFilesToCheck = async () => {
           ...getAllContentFileNamesWithExtension({
             locale,
             fileExtension: FileExtension.YAML,
+          }),
+          ...getAllContentFileNamesWithExtension({
+            locale,
+            fileExtension: FileExtension.JSON,
           })
         );
       }
@@ -90,6 +101,10 @@ const getFilesToCheck = async () => {
         ...getAllContentFileNamesWithExtension({
           locale: Locale.EN_US,
           fileExtension: FileExtension.YAML,
+        }),
+        ...getAllContentFileNamesWithExtension({
+          locale: Locale.EN_US,
+          fileExtension: FileExtension.JSON,
         })
       );
     }
@@ -97,12 +112,17 @@ const getFilesToCheck = async () => {
   } else if (config.files === FileOption.Changed) {
     filesToCheck = await getFilesChangedComparedToBaseByExtension({
       baseBranch: config.baseBranch,
-      fileExtensions: [FileExtension.MARKDOWN, FileExtension.YAML],
+      fileExtensions: [
+        FileExtension.MARKDOWN,
+        FileExtension.YAML,
+        FileExtension.JSON,
+      ],
     });
   } else if (config.files === FileOption.LastCommit) {
     filesToCheck = await getFilesChangedInLastCommitByExtensions([
       FileExtension.MARKDOWN,
       FileExtension.YAML,
+      FileExtension.JSON,
     ]);
   }
   if (!config.checkLocalizedContent) {
@@ -110,7 +130,12 @@ const getFilesToCheck = async () => {
       return isLocaleFile(filePath, Locale.EN_US);
     });
   }
-  const prefixesToIgnore = ['.github/', 'content/common/navigation/', 'tools/'];
+  const prefixesToIgnore = [
+    '.github/',
+    'content/common/navigation/',
+    'tools/',
+    'content/en-us/reference/engine/code_samples/',
+  ];
   filesToCheck = filesToCheck.filter((filePath) => {
     return !prefixesToIgnore.some((prefix) => filePath.startsWith(prefix));
   });
@@ -216,17 +241,43 @@ try {
     );
     const isMarkdownFile = filePath.endsWith(FileExtension.MARKDOWN);
     const isYamlFile = filePath.endsWith(FileExtension.YAML);
+    const isJsonFile = filePath.endsWith(FileExtension.JSON);
     console.log(`::group::${Emoji.Mag} Checking`, filePathFromRepoRoot);
+    if (!fs.existsSync(filePath)) {
+      console.log(
+        `${Emoji.NoEntry} File does not exist: ${filePathFromRepoRoot}`
+      );
+      console.log('::endgroup::');
+      continue;
+    }
     const fileContent = readFileSync(filePath);
+
+    if (isJsonFile) {
+      if (containsOpenApiSchema(fileContent)) {
+        await validateOpenApiSchema({
+          config,
+          filePath: filePathFromRepoRoot,
+        });
+      }
+
+      // The remaining checks are not applicable to JSON files
+      console.log('::endgroup::');
+      continue;
+    }
+
     if (
       config.checkLocalizedContent &&
       !isLocaleFile(filePathFromRepoRoot, Locale.EN_US) // skip for English
     ) {
       checkEnglishVersionExists(filePathFromRepoRoot);
-      await checkMdxEquality(filePathFromRepoRoot, fileContent);
-      checkFileImportEquality(filePathFromRepoRoot, fileContent);
       checkFileIsTranslatable(filePathFromRepoRoot);
+      if (isMarkdownFile) {
+        checkVoidTagsHaveNoChildren(filePathFromRepoRoot);
+        await checkMdxEquality(filePathFromRepoRoot, fileContent);
+        checkFileImportEquality(filePathFromRepoRoot, fileContent);
+      }
     }
+
     if (config.checkRetextAnalysis) {
       const retextVFile = (await getReTextAnalysis(
         fileContent
@@ -237,6 +288,7 @@ try {
       processRetextVFileMessages({ retextVFile, filePathFromRepoRoot });
     }
     if (isMarkdownFile) {
+      checkVoidTagsHaveNoChildren(filePathFromRepoRoot);
       const mdxVFileMessage = (await compileMdx(fileContent)) as VFileMessage;
       if (mdxVFileMessage) {
         processRetextVFileMessage({
@@ -293,6 +345,26 @@ try {
       outdatedTranslationFiles,
       'utf-8'
     );
+  }
+  if (
+    config.checkLocalizedContent &&
+    config.deleteMdxMismatchedErrorOnFail &&
+    translationFilesWithMdxMismatchErrors.length > 0
+  ) {
+    console.log(
+      `${Emoji.WasteBasket} Deleting ${translationFilesWithMdxMismatchErrors.length} localized files with MDX mismatch errors...`
+    );
+    for (const filePath of translationFilesWithMdxMismatchErrors) {
+      try {
+        await fs.promises.unlink(filePath);
+        console.log(`${Emoji.WasteBasket} Deleted ${filePath}`);
+      } catch (e) {
+        const err = e as NodeJS.ErrnoException;
+        if (err.code !== 'ENOENT') {
+          console.log(`${Emoji.Warning} Failed to delete ${filePath}`, e);
+        }
+      }
+    }
   }
   if (config.postPullRequestComments && pullRequestReviewComments.length > 0) {
     await postCommentsToGitHub();

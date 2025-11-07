@@ -3,11 +3,7 @@ title: Sell on the Creator Store
 description: An explanation of Creator Store seller accounts, their prerequisites, and how to create one.
 ---
 
-You can sell [plugins](../studio/plugins.md) on the Creator Store for **United States Dollars** (USD). Roblox offers a market-leading revenue share for these sales, as only taxes and payment processing fees are deducted.
-
-<Alert severity="info">
-You will soon be able to sell [models](../parts/models.md#upload-and-distribute-models) on the Creator Store for **United States Dollars** (USD). You can create a seller account and start uploading models now.
-</Alert>
+You can sell [plugins](../studio/plugins.md) and [models](../parts/models.md) on the Creator Store for **United States Dollars** (USD). Roblox offers a market-leading revenue share for these sales, as only taxes and payment processing fees are deducted.
 
 In order to set any USD prices and sell your assets, you must have a **seller account**. Roblox administers seller accounts through **Stripe**, a third-party payments provider. If you meet Roblox's eligibility [requirements](#for-sellers), you can fill out Stripe's [application form](#complete-the-application-form) to create a seller account.
 
@@ -32,6 +28,8 @@ In order to create a seller account, you must meet the following Roblox eligibil
 - You must be either **18** years of age or older, or **13-17** years of age with **parental consent**.
 - You must reside in [one of the countries supported](https://stripe.com/docs/connect/cross-border-payouts) by our third-party payments provider.
 
+Due to restrictions, selling on the Creator Store is only available within certain regions. Seller onboarding is not yet supported in countries such as Brazil, China, India, or Russia.
+
 If you violate any of these requirements after you create your seller account, your account will be suspended, your assets will be taken off sale, and payouts will be frozen. If you believe your account was incorrectly suspended, you can [appeal](https://www.roblox.com/report-appeals#/) the applicable violation.
 
 <Alert severity="warning">
@@ -44,13 +42,23 @@ If you violate any of these requirements after you create your seller account, y
 
 Only **individual** user accounts may purchase assets for USD on the Creator Store. Groups are ineligible to purchase plugins.
 
-Transactions between any individual customer and seller are **capped** per month for safey purposes. If you're buying a lot of assets from one seller in a single month, any purchase over the limit will be prohibited until the following month. This includes any purchases between alternate accounts for either the customer or seller.
+Transactions between any individual customer and seller are **capped** per month for safety purposes. If you're buying a lot of assets from one seller in a single month, any purchase over the limit will be prohibited until the following month. This includes any purchases between alternate accounts for either the customer or seller.
 
 ### For assets
 
-Every asset that you sell on the Creator Store must adhere to the [Community Rules](https://en.help.roblox.com/hc/articles/203313410), [Terms of Use](https://en.help.roblox.com/hc/articles/115004647846), and [Digital Millennium Copyright Act](./publishing/dmca-guidelines.md) (DMCA). If any asset breaks these rules, the asset and your account may be subject to moderation.
+Every asset that you sell on the Creator Store must adhere to the [Community Rules](https://en.help.roblox.com/hc/articles/203313410), [Terms of Use](https://en.help.roblox.com/hc/articles/115004647846), and [Digital Millennium Copyright Act](./publishing/dmca-guidelines.md) (DMCA) regarding copyright. If any asset breaks these rules, the asset and your account may be subject to moderation. If you suspect a rights violation involving your asset, you can submit the content for removal using the [Rights Manager](../production/publishing/rights-manager.md).
 
-In addition, you can only sell plugins that you own from an **individual** user account. Group-owned assets are ineligible. If you want to sell a group-owned asset, consider re‑uploading them under individual ownership.
+Note that you can only sell assets that you own from an **individual** user account. Group-owned assets are ineligible. If you want to sell a group-owned asset, consider re‑uploading them under individual ownership.
+
+In addition, the Creator Store restricts use of the following practices to ensure asset safety:
+
+- Obscuring engine features within scripts, including LuaVMs, `getfenv()`, and `setfenv()`.
+- Requiring remote assets, including `require(assetId)`, `loadstring()`, `Class.InsertService:LoadAsset()`, and `Class.ModuleScript.LinkedSource`. Assets that may look useful on the surface could load another "virus" asset at runtime.
+- Including obfuscated code. For publicly-shared assets, it's important for creators to understand what they are putting into their experiences. If code is obfuscated, creators cannot trust that the script is only doing what it should be doing.
+
+<Alert severity="success">
+Opt-in to the [asset privacy beta](../projects/assets/privacy.md#beta-opt-in) before uploading any models you intend to sell. This will ensure that newly-uploaded model dependencies (like its images and meshes) are set as restricted. If you have previously saved models, it's recommended opting into the beta and then creating a new model so that all dependencies can be registered correctly.
+</Alert>
 
 ## Seller account
 
@@ -86,7 +94,7 @@ To check the status of your application, revisit the [Seller Onboarding](https:/
 - **Failed** — Your seller account has not been created, either because of an error or because your information was incorrect.
 - **Information Needed** — Stripe requires more information from you before they can confirm your seller account.
 - **Success** — Your seller account has been successfully created. You can set prices and sell assets.
-- **Rejected** - You cannot create a seller account due to fraudulent or malicious activity.
+- **Rejected** — You cannot create a seller account due to fraudulent or malicious activity.
 
 <Alert severity="warning">
 
@@ -100,7 +108,7 @@ Once Stripe confirms your information and creates your seller account, you can s
 
 ### Pricing
 
-You can set prices on the [Creator Dashboard](https://create.roblox.com/dashboard/creations?activeTab=Plugin). Plugins have a minimum price of $4.99 and maximum price of $249.99. Models will have a minimum price of $2.99 and maximum price of $249.99. If an asset may not offer value at the minimum price, you can always offer it for free.
+You can set prices on the [Creator Dashboard](https://create.roblox.com/dashboard/creations?activeTab=Plugin). Plugins have a minimum price of \$4.99 and maximum price of \$249.99. Models will have a minimum price of \$2.99 and maximum price of \$249.99. If an asset may not offer value at the minimum price, you can always offer it for free.
 
 You cannot set USD prices in Studio.
 

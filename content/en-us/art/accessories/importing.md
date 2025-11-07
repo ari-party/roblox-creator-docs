@@ -17,7 +17,7 @@ Keep in mind, the model that you intend to create as a rigid accessory must also
 
 To import your asset:
 
-1. In Studio, navigate to the **Avatar tab** and select the **3D Importer**.
+1. From Studio's **File** menu, select **3D Importer**.
 2. In the file browser, select the `.fbx` or `.gltf` file saved locally. The 3D Importer loads a preview of the object.
 
       <img src="../../assets/art/accessories/creating-rigid/3D-Importer.png" />
@@ -33,18 +33,14 @@ To import your asset:
 
 If textures didn't load correctly, add them manually. You may need to save and publish your experience in order to access the [Asset Manager](../../projects/assets/manager.md).
 
-1. Open the Asset Manager. You may need to save and publish your experience before accessing your assets.
-2. In the Asset Manager, select the **Bulk Import** button.
-
-   <img src="../../assets/studio/asset-manager/Import-Button.png" width = "60%"/>
-
-3. Upload your image files.
-4. After moderation clears for your image, select the `Class.MeshPart` parented within your imported `Class.Model`.
-5. Add a `Class.SurfaceAppearance` child to your `Class.MeshPart`.
+1. In the **Asset Manager**, click the **Import** button.
+2. Upload your image files.
+3. After moderation clears for your image, select the `Class.MeshPart` parented within your imported `Class.Model`.
+4. Add a `Class.SurfaceAppearance` child to your `Class.MeshPart`.
 
    <img src="../../assets/art/accessories/creating-rigid/Adding-Surface-Appearance.png" />
 
-6. In the `Class.SurfaceAppearance` properties, click each property value and assign the appropriate texture image from the asset dropdown:
+5. In the `Class.SurfaceAppearance` properties, click each property value and assign the appropriate texture image from the asset dropdown:
 
    1. Set the **ColorMap** to the **\_ALB** texture image.
    2. Set the **MetalnessMap** to the **\_MTL** texture image.
@@ -62,12 +58,12 @@ After successful import, your model object should populate in your project as a 
 
 ## Convert rigid accessories
 
-After importing your asset into Studio, you can begin **fitting** your imported object to a mannequin and **converting** the `Class.Model` object into a `Class.Accessory`. When fitting and converting your accessory it's important to use the [**Accessory Fitting Tool (AFT)**](../accessories/accessory-fitting-tool.md) to correctly preview the placement and apply the correct configurations to your accessory.
+After importing your asset into Studio, you can begin **fitting** your imported object to a mannequin and **converting** the `Class.Model` object into a `Class.Accessory`. When fitting and converting your accessory it's important to use the [Accessory Fitting Tool](../accessories/accessory-fitting-tool.md) (AFT) to correctly preview the placement and apply the correct configurations to your accessory.
 
 To fit and generate your accessory:
 
-1. In the **Avatar** tab, open the **Accessory Fitting Tool (AFT)**.
-2. In the new AFT panel, select the **Part** field and, in the workspace, select the accessory `Class.MeshPart` object in the workspace and press **Next**.
+1. In the toolbar's **Avatar** tab, click **Accessory** to open the AFT.
+2. In the tool's panel, select the **Part** field and, in the workspace, select the accessory `Class.MeshPart` object in the workspace and press **Next**.
 
    <img src="../../assets/art/accessories/creating-rigid/AFT-Select-Mesh.png" />
 
@@ -88,7 +84,7 @@ To fit and generate your accessory:
 5. Using both the AFT preview window and the workspace, adjust the position, scale, and rotation of the accessory.
 
    1. Use the AFT preview window and your mannequin as an accurate preview of how your asset fits on the character. The clothing mannequin in the workspace does not accurately portray how rigid accessories attach.
-   2. In the workspace, use the **Move**, **Scale**, and **Rotate** tools in the workspace to adjust the positioning of your rigid accessory.
+   2. In the workspace, use the **Move**, **Scale**, and **Rotate** tools to adjust the positioning of your rigid accessory.
    3. If you accidentally select something else, click back into the AFT panel to reselect the accessory and resume your adjustments using the transformation tools.
 
       <video controls src="../../assets/art/accessories/creating-rigid/Fitting-Mask.mp4" width="100%"></video>
@@ -99,6 +95,6 @@ After successful fitting and converting, your 3D model should populate in your p
 
 - Begin the process of [uploading and publishing](../../marketplace/publish-to-marketplace.md#upload-an-asset) the accessory to the Marketplace.
 
-- Use the accessory in your current experience by equipping it to character models with [HumanoidDescription](../../characters/appearance.md#humanoiddescription), or by dragging and dropping the accessory under the appropriate character `Class.Model` object.
+- Use the accessory in your current experience by equipping it to character models with [HumanoidDescription](../../characters/appearance.md#manually-modify-appearance), or by dragging and dropping the accessory under the appropriate character `Class.Model` object.
 
 - Save the accessory to your [Toolbox](../../projects/assets/toolbox.md) or make it public on the [Creator Store](../../production/creator-store.md) to share or use within any of your experiences.

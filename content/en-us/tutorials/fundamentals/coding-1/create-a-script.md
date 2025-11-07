@@ -1,17 +1,17 @@
 ---
 title: Create a script
-description: Learn how to create a script in Roblox Studio using Lua. Great for beginners interested in coding or computer science on Roblox.
+description: Learn how to create a script in Roblox Studio using Luau. Great for beginners interested in coding or computer science on Roblox.
 next: /tutorials/fundamentals/coding-1/object-properties
 prev: /tutorials/fundamentals/coding-1/landing
 ---
 
-**Coding** is the process of creating instructions for computers to follow. Just like people use different languages, such as English and Spanish, so do programs. Roblox uses the coding language **Lua**.
+**Coding** is the process of creating instructions for computers to follow. Just like people use different languages, such as English and Spanish, so do programs. Roblox uses the coding language **Luau**.
 
 This article will cover how to start coding in Roblox, introducing common concepts like scripts, data types, and variables. By the end, you'll be able to type out code that displays messages in Roblox Studio.
 
 ## Code with scripts
 
-In Roblox Studio, lines of Lua code are held in **scripts**. These scripts give the game sets of instructions on how to give players health points, create a rain of fireballs, or anything else imaginable.
+In Roblox Studio, lines of Luau code are held in **scripts**. These scripts give the game sets of instructions on how to give players health points, create a rain of fireballs, or anything else imaginable.
 
 ### Create a script
 
@@ -36,22 +36,14 @@ To find the script next time you open up Roblox Studio, click on the name of the
 
 ### Test output
 
-You can see the result of running the default code with the **Output** window. The Output window is typically at the bottom of Roblox Studio, but if you've never used it before, you may need to enable it.
+You can see the result of running the default code with the **Output** window. If you've never used it before, you'll need to enable it.
 
-You'll need the Output window throughout this course, so now is a good time to enable it if you haven't already.
-
-1. Select the **View** menu tab.
-
-2. Click **Output**.
-   <img src="../../../assets/education/coding-1/enable-output-window_600x200.png" width="80%" />
-   The window will appear at the bottom of Roblox Studio.
-   <img src="../../../assets/education/coding-1/coding-1-output-window_800.png" width="80%"/>
-
-3. To test the script, click **Play**. `Hello world!` will show up in the Output window.
+1. From Studio's Window menu, open the [Output](../../../studio/output.md) window.
+2. To test the script, [initiate a playtest](../../../studio/testing-modes.md#playtesting). `Hello world!` will show up in the output.
 
    <img src="../../../assets/education/coding-1/helloworld-output_800x150.png" width="80%"/>
 
-4. Click **Stop** to end the playtest. You can now return to the Script tab.
+3. Click **Stop** to end the playtest. You can now return to the **Script** tab.
 
 ## Identify data types
 
@@ -73,13 +65,13 @@ Strings like `"Hello World"` always sit inside quotation marks, `"like this"`. M
 
 **Variables** are containers for information the program can use and change, like player names or points.
 
-**Declaring** a variable is what coders call the process of creating a new variable. In Lua, to declare a new variable, type `local`, then type the name for the new variable. A variable that can hold a player name might look like: `local playerName`
+**Declaring** a variable is what coders call the process of creating a new variable. In Luau, to declare a new variable, type `local`, then type the name for the new variable. A variable that can hold a player name might look like: `local playerName`
 
 <Alert severity="info">
-When declaring new variables, some coding languages require that you also state what data type the variable can use. For example, a variable in Java would be `String name = "Pavel"`. Lua only requires a name.
+When declaring new variables, some coding languages require that you also state what data type the variable can use. For example, a variable in Java would be `String name = "Pavel"`. Luau only requires a name.
 </Alert>
 
-In Lua, variables can be global or local. You'll usually use **local** variables. Local variables can only be used within the script or chunk of code where they were created. Global variables can potentially be used by other scripts, but too many global variables can make your experience slow and unresponsive. It's better to stay in the habit of making variables local unless necessary.
+In Luau, variables can be global or local. You'll usually use **local** variables. Local variables can only be used within the script or chunk of code where they were created. Global variables can potentially be used by other scripts, but too many global variables can make your experience slow and unresponsive. It's better to stay in the habit of making variables local unless necessary.
 
 ### Use variables and strings together
 

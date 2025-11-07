@@ -74,8 +74,8 @@ To view and edit the anchor point of a selected `Class.GuiObject`:
 
 2. Enter a new `Datatype.Vector2` coordinate and press <kbd>Enter</kbd>.
 
-	 <Alert severity="success">
-	 Studio infers the intended value pair when a single number is entered. For example, entering simply `0.5` will be converted to <Typography noWrap>`0.5, 0.5`</Typography> for a center anchor point.
+    <Alert severity="success">
+    Studio infers the intended value pair when a single number is entered. For example, entering simply `0.5` will be converted to <Typography noWrap>`0.5, 0.5`</Typography> for a center anchor point.
    </Alert>
 
 ### ZIndex
@@ -121,17 +121,13 @@ Layout structures let you quickly organize and display `Class.GuiObject|GuiObjec
 
 ## Cross-platform factors
 
-Roblox is inherently **cross-platform**, as players can discover and join experiences on a PC or console, then later pick up their phone and continue where they left off. You should design your Roblox experiences to be accessible and enjoyable on **all** platforms that you choose to support, instead of optimizing for one platform and neglecting others.
+Roblox is inherently [cross‑platform](../projects/cross-platform.md), as players can discover and join experiences on their phone or tablet, then later continue where they left off on their PC or console. You should design your Roblox experiences to be accessible and enjoyable on **all** platforms that you choose to support, instead of optimizing for one platform and neglecting others.
 
 ### Reserved zones
 
 On mobile devices, the default controls occupy a portion of the bottom-left and bottom-right corners of the screen. When you design an experience's UI, avoid placing important info or virtual buttons in these zones.
 
 <img src="../assets/ui/misc/Touch-Reserved-Zones.png" width="840" />
-
-<Alert severity="warning">
-If your experience uses the default control setting of `Enum.DevTouchMovementMode|DevTouchMovementMode.UserChoice`, players on mobile devices will be able to choose their input from **Dynamic&nbsp;Thumbstick**, **Classic&nbsp;Thumbstick**, or **Tap&nbsp;to&nbsp;Move**, causing the on-screen controls and reserved zones to vary slightly. Remember to design your UI around this possibility.
-</Alert>
 
 ### Thumb zones
 
@@ -176,7 +172,7 @@ A reliable approach on both phones and tablets is **relative** positioning of cu
 
 The following code, placed in a client-side script within `Class.StarterPlayerScripts`, fetches the position of the jump button and creates a placeholder [button](../ui/buttons.md) 20 pixels to its left.
 
-```lua title='Client Script - Custom Button Near Jump Button'
+```lua title="Client Script - Custom Button Near Jump Button"
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 

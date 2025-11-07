@@ -30,7 +30,7 @@ To use the Custom Thumbnail Tool:
 
 1. Install the [Custom Thumbnail Tool plugin](https://www.roblox.com/library/11628621048/UGC-Custom-Thumbnail-Tool). This may require restarting Studio.
 2. In the **Explorer** window, select the `Class.Accessory` you intend to create a thumbnail for.
-3. With the `Class.Accessory` highlighted in the **Explorer** window, navigate to the **Plugins tab** and click the **UGC Thumbnail Tool**. The viewport display updates and centers on the selected accessory in the workspace.
+3. With the `Class.Accessory` highlighted in the **Explorer** window, navigate to the **Plugins** tab and click the **UGC Thumbnail Tool**. The viewport display updates and centers on the selected accessory in the workspace.
 4. Adjust the viewport to center on your accessory. Use the following controls to help navigate the camera:
 
    - <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to pan the camera.
@@ -39,10 +39,7 @@ To use the Custom Thumbnail Tool:
    - Hold <kbd>Shift</kbd> for fine adjustment.
 
 5. When complete, click **Accept** to generate the thumbnail configuration objects.
-6. You can preview the thumbnail by right-clicking the accessory in the Explorer window and selecting **Save To Roblox…**. The Asset Configuration dialog appears and displays the current thumbnail.
-   <img
-   src="../assets/publishing/marketplace/Asset-Configure-Dropdown.png"
-   width="600" />
+6. You can preview the thumbnail by right-clicking the accessory in the **Explorer** window and selecting **Save To Roblox…**. The **Asset Configuration** window appears and displays the current thumbnail.
 
 If your thumbnail does not look correct, **repeat steps 2-5** to overwrite the existing thumbnail data.
 

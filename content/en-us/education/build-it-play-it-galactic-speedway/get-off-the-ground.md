@@ -12,19 +12,9 @@ All of the parts for building your driftspeeder and the code for the annual Junk
 
 ## Open the template
 
-Time to open Roblox Studio! If you need to, [download Studio](https://www.roblox.com/create) and come back to this page when you're ready.
+Time to open Roblox Studio! If you need to, [download Studio](https://www.roblox.com/create), then click the following button to open the **Galactic Speedway** template.
 
-1. Open **Roblox Studio**.
-2. Download the template by clicking the button below.
-
-   <a href="../../assets/education/build-it-play-it-galactic-speedway/get-off-the-ground/galactic-speedway-template.rbxl">
-   <Button variant="contained">Download</Button>
-   </a>
-
-3. In Roblox Studio, in the top left, click **File > Open from File** and select the downloaded file `Galactic-Speedway-Template.rbxl`.
-
-   <img
-     src="../../assets/education/build-it-play-it-galactic-speedway/get-off-the-ground/open-from-file.png" width="50%" />
+<UseStudioButton variant="" buttonTextTranslationKey="Action.EditInStudio" placeId="8136629976" universeId="3128984898" />
 
 ## Junker's Canyon
 
@@ -34,12 +24,12 @@ With the template open, you can see Junker's Canyon, home to crafty builders and
 
 The first time you launch Roblox Studio, extra windows might open up that aren't needed right now. Closing the extra windows will give you more space to work. You can always open them up again later.
 
-1. Close each window on the left of the 3D view by clicking the **&times;**. If you don't see anything to close, go to the next step.
+1. Close each window on the **left** of the 3D view by clicking the **&times;** in the window's upper-right corner. If you don't see anything to close on the left, go to the next step.
 
-   <img
-   src="../../assets/education/build-it-play-it-galactic-speedway/get-off-the-ground/close-toolbox.png" width="100%" />
+2. Leave the **Explorer** and **Properties** windows open on the right side of Studio. If you have done each step correctly, Studio looks like the following image.
 
-2. Leave the windows on the right open. Studio should look like the image below.
+   <img src="../../assets/education/general/Studio-Setup-Galactic-Speedway.jpg" width="960" />
 
-   <img
-   src="../../assets/education/build-it-play-it-galactic-speedway/get-off-the-ground/whole-interface.png" width="100%" />
+   <Alert severity="warning">
+   If you don't see the **Explorer** and **Properties** windows on the right, toggle them on from Studio's **Window** menu.
+   </Alert>

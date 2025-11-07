@@ -34,7 +34,7 @@ To create credible volcanoes, it's important to reference real-world volcanic er
 
 <img src="../../../assets/tutorials/creating-volcanoes/Volcano-NoComponents.jpg" alt="A far out view of an Iceland volcanic eruption."  width="80%" />
 
-It's useful to break down a volcano that's erupting into individual components so that you can plan how to utilize different VFX objects to mimic their real-world counterparts. To demonstrate, this tutorial breaks the sample volcano into six unique components:
+It's useful to break down a volcano that's erupting into individual components so that you can plan how to utilize different VFX objects to mimic their real-world counterparts. To demonstrate, this tutorial breaks the sample volcano into five unique components:
 
 - **Surface Ripples** – The small waves of lava on the surface of the caldera.
 - **Embers** – The small, light pieces of molten rock that rise to the sky from the caldera.
@@ -148,7 +148,7 @@ To recreate the global lighting in the sample [Volcano Island - Complete](https:
    1. Set **Ambient** to `133, 152, 176` to set a light gray hue over the entire outdoor environment.
    1. Set **Brightness** to `2` to make the global light source slightly dimmer.
    1. Set **ColorShift_Top** to `207, 178, 72` to set a yellow hue to the light that reflects from surfaces facing the global light source.
-   1. Set **Technology** to **Future** to update the lighting technology system.
+   1. Set **LightingStyle** to **Realistic** to utilize Roblox's most advanced lighting technology.
    1. Set **ClockTime** to `4.3` to set the time of day about a quarter after 4am.
    1. Set **GeographicLatitude** to `199` to modify the position of the moon.
    1. Set **ExposureCompensation** to `-1` to expose the environment to half of the exposure from the moon.
@@ -234,7 +234,7 @@ To recreate the surface ripples on top of the caldera in the sample [Volcano Isl
       1. Set **Texture** to `rbxassetid://16829556885` to render particles that look like foam ripples.
       1. Set **Orientation** to **VelocityPerpendicular** to emit particles perpendicular to the direction of their movement.
       1. Set **Color** to a color sequence in which particles are brown, become bright red, then turn maroon.
-         1. Click the **Color** property, then click the ⋯ button. A color sequence pop-up displays.
+         1. Click the **Color** property, then click the **&ctdot;** button. A color sequence pop-up displays.
 
          <img src="../../../assets/tutorials/creating-waterfalls/Cascades-1G1.png" alt="A close up view of Studio's Properties window with the Color property's ellipsis button highlighted." width="60%" />
 
@@ -248,7 +248,7 @@ To recreate the surface ripples on top of the caldera in the sample [Volcano Isl
          <img src="../../../assets/tutorials/creating-volcanoes/Ripples-3DColor.jpg" alt="" width="80%" />
 
       1. Set **Size** to a number sequence in which particles increase in size toward the middle of their lifetime before returning to their original size with a small window of variation.
-         1. Click the **Size** property, then click the ⋯ button. A number sequence pop-up displays. By default, the graph is a straight line and the image remains the same size from left to right.
+         1. Click the **Size** property, then click the **&ctdot;** button. A number sequence pop-up displays. By default, the graph is a straight line and the image remains the same size from left to right.
 
          <img src="../../../assets/tutorials/creating-waterfalls/Cascades-1H1.png" alt="A close up view of the Size number sequence graph." width="80%" />
 
@@ -265,7 +265,7 @@ To recreate the surface ripples on top of the caldera in the sample [Volcano Isl
          <img src="../../../assets/tutorials/creating-volcanoes/Ripples-3DSize.jpg" alt="" width="80%" />
 
       1. Set **Transparency** to a number sequence in which particles start as transparent, become more opaque toward the middle of their lifetime, then become transparent again at the end of their lifetime.
-         1. Click the **Transparency** property, then click the ⋯ button.
+         1. Click the **Transparency** property, then click the **&ctdot;** button.
          1. Set the following time and value properties throughout the number sequence:
 
          - **Time** = `0`, **Value** = `1`, **Envelope** = `0`

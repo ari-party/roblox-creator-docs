@@ -17,19 +17,19 @@ To demonstrate parent and child relationships, you'll start with a single part t
 
 1. Create a new part and rename it. This lesson will use ColorPart.
 
-2. Right-click the **part** and select **Insert Object** > **New Script**. Rename the script ColorChanger.
+2. Right-click the **part** and select **Insert Object** ⟩ **New Script**. Rename the script **ColorChanger**.
    <img src="../../../assets/education/coding-1/color-changer_400x216.png" width="40%" />
 
-3. Copy and paste the code below into ColorChanger. This version of the code is the same that you used before. It assigns a specific part to a variable.
+3. Copy and paste the code below into **ColorChanger**. This version of the code is the same that you used before. It assigns a specific part to a variable.
 
-   ```lua title='Changes the color of ColorPart'
+   ```lua title="Changes the color of ColorPart"
    local Workspace = game:GetService("Workspace")
 
    local colorPart = Workspace.ColorPart
    colorPart.Color = Color3.fromRGB(50, 240, 255)
    ```
 
-4.Test and check that the part changes color as desired.
+4. Test and check that the part changes color as desired.
 
 ## Parent and child relationships
 
@@ -45,7 +45,7 @@ With the current script, you can only change the color of a **single part** name
 
 1. In the script, replace the named part with `script.Parent`. Check your code below.
 
-   ```lua title='Changes the color of the parent object'
+   ```lua title="Changes the color of the parent object"
    local colorPart = script.Parent
    colorPart.Color = Color3.fromRGB(50, 240, 255)
    ```

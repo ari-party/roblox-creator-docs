@@ -5,7 +5,7 @@ description: Learn how to manage and optimize your place files in Roblox.
 
 Each Roblox experience consists of one or more [places](index.md#places), and Studio uploads your place data to Roblox's servers whenever you save or publish to Roblox in the **File** menu.
 
-You might also want to export local copies of places for use with a version control system or other [external tools](external-tools.md). To export your place in Studio, select **Save to File** or **Download a Copy** from the **File** menu. Studio offers two file formats:
+You might also want to export local copies of places for use with a version control system or other [external tools](external-tools.md). To export your place in Studio, select **Save&nbsp;to&nbsp;File** or **Download&nbsp;a&nbsp;Copy** from the **File** menu. Studio offers two file formats:
 
 - `.rbxl` is the binary place file format. This format is compact, but not human-readable.
 - `.rbxlx` is the XML-based place file format, which is quite a bit larger on disk than the binary format.
@@ -18,14 +18,14 @@ Very few places, even the most complex ones, reach this limit, and when they do,
 
 ### Auto-recovery files
 
-If saving to Roblox fails due to the file size limit, Studio automatically generates a backup of your place called a **recovery file**. The frequency of auto-recovery backups depends on whether your experience has [Team Create](collaboration.md) enabled:
+If saving to Roblox fails due to the file size limit, Studio automatically generates a backup of your place called a **recovery file**. The frequency of auto-recovery backups depends on whether your experience has [collaboration](collaboration.md) enabled:
 
-- If you have Team Create enabled and saving to Roblox fails, Studio backs up the last three save attempts as recovery files on your system.
-- If Team Create is disabled, Studio uses **Auto-Recovery** settings from **File** &rang; **Studio Settings**.
+- If you have collaboration enabled and saving to Roblox fails, Studio backs up the last three save attempts as recovery files on your system.
+- If collaboration is disabled, Studio uses **Auto-Recovery** settings from [Studio Settings](../studio/setup.md#customization).
 
 On Windows, recovery files are located in `C:\Users\Admin\AppData\Local\Roblox\RobloxStudio\AutoSaves`.
 
-On macOS, you can find them in `/Users/your-username/Library/Application Support/Roblox/RobloxStudio/AutoSaves/`.
+On Mac, you can find them in `/Users/your-username/Library/Application Support/Roblox/RobloxStudio/AutoSaves/`.
 
 ## Troubleshoot place file size
 
@@ -53,7 +53,7 @@ Unreferenced or hidden assets can accumulate over time and unnecessarily increas
 Reducing or simplifying terrain can significantly reduce place size and improve performance. Avoiding excessive terrain features like dense forests or complex hills helps make experiences run faster and more efficiently. Of course, the experience should match your artistic vision, but consider the following optimizations:
 
 1. Horizontal layers of the same material/occupancy compress much better than sloped layers. If possible, try to limit subsurface detail to horizontal layers.
-1. Turn on [wireframe rendering](../studio/view-tab.md#grid-and-wireframe) and check for messy holes or misplaced water under the terrain surface. These mistakes can increase compressed size.
+1. Turn on **Show Wireframe Rendering** from Studio's **View** menu and check for messy holes or misplaced water under the terrain surface. These mistakes can increase compressed size.
 1. There are community plugins that optimize non-visible blocks of terrain for better compression, such as [this one](https://create.roblox.com/store/asset/133396894381603/Terrain-File-Size-Optimizer).
 
 ### Collision fidelity

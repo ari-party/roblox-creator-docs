@@ -13,9 +13,7 @@ It can be interesting to learn about other players. The **ProfileCard** [develop
 
 To use the **ProfileCard** module in an experience:
 
-1. From the [View](../../studio/view-tab.md) tab, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
-
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
+1. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
 
    <img src="../../assets/studio/toolbox/Creator-Store-Tab.png" width="360" />
 
@@ -23,17 +21,13 @@ To use the **ProfileCard** module in an experience:
 
    <img src="../../assets/studio/toolbox/Creator-Store-Categories-See-All.png" width="360" />
 
-1. Locate and click the **Dev Modules** tile.
-
-   <img src="../../assets/studio/toolbox/Creator-Store-Categories-Dev-Modules.png" width="200" />
+1. Locate and click the **Packages** tile.
 
 1. Locate the **Profile Card** module and click it, or drag-and-drop it into the 3D view.
 
    <img src="../../assets/developer-modules/profile-card/Toolbox-Icon.png" width="143" />
 
-1. In the [Explorer](../../studio/explorer.md) window, move the entire **ProfileCard** model into **ServerScriptService**. Upon running the experience, the module will distribute itself to various services and begin running.
-
-   <img src="../../assets/developer-modules/profile-card/Move-Package.png" width="320" />
+1. In the [Explorer](../../studio/explorer.md) window, move the entire **ProfileCard** model into `Class.ReplicatedStorage`. Upon running the experience the module will begin running.
 
 ### Views
 
@@ -70,7 +64,7 @@ When viewing your own card, it appears as it would to another player, except pla
 
 </TabItem>
 <TabItem label="Other Player's Card">
-Icons do not appear over other characters, but clicking on a character will open their profile card. The button in the upper-right corner of the card lets you quickly request that player as a friend.
+Icons do not appear over other characters, but clicking on a character will open their profile card. The button in the upper-right corner of the card lets you quickly request that player as a connection.
 
 Note that players under the age of 13 will only see the status message if it's appropriate for their age group.
 
@@ -207,10 +201,10 @@ Overrides default configuration options through the following keys/values in the
 </tbody>
 </table>
 
-```lua title='LocalScript' highlight='5-10'
+```lua title="LocalScript" highlight="5-10"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ProfileCard = require(ReplicatedStorage:WaitForChild("ProfileCard"))
+local ProfileCard = require(ReplicatedStorage.ProfileCard)
 
 ProfileCard.configure({
 	alwaysOnTop = true,

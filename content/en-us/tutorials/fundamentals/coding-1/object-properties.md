@@ -1,6 +1,6 @@
 ---
 title: Object properties
-description: Learn how to use Lua to change the appearance properties of different objects, such as color and shape.
+description: Learn how to use Luau to change the appearance properties of different objects, such as color and shape.
 next: /tutorials/fundamentals/coding-1/parents-and-children
 prev: /tutorials/fundamentals/coding-1/create-a-script
 ---
@@ -9,16 +9,15 @@ prev: /tutorials/fundamentals/coding-1/create-a-script
 
 To learn about properties, you'll explore common properties found in parts and then write a script to change part colors.
 
-## The properties window
+## The Properties window
 
 The **Properties** window can be used to learn about an object's properties. Use it to take a look at a part's properties.
 
 1. Select a part.
 
 2. In the **Properties** Window on the bottom-right, look at the different properties that can be changed, like color, size, material and transparency. You can also change most properties in this window from within a script.
-   <img src="../../../assets/education/coding-1/part-properties_400.png" width="40%" />
 
-If you don't see the Properties window, go to the **View** tab and click the Properties button.
+   <img src="../../../assets/education/coding-1/part-properties_400.png" width="40%" />
 
 ## Add comments to scripts
 
@@ -85,7 +84,7 @@ For the part, the script will change its Color property to a new Color3, a data 
 
    Your code should look similar to the code below.
 
-   ```lua title='Updates the color of PracticePart'
+   ```lua title="Updates the color of PracticePart"
    -- Changes the color of a part
    workspace.PracticePart.Color = Color3.fromRGB(255, 230, 50)
    ```
@@ -94,7 +93,7 @@ For the part, the script will change its Color property to a new Color3, a data 
    If you want to type an RGB value manually, make sure each number is between 0 to 255 and separated by commas, such as (10, 50, 10).
    </Alert>
 
-4. Press **Play** to test that your part changes color.
+4. [Initiate a playtest](../../../studio/testing-modes.md#playtesting) to test that your part changes color.
 
 ## Summary
 

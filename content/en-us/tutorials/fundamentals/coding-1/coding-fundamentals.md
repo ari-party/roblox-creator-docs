@@ -1,14 +1,14 @@
 ---
 title: Coding fundamentals
-description: Teaches the basics of coding with Lua.
+description: Teaches the basics of coding with Luau.
 next: /tutorials/fundamentals/coding-1/landing
 ---
 
 ### Series description
 
-Start coding on Roblox with this easy-to-follow series covering the fundamentals of how to use the programming language Lua. These courses are perfect for those new to coding or just starting with Lua. Each course centers around a foundational computer science principle, and features individual lessons with step-by-step tutorials you can use to create your own experiences on Roblox.
+Start coding on Roblox with this easy-to-follow series covering the fundamentals of how to use the programming language Luau. These courses are perfect for those new to coding or just starting with Luau. Each course centers around a foundational computer science principle, and features individual lessons with step-by-step tutorials you can use to create your own experiences on Roblox.
 
-Before beginning this course, the reader should have basic knowledge of Roblox Studio, as demonstrated in [Introduction to Studio](../../first-experience/index.md).
+Before beginning this course, the reader should have basic knowledge of Roblox Studio, as demonstrated in the [Studio](../../curriculums/studio/index.md) and [Building](../../curriculums/building/index.md) lesson.
 
 ### Series contents
 
@@ -21,7 +21,7 @@ Before beginning this course, the reader should have basic knowledge of Roblox S
 </thead>
 <tbody>
    <tr>
-    <td>[Variables and objects](../coding-1/landing.md)</td>
+    <td>[Variables and objects](landing.md)</td>
     <td> Create your first script and start making things happen with code. These tutorials cover variables, data types, and properties.</td>
    </tr>
    <tr>
@@ -42,7 +42,7 @@ Before beginning this course, the reader should have basic knowledge of Roblox S
    </tr>
    <tr>
    <td>[Organize code](../coding-6/landing.md)</td>
-    <td>Take your code organization a step further and learn about module scripts, a unique type of script that can interact with other scripts in Roblox Lua.</td>
+    <td>Take your code organization a step further and learn about module scripts, a unique type of script that can interact with other scripts in Luau.</td>
    </tr>
 </tbody>
 </table>

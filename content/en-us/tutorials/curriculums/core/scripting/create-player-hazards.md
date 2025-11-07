@@ -141,10 +141,10 @@ Players.PlayerRemoving:Connect(onPlayerRemoved)
 The code defines functions to reset coin counts during the appropriate
 lifecycle events:
 
-- `Class.Player.PlayerAdded` fires when a player joins the experience, and sets
+- `Class.Players.PlayerAdded` fires when a player joins the experience, and sets
   the coin count to `0`.
 - `Class.Player.CharacterAdded` fires when a player's character model is added
-  to the world. It occurs after `Class.Player.PlayerAdded|PlayerAdded` and
+  to the world. It occurs after `Class.Players.PlayerAdded|PlayerAdded` and
   whenever the player respawns.
 - `Class.Humanoid.Died` fires when a player dies, and sets
   the coin count to `0`. `Library.task.spawn()` creates
@@ -162,9 +162,9 @@ lifecycle events:
 It's time to see if the player hazard works as intended. When you touch the
 water, your character should die and lose their coins. To test your game:
 
-1. In the menu bar, click the **Play** button. Studio enters playtest mode.
+1. Choose **Test** from the dropdown menu and click the **Play** button to its right to begin the playtest.
 
-   <img src="../../../../assets/studio/general/Quick-Access-Toolbar-Play.png" alt="Studio's Home tab with the Play button highlighted in the menu bar." width="716" />
+   <img src="../../../../assets/studio/general/Mezzanine-Testing-Mode-Test.png" width="800" alt="Test option in the testing modes dropdown of Studio's mezzanine." />
 
 1. Move your character to collect some coins, then jump in the water. If your
    scripts are working correctly, your character dies, and the coin count on

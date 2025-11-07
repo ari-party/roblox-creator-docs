@@ -15,7 +15,7 @@ Using the [Island Jump - Final](https://www.roblox.com/games/14238807008/Island-
 
 ## Get asset library
 
-The **Creator Store** is a tab of the Toolbox that you can use to find all assets that are made by Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. You can use the Creator Store to add an individual asset or asset library directly into an open experience.
+The **Creator Store** is a tab of the **Toolbox** that you can use to find all assets that are made by Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. You can use the Creator Store to add an individual asset or asset library directly into an open experience.
 
 Asset libraries are collections of assets you can place into a central location of your experience for easy access and reuse. The asset library you will use for your project from the Creator Store includes six 3D assets, two custom `Class.MaterialVariant` materials, and the final particle effects from [Create Basic Visual Effects](../../core/building/create-basic-visual-effects.md). The six meshes are as follows:
 
@@ -56,20 +56,16 @@ You can add the library to your inventory within Studio by clicking the **Add to
 
 To get the asset library from your inventory into your experience:
 
-1. In the menu bar, select the **View** tab.
-2. In the **Show** section, click **Toolbox**. The **Toolbox** window displays.
-
-   <img src="../../../../assets/studio/general/View-Tab-Toolbox.png" alt="Studio's View tab with the Toolbox tool highlighted." width="876" />
-
-3. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
+1. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../../../projects/assets/toolbox.md).
+2. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
 
    <img src="../../../../assets/studio/toolbox/Inventory-Tab.png" alt="Studio's Toolbox window with the Inventory tab highlighted." width="360" />
 
-4. Click the **Core Building and Scripting** tile. The library displays in the viewport, but some of the meshes do not display the correct texture. This is because their materials are set to custom variants that are not yet in `Class.MaterialService`.
+3. Click the **Core Building and Scripting** tile. The library displays in the viewport, but some of the meshes do not display the correct texture. This is because their materials are set to custom variants that are not yet in `Class.MaterialService`.
 
    <img src="../../../../assets/tutorials/core-building-and-scripting/Asset-Library-Complete.jpg" alt="All meshes from the asset library hover above the water. Some of the meshes are missing their textures so they appear gray." width="800" />
 
-5. In the **Explorer** window, select **Moss_Lumpy_A** and **Moss_Strata_Noisy_A** in the sample asset library, then drag them into the **MaterialService** container. The asset library updates to display the correct materials.
+4. In the **Explorer** window, select **Moss_Lumpy_A** and **Moss_Strata_Noisy_A** in the sample asset library, then drag them into the **MaterialService** container. The asset library updates to display the correct materials.
 
    <img src="../../../../assets/tutorials/core-building-and-scripting/MaterialService-Contents.png" alt="Studio's Explorer window with both the Moss_LumpyA and Moss_Strata_Noisy_A textures highlighted underneath MaterialService." width="320" />
 
@@ -124,13 +120,13 @@ To apply the asset library to your platforms:
    1. Right-click **PlatformA**. A contextual menu displays.
    1. From the contextual menu, select **Copy**.
 1. In the **Platforms** folder, paste **PlatformA** into the **Level_1** model.
-1. In the **Home** tab, use the **Move** and **Scale** tools to position and scale the model to the size of your first placeholder sea stack platform.
+1. From the toolbar, use the **Move** and **Scale** tools to position and scale the model to the size of your first placeholder sea stack platform.
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/First-Platform.jpg" alt="A view of the sample laser tag experience with only the first platform visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/First-Platform.jpg" alt="A view of the sample laser tag experience with only the first platform visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 1. Repeat this process, adding and configuring either a **PlatformA** or **PlatformB** asset to the top of each placeholder sea stack platform.
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Platforms-5.jpg" alt="A view of the sample laser tag experience with all of the platforms visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Platforms-5.jpg" alt="A view of the sample laser tag experience with all of the platforms visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
   </TabItem>
   <TabItem key = "2" label="Recreate the sample">
@@ -146,7 +142,7 @@ To exactly recreate the sea stack platforms within the sample [Island Jump - Fin
    1. Set **Origin.Position** to `-30, 3, 9`.
    1. Set **Scale** to `2.2`.
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/First-Platform.jpg" alt="A view of the sample laser tag experience with only the first platform visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/First-Platform.jpg" alt="A view of the sample laser tag experience with only the first platform visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 4. Repeat this process, adding and configuring the following **PlatformA** assets into their respective sea stack platform models:
 
@@ -182,7 +178,7 @@ To exactly recreate the sea stack platforms within the sample [Island Jump - Fin
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Platforms-4.jpg" alt="A view of the sample laser tag experience with all Platform A platforms visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Platforms-4.jpg" alt="A view of the sample laser tag experience with all Platform A platforms visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 5. Add and configure the following **PlatformB** assets into their respective sea stack platform models:
 
@@ -268,7 +264,7 @@ To exactly recreate the sea stack platforms within the sample [Island Jump - Fin
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Platforms-5.jpg" alt="A view of the sample laser tag experience with all of the platforms visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Platforms-5.jpg" alt="A view of the sample laser tag experience with all of the platforms visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
   </TabItem>
 </Tabs>
@@ -298,9 +294,9 @@ To apply the asset library to your sea stacks:
 
 1. In the **Explorer** window, navigate to the asset library and copy **SeaStackMesh**.
 1. In the **Platforms** folder, paste **SeaStackMesh** into one of your level models.
-1. In the **Home** tab, use the **Move**, **Scale**, and **Rotate** tools to position, scale, and rotate the mesh until it is the length of your placeholder sea stack. If necessary, use more than one instance of the **SeaStackMesh** mesh.
+1. From the toolbar, use the **Move**, **Scale**, and **Rotate** tools to position, scale, and rotate the mesh until it is the length of your placeholder sea stack. If necessary, use more than one instance of the **SeaStackMesh** mesh.
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-3.jpg" alt="A view of the sample laser tag experience with all of the platforms visible with the polished assets, as well as the first sea stack. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-3.jpg" alt="A view of the sample laser tag experience with all of the platforms visible with the polished assets, as well as the first sea stack. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 1. Repeat this process, adding and configuring more **SeaStackMesh** and **SeaStackCaveMesh** meshes for each respective sea stack and tunnel in your experience.
 
@@ -344,7 +340,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-3.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1 sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-3.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1 sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 4. Repeat this process, adding and configuring the following **SeaStackMesh** asset into the **Level_3b** model:
 
@@ -365,7 +361,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-4.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-2 sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-4.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-2 sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 5. Add and configure the following **SeaStackMesh** asset into the **Level_3c** model:
 
@@ -386,7 +382,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-5.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-3 sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-5.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-3 sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 6. Add and configure the following **SeaStackMesh** assets into the **Level_4a** model:
 
@@ -412,7 +408,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-6.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-4a sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-6.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-4a sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 7. Add and configure the following assets into the **Level_4b** model:
 
@@ -447,7 +443,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
    </tbody>
    </table>
 
-   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-7.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-4a and 4b sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+   <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-7.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-4a and 4b sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 8. Add and configure the following **SeaStackMesh** asset into the **Level_4c** model:
 
@@ -602,7 +598,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-12.png" alt="A view of the sample laser tag experience with all of the platforms and level 1-5b sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-12.png" alt="A view of the sample laser tag experience with all of the platforms and level 1-5b sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 13. Add and configure the following **SeaStackMesh** assets into the **Level_5c** model:
 
@@ -648,7 +644,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-13.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-5c sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-13.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-5c sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 14. Add and configure the following **SeaStackMesh** assets into the **Level_5d** model:
 
@@ -679,7 +675,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-14.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-5d sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-14.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-5d sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 15. Add and configure the following **SeaStackMesh** assets into the **Level_6a** model:
 
@@ -710,7 +706,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-15.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-6a sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-15.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-6a sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 16. Add and configure the following **SeaStackMesh** assets into the **Level_6b** model:
 
@@ -761,7 +757,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-16.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-6b sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-16.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-6b sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 17. Add and configure the following **SeaStackMesh** assets into the **Level_6c** model:
 
@@ -807,7 +803,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-17.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-6c sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-17.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-6c sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 18. Add and configure the following **SeaStackMesh** assets into the **Level_7a** model:
 
@@ -848,7 +844,7 @@ To exactly recreate the sea stacks within the sample [Island Jump - Final](https
       </tbody>
       </table>
 
-      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-18.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-7a sea stacks visible with the polished assets. Other greybox sea stacks are transluscent in the distance." width="80%" />
+      <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/SeaStacks-18.jpg" alt="A view of the sample laser tag experience with all of the platforms and level 1-7a sea stacks visible with the polished assets. Other greybox sea stacks are translucent in the distance." width="80%" />
 
 19. Delete your placeholder greybox sea stack platforms.
 
@@ -870,7 +866,7 @@ To apply the asset library to your coins:
 
 1. In the **Explorer** window, navigate to the asset library and copy **Coin**.
 1. In the **Platforms** folder, paste **Coin** into the **Coins** folder.
-1. In the **Home** tab, use the **Move** and **Rotate** tools to position and rotate the mesh until it's at the same configuration of first your placeholder coin.
+1. From the toolbar, use the **Move** and **Rotate** tools to position and rotate the mesh until it's at the same configuration of first your placeholder coin.
 1. Repeat this process, adding and configuring **coin** assets wherever you set your initial coin placeholder objects.
 
    <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Coins-Final.jpg" alt="A view of shiny gold coins hovering over each level of sea stack platform." width="80%" />
@@ -1052,7 +1048,7 @@ To apply the asset library to your mountains:
 
 1. In the **Explorer** window, navigate to the asset library and copy **MountainMesh**.
 1. In the **Platforms** folder, paste **MountainMesh** into the **Mountains** folder.
-1. In the **Home** tab, use the **Move**, **Scale**, and **Rotate** tools to position, scale, and rotate the mesh along the border of your water terrain.
+1. From the toolbar, use the **Move**, **Scale**, and **Rotate** tools to position, scale, and rotate the mesh along the border of your water terrain.
 1. Repeat this process, adding and configuring mountains of different sizes and rotations until the border of your water terrain has cover.
 
    <img src="../../../../assets/tutorials/core-building-and-scripting/ApplyAssetLibrary/Mountains-Final.jpg" alt="A view of the polished sea stacks, platform, and coins, with a mountain range in the background." width="80%" />
@@ -1168,17 +1164,13 @@ After you finish applying your asset library and constructing your environment, 
 
 To playtest your experience:
 
-1. In the menu bar, click the **Play** button. Studio enters playtest mode.
+1. Choose **Test** from the dropdown menu and click the **Play** button to its right to begin the playtest.
 
-   <img src="../../../../assets/studio/general/Quick-Access-Toolbar-Play.png" alt="Studio's Home tab with the Play button highlighted in the menu bar." width="716" />
+   <img src="../../../../assets/studio/general/Mezzanine-Testing-Mode-Test.png" width="800" alt="Test option in the testing modes dropdown of Studio's mezzanine." />
 
 1. Play your experience and try to reach the flare at the top of the stacks.
-1. When you're done, navigate back to the menu bar, and click the **Stop** button. Studio exits playtest mode.
+1. When you're done, click the **Stop** button. Studio exits playtest mode.
 
-   <img src="../../../../assets/studio/general/Quick-Access-Toolbar-Stop.png" alt="Studio's Home tab with the Stop button highlighted in the menu bar." width="716" />
+   <img src="../../../../assets/studio/general/Mezzanine-Testing-Stop.png" width="800" alt="Stop button indicated in Studio's mezzanine." />
 
 Congratulations on completing the Core Curriculum! Now that you have experience creating a simple experience from start to finish, you can extend your project with new gameplay features or additional levels, explore Studio's additional [features](../../../../platform.md), or follow additional tutorial curricula, such as the [Environmental art curriculum](../../environmental-art/index.md) that teaches you how to create a high-quality laser tag environment. Happy creating!
-
-<Alert severity="info">
-We're interested in hearing from you about your experience following the Core Curriculum. If you have any questions, concerns, or additional feedback on the process, please comment on our [Core Curriculum Q&A](https://devforum.roblox.com/t/feedback-on-core-curriculum/2592219).
-</Alert>

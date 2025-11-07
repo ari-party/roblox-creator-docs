@@ -11,8 +11,6 @@ import TextFiltering from '../includes/text-filtering/text-filtering.md'
 
 - An `Class.ImageLabel` is a rectangle with an image [asset](../projects/assets/index.md) that you can style through customizable properties. Alongside [textures and decals](../parts/textures-decals.md), this lets you display images in an experience.
 
-<img src="../assets/ui/ui-objects/Labels-Example.jpg" width="800" />
-
 ## Create labels on the screen
 
 Labels on a screen are useful for things like displaying images of characters
@@ -61,7 +59,7 @@ To add a label to the face of a part:
 
 ## Adjust ImageLabel properties
 
-All images within an `Class.ImageLabel` must be assets that have been [imported](../projects/assets/manager.md#import-assets) to Studio. While the image automatically scales to fit the area of the rectangle, the image looks best when it displays at its native resolution.
+All images within an `Class.ImageLabel` must be assets that have been [imported](../projects/assets/manager.md#asset-import) to Studio. While the image automatically scales to fit the area of the rectangle, the image looks best when it displays at its native resolution.
 
 You can customize the visual appearance of an image with the following
 properties:

@@ -24,14 +24,14 @@ To export your character:
 <img src="../../../assets/art/avatar/basic-creation/Export-Settings.png" width = "60%" />
 
 <Alert severity = 'warning'>
-After exporting your .fbx file, see [Test characters](../../../art/characters/testing/index.md) In Studio for steps on importing your character model into a test place and verifying your avatar and related components.
+After exporting your .fbx file, see [Test characters](../../../art/characters/testing/index.md) for steps on importing your character model into a test place and verifying your avatar and related components.
 </Alert>
 
 <Alert severity = 'success'>
 After importing the `Class.Model` character to Studio, you can now perform the following with this asset:
 
 - [Upload the character](../../../art/accessories/creating-rigid/publishing.md) to the Marketplace.
-- Use the humanoid character on an existing experience by applying a [HumanoidDescription](../../../characters/appearance.md#humanoiddescription)to the `Class.Model` object.
+- Use the humanoid character on an existing experience by applying a [HumanoidDescription](../../../characters/appearance.md#manually-modify-appearance)to the `Class.Model` object.
 - Save the asset to your [Toolbox](../../../projects/assets/toolbox.md) to share or use within any of your experiences.
 
 </Alert>

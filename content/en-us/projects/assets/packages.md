@@ -17,12 +17,15 @@ The most efficient workflow is to [create a package](#create-packages), [share i
 
 ## Create Packages
 
-You can create a package from any single object or any single parent and children branch of objects. If you want to create a package for a single object, we recommend adding it to a `Class.Model` grouping first so that you can add, remove, or scale instance within the package later without breaking the package.
+<Alert severity="warning">
+If you want to create a package with restricted assets that you don't have [explicit permission](../../projects/assets/privacy.md#view-permissions) to use, you can still create the package but those specific restricted assets will **not** be visible or audible at runtime unless the experience itself has permission to use those assets.
+</Alert>
 
-1. In the **Explorer** window or 3D viewport, right-click the desired object and select **Convert to Package**.
+You can create a package from any single object or any single parent and children branch of objects. If you want to create a package for a single object, add it to a `Class.Model` grouping first so that you can add, remove, or scale child objects within the package later without breaking the package.
 
-   <img src="../../assets/studio/packages/Contextual-Menu-Convert.png" alt="The context menu that display when you right-click an object in the Explorer window. The Convert to Package menu item is highlighted." width="300" />
+To create a package:
 
+1. In the **Explorer** window or 3D viewport, right-click the object(s) you want to turn into a package, then in contextual menu, select **Convert to Package**.
 1. In the new window, fill in the package details. In particular, if you're working in a [group](../../projects/groups.md), set **Ownership** to the appropriate group in which you have permission to create/edit group experiences.
 
    <Alert severity="warning">
@@ -30,42 +33,37 @@ You can create a package from any single object or any single parent and childre
    </Alert>
 
 1. Click **Submit**.
-1. After the conversion completes, the object receives a "chain link" symbol in the Explorer window to identify it as a package. Additionally, you can see a new **PackageLink** object parented to the object.
+1. After the conversion completes, the object receives a "chain link" symbol in the **Explorer** window to identify it as a package. Additionally, you can see a new **PackageLink** object parented to the object.
 
    <img src="../../assets/studio/packages/PackageLink-Explorer.png" alt="A maple tree model in the Explorer window with the package icon next to it." width="215" />
 
-1. (Optional) Select the **PackageLink** object and enable `AutoUpdate` in the **Properties** window. Note how the icon changes to indicate that the package is set to automatically update.
+1. **(Optional)** Select the **PackageLink** object and enable `AutoUpdate` in the **Properties** window. Note how the icon changes to indicate that the package is set to automatically update.
 
    <img src="../../assets/studio/packages/PackageLink-Explorer-Auto.png" alt="A maple tree model in the Explorer window with the auto-update package icon next to it." width="215" />
 
 <Alert severity="error">
-Don't delete or move the **PackageLink** instance! Doing so for any package copy converts the copy back into a normal object and loses package capabilities such as ability to update when there's a new version.
+Don't delete or move the **PackageLink** object! Doing so for any package copy converts the copy back into a normal object and loses package capabilities, such as ability to update itself when there's a new version.
 </Alert>
 
 ## Insert packages
 
 To insert a package that doesn't already exist in the current place, you must **initially** insert it from the [Toolbox](../../projects/assets/toolbox.md):
 
-- From **Inventory** &rarr; **My Packages** for packages that you've published to or obtained from the [Creator Store](../../production/creator-store.md), as well as packages that a friend owns and has given you [permissions](#share-and-access-levels) to use.
-- From **Creations** &rarr; **Group Packages** for packages published by members of your [group](../../projects/groups.md) (including yourself).
+- From **Inventory** ⟩ **My Packages** for packages that you've published to or obtained from the [Creator Store](../../production/creator-store.md), as well as packages that a connection owns and has given you [permissions](#share-and-access-levels) to use.
+- From **Creations** ⟩ **Group Packages** for packages published by members of your [group](../../projects/groups.md) (including yourself).
 
 <GridContainer numColumns="2">
   <figure>
     <img src="../../assets/studio/toolbox/Inventory-My-Packages.png" alt="A close up view of the Toolbox with both the Inventory tab and the assets dropdown menu highlighted." width="360" />
-    <figcaption>Toolbox &rarr; Inventory &rarr; My Packages</figcaption>
+    <figcaption>Toolbox ⟩ Inventory ⟩ My Packages</figcaption>
   </figure>
   <figure>
     <img src="../../assets/studio/toolbox/Creations-Group-Packages.png" alt="A close up view of the Toolbox with the Creations tab highlighted." width="360" />
-    <figcaption>Toolbox &rarr; Creations &rarr; Group Packages</figcaption>
+    <figcaption>Toolbox ⟩ Creations ⟩ Group Packages</figcaption>
   </figure>
 </GridContainer>
 
-Once you've inserted a package into a place's data model, it appears in the **Packages** folder of the [Asset Manager](../../projects/assets/manager.md) and remains there even if you later delete all copies of it. However, when you publish the place, the folder will update to reflect only packages used within the place.
-
-<figure>
-  <img src="../../assets/studio/asset-manager/Packages-Example.png" alt="The Asset Manager window with a few example packages." width="360" />
-  <figcaption>Packages in Asset Manager</figcaption>
-</figure>
+Once you've inserted a package into a published place's data model, it appears in the [Asset Manager](../../projects/assets/manager.md) and remains there even if you later delete all copies of it.
 
 <Alert severity="warning">
 Be careful when inserting assets that you didn't create into your experiences, as they can contain malicious scripts. Save your experience first and then investigate any scripts within unfamiliar assets so that you can easily revert back to the place version.
@@ -73,24 +71,21 @@ Be careful when inserting assets that you didn't create into your experiences, a
 
 ## Publish package changes
 
-You can publish any changes you make to a package as a new version to make them available to other copies of the package throughout the place and across all experiences. Note that it's **not** required to publish a modified package before publishing a place (the modified version is saved along with the place for future iteration).
+You can publish any change to your package as a new version, making your updates available to other package copies throughout the place and across all experiences. It's **not** required to publish a modified package before publishing a place because the modified version is saved along with the place for future iteration.
 
 To publish changes to a package:
 
 1. In the **Explorer** window or 3D viewport, right-click the modified copy and select **Publish to Package**.
-
-   <img src="../../assets/studio/packages/Contextual-Menu-Publish.png" alt="The context menu that display when you right-click an object in the Explorer window. The Publish to Package menu item is highlighted." width="300" />
-
-1. If a package copy has [auto-update](#automatic-updates) turned on, it immediately pulls in the updated version when you open the place that contains them. Other copies get a white dot on the package icon that indicates an update is available. You can [individually update](#update-outdated-copies) or [mass-update](#mass-updates) them as needed.
+1. If a package copy has [auto-update](#automatic-updates) turned on, it immediately pulls in the updated version when you open the place that contains them. Other copies get a white dot on the package icon that indicates an update is available. You can [individually update](#update-outdated-copies) or [mass-update](#mass-updates) all copies.
 
    <img src="../../assets/studio/packages/Package-Update-Available.png" alt="Two packages in the Explorer set to auto-update, and one with an update available." width="215" />
 
 1. **(Optional)** Add a description of your changes:
 
    1. Right-click the package and select **Package Details**.
-   1. In the Asset Configuration window, select **Versions**.
+   1. In the **Asset Configuration** window, select **Versions**.
    1. Under your most-recent change, select **Add**.
-   1. Describe your changes and click **Submit**.
+   1. Describe your changes, then click the **Submit** button.
 
 ## Update outdated copies
 
@@ -108,7 +103,7 @@ To update one or more package copies to the latest version:
 
 Extensive use of packages may result in many package copies across multiple places in an experience. In addition to [individual syncing](#update-outdated-copies) and [automatic updates](#automatic-updates), you can update all copies of a package through **mass updating**.
 
-1. (Recommended) Close other Studio instances with any of the experience's places open; this prevents another unsaved instance of a place from potentially overwriting your updates.
+1. **(Recommended)** Close other Studio instances with any of the experience's places open; this prevents another unsaved instance of a place from potentially overwriting your updates.
 1. In the **Explorer** window or 3D viewport, right-click the desired package and select **Update All**.
 1. Choose all places in the experience or some subset of places and click **Update**.
 
@@ -124,6 +119,8 @@ Mass updating packages automatically **saves** the selected places but does not 
 
 To make syncing easier, you can set a package copy to update automatically whenever a newer version is published. Auto-update of the package copies will take place when a place is opened in Studio.
 
+To automatically update package copies:
+
 1. In the **Explorer** window, expand the package's hierarchy tree and select its **PackageLink** object.
 
    <img src="../../assets/studio/packages/PackageLink-Explorer.png" alt="A close up view of a packaged chandelier model in the Explorer window. The PackageLink object is highlighted." width="215" />
@@ -131,59 +128,67 @@ To make syncing easier, you can set a package copy to update automatically whene
 1. In the **Properties** window, enable the **AutoUpdate** property. If you have [nested packages](#nested-packages), this property only applies to the highest-level parent package, meaning automatic updates only occur when the **parent** package is updated.
 
 <Alert severity="warning">
-Automatic updating does not apply to [modified](#modifying-packages) package copies. Once you modify a package instance, its **AutoUpdate** property becomes disabled and is ignored.
+Automatic updating does not apply to [modified](#modify-packages) package copies. Once you modify a package instance, its **AutoUpdate** property becomes disabled and is ignored.
 </Alert>
 
 ## Share and access levels
 
-If desired, you can share packages with friends or grant access to specific user roles within your group.
+You can grant permission to connections, experiences, groups, or specific group user roles so that they can freely use your packages in their creations. For more information on asset access, see [Asset privacy](privacy.md).
+
+<Alert severity="warning">
+If you share a package with restricted assets that you don't have [explicit permission](../../projects/assets/privacy.md#view-permissions) to use, you can still share the package but those specific restricted assets will **not** be visible or audible at runtime unless the connection, experience, or group has permission to use those assets.
+</Alert>
+
+<Tabs>
+  <TabItem key = "1" label="To collaborators">
+
+To change package permissions for a collaborator, such as a connection or group:
 
 1. In the **Explorer** window, **Toolbox**, or **Asset Manager**, right-click the desired package and select **Package Details**.
 1. In the **Asset Configuration** window, select **Permissions**.
+1. Using the search bar, input and select a collaborator that you want to grant permission to use your package, then choose a permission level.
 
-   - For a **group-owned** package, expand the roles tree. Then choose a permission level for each role. Selection boxes that are disabled indicate that the permission is already [configured](../../projects/groups.md#roles-and-permissions) for that role and cannot be changed from this window.
+   <table>
+   <thead>
+   <tr>
+   <th>Permission</th>
+   <th>Description</th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr>
+   <td>**Use & View**</td>
+   <td>The collaborator can use and view (but not edit) the current and previous package versions. Once you provide a collaborator with this ability, you cannot revoke access to a copy they already inserted into their experience; revoking access prevents reinsertion or package updates, but package copies in their data model remain intact.</td>
+   </tr>
+   <tr>
+   <td>**Edit**</td>
+   <td>The collaborator can use, view, and edit the current and previous package versions, including publishing changes to it.</td>
+   </tr>
+   </tbody>
+   </table>
 
-      <img src="../../assets/studio/packages/Permissions-Group.png" alt="A close up view of some settings in the pop-up window. The arrow icon next to the group icon and the member Edit dropdown menu are highlighted." width="700" />
+  </TabItem>
+  <TabItem key = "2" label="To experiences">
 
-     <table>
-     <thead>
-     	<tr>
-     	<th>Permission</th>
-     	<th>Description</th>
-     	</tr>
-     </thead>
-     <tbody>
-     	<tr>
-     	<td>**Edit**</td>
-     	<td>Members of the role can able to use, view, and edit the current and previous package versions, including publishing changes to it. Granting edit access to a role from this window only grants access to the **specific package**.</td>
-     	</tr>
-     	<tr>
-     	<td>**No Access**</td>
-     	<td>Members of the role do not have access to any new versions of the package, although they retain access to the current version inserted into the place.</td>
-     	</tr>
-     </tbody>
-     </table>
+To grant package access to an experience, the experience must be editable to either you or a group that you belong to in which you have the **Create and edit group experiences** role permission.
 
-   - For a **user-owned** package, search for friends through the search field, click their username, and choose a permission level.
+To change package permissions for an experience:
 
-     <table>
-     <thead>
-     	<tr>
-     	<th>Permission</th>
-     	<th>Description</th>
-     	</tr>
-     </thead>
-     <tbody>
-     	<tr>
-     	<td>**Use & View**</td>
-     	<td>The user can use and view (but not edit) the current and previous package versions. Once you provide a user with this ability, you cannot revoke access to a copy they already inserted into their experience; revoking access prevents reinsertion or package updates, but package copies in their data model remain intact.</td>
-     	</tr>
-     	<tr>
-     	<td>**Edit**</td>
-     	<td>The user can use, view, and edit the current and previous package versions, including publishing changes to it.</td>
-     	</tr>
-     </tbody>
-     </table>
+1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations).
+1. In the upper tab bar, select **Development Items**, then click **Models & Packages**.
+1. Select the package you want your experience to have permission to use. The package's **Configure** page displays.
+1. In the package's left-hand navigation, select **Permissions**. The package's **Permissions** page displays.
+1. From the **Experiences** tab, click the **Add experiences** button.
+1. Type the experience's universeID into the **Enter Universe IDs** input, then click the **Add** button. The experience displays beneath the input with its access visible.
+
+   <Alert severity="info">
+   If you want to give multiple experiences permission to use your restricted access at the same time, you can enter multiple universeIDs as long as you separate them with a comma.
+   </Alert>
+
+1. Click the **Done** button to finalize your package asset access permissions.
+
+  </TabItem>
+</Tabs>
 
 ## Modify Packages
 
@@ -232,7 +237,7 @@ If you modify a nested package, both the nested package **and** the parent packa
 
 Each script within an **unmodified** package is read-only and shows a notification on the top with a hyperlink to unlock the script.
 
-<img src="../../assets/studio/packages/Script-Unlock-Link.png" alt="A script tab with a yellow notification that you can click to modifiy the script that's within an unmodified package." width="800" />
+<img src="../../assets/studio/packages/Script-Unlock-Link.png" alt="A script tab with a yellow notification that you can click to modify the script that's within an unmodified package." width="800" />
 
 Clicking the hyperlink:
 

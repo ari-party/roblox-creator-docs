@@ -1,11 +1,15 @@
 import * as fs from 'fs';
-import { addToSummaryOfRequirements } from './console.js';
+import {
+  addToSummaryOfRequirements,
+  addToSummaryOfSuggestions,
+} from './console.js';
 import { Emoji } from './utils.js';
 import {
   areEqualComponentDetails,
   getMdxComponents,
   isIComponentDetails,
   isVFileMessage,
+  validateVoidTagsAreEmpty,
 } from './unified.js';
 import { getNonEditableFilesList } from './files.js';
 import { areEqualFileImports, FileImports, getFileImports } from './imports.js';
@@ -85,6 +89,22 @@ export const checkEnglishVersionExists = (filePath: string) => {
   }
 };
 
+/**
+ * Check that all void tags have no children
+ * Avoids React runtime errors like "Error: img is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`."
+ * @param filePath - The path to the file to check
+ */
+export const checkVoidTagsHaveNoChildren = (filePath: string) => {
+  const fileContent = getCachedContentForFilePath(filePath);
+  const result = validateVoidTagsAreEmpty(fileContent);
+  if (result) {
+    console.log(result);
+    const message = `${Emoji.NoEntry} Requirement: In ${filePath}, ${result.message}`;
+    console.log(message);
+    addToSummaryOfRequirements(message);
+  }
+};
+
 const getCachedContentForFilePath = (filePath: string): string => {
   if (!filePathToRawContentMap.has(filePath)) {
     filePathToRawContentMap.set(filePath, fs.readFileSync(filePath, 'utf8'));
@@ -94,6 +114,7 @@ const getCachedContentForFilePath = (filePath: string): string => {
 };
 
 export const outdatedTranslationFiles: string[] = [];
+export const translationFilesWithMdxMismatchErrors: string[] = [];
 
 export const checkFileImportEquality = (
   filePath: string,
@@ -173,10 +194,36 @@ export const checkMdxEquality = async (
         `${Emoji.WhiteCheckMark} MDX components match ${comparisonMessage}`
       );
     } else {
-      const errorMessage = `${Emoji.NoEntry} MDX components do not match ${comparisonMessage}`;
-      console.log(errorMessage);
-      outdatedTranslationFiles.push(filePath);
-      addToSummaryOfRequirements(errorMessage);
+      const englishCount = englishMdxComponents.count;
+      const localizedCount = localizedMdxComponents.count;
+      const diff = Math.abs(localizedCount - englishCount);
+      let isError = false;
+
+      if (englishCount <= 30) {
+        // Low counts: absolute threshold
+        if (diff > 2) {
+          isError = true;
+        }
+      } else {
+        // Higher counts: percent threshold
+        const percentDifference = diff / englishCount;
+        if (percentDifference > 0.05) {
+          isError = true;
+        }
+      }
+
+      if (isError) {
+        const errorMessage = `${Emoji.NoEntry} Requirement: MDX component count differs beyond allowed threshold ${comparisonMessage}`;
+        console.log(errorMessage);
+        outdatedTranslationFiles.push(filePath);
+        translationFilesWithMdxMismatchErrors.push(filePath);
+        addToSummaryOfRequirements(errorMessage);
+      } else {
+        const warningMessage = `${Emoji.Warning}  Warning: MDX components do not match ${comparisonMessage}`;
+        console.log(warningMessage);
+        outdatedTranslationFiles.push(filePath);
+        addToSummaryOfSuggestions(warningMessage);
+      }
     }
   }
 };

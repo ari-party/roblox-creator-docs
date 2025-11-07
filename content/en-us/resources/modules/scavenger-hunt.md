@@ -8,7 +8,7 @@ The **ScavengerHunt** [developer module](../../resources/modules/index.md) gives
 <video src="../../assets/developer-modules/scavenger-hunt/Showcase.mp4" controls width="100%"></video>
 
 <Alert severity="warning">
-This module utilizes [data stores](../../cloud-services/data-stores/index.md). To test it in Studio, make sure **Enable Studio Access to API Services** is enabled from the **Security** section of the [Game Settings](../../studio/game-settings.md) window.
+This module utilizes [data stores](../../cloud-services/data-stores/index.md). To test it in Studio, make sure **Enable Studio Access to API Services** is enabled from the **Security** section of Studio's **File**&nbsp;⟩ **Game Settings** window.
 </Alert>
 
 ## Module usage
@@ -17,9 +17,7 @@ This module utilizes [data stores](../../cloud-services/data-stores/index.md). T
 
 To use the **ScavengerHunt** module in an experience:
 
-1. From the [View](../../studio/view-tab.md) tab, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
-
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
+1. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
 
    <img src="../../assets/studio/toolbox/Creator-Store-Tab.png" width="360" />
 
@@ -27,17 +25,13 @@ To use the **ScavengerHunt** module in an experience:
 
    <img src="../../assets/studio/toolbox/Creator-Store-Categories-See-All.png" width="360" />
 
-1. Locate and click the **Dev Modules** tile.
-
-   <img src="../../assets/studio/toolbox/Creator-Store-Categories-Dev-Modules.png" width="200" />
+1. Locate and click the **Packages** tile.
 
 1. Locate the **Scavenger Hunt** module and click it, or drag-and-drop it into the 3D view.
 
    <img src="../../assets/developer-modules/scavenger-hunt/Toolbox-Icon.png" width="143" />
 
-1. In the [Explorer](../../studio/explorer.md) window, move the entire **ScavengerHunt** model into **ServerScriptService**. Upon running the experience, the module will distribute itself to various services and begin running.
-
-   <img src="../../assets/developer-modules/scavenger-hunt/Move-Package.png" width="320" />
+1. In the [Explorer](../../studio/explorer.md) window, move the entire **ScavengerHunt** model into `Class.ReplicatedStorage`. Upon running the experience the module will begin running.
 
 ### Use tokens
 
@@ -85,7 +79,7 @@ Regions differ slightly from tokens, as large areas that are marked as "collecte
 
 1. Create an anchored part around the region, such as a block or sphere. The module will automatically disable the `Class.BasePart.CanCollide|CanCollide` property on runtime so players do not physically collide with the region.
 1. Give it a **unique name**. This name is how the module tracks which regions each player has entered.
-1. Using the [Tags](../../studio/properties.md#instance-tags) section of the part's properties, or Studio's [Tag&nbsp;Editor](../../studio/view-tab.md#windows-and-tools), apply the tag `ScavengerHuntPart` to the part so that `Class.CollectionService` detects it. If desired, the tag name which the module utilizes can be changed by setting a different value for `tokenTag` in a [configureServer](#configureserver) call.
+1. Using the [Tags](../../studio/properties.md#instance-tags) section of the part's properties, apply the tag `ScavengerHuntPart` to the part so that `Class.CollectionService` detects it. If desired, the tag name which the module utilizes can be changed by setting a different value for `tokenTag` in a [configureServer](#configureserver) call.
 1. Include a child `Class.StringValue` instance set to the "flavor&nbsp;text" to display when the region is entered.
 
    <img src="../../assets/developer-modules/scavenger-hunt/Region-Structure.png" width="320" />
@@ -101,10 +95,10 @@ The module is preconfigured to work for most use cases, but it can be easily cus
 1. In **StarterPlayerScripts**, create a new `Class.LocalScript` and rename it to **ConfigureScavengerHunt**.
 1. Paste the following code into the new script.
 
-   ```lua title='LocalScript - ConfigureScavengerHunt' highlight='5-9'
+   ```lua title="LocalScript - ConfigureScavengerHunt" highlight="5-9"
    local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-   local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+   local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
    ScavengerHunt.configureClient({
    	infoModalText = "Welcome to my Scavenger Hunt!",
@@ -119,10 +113,10 @@ Every time a player collects a token or enters a region, the [collected](#collec
 
 Similarly, when a player collects **all** tokens or enters **all** tagged regions, the [allCollected](#allcollected) event fires and the connected function receives the associated `Class.Player`. This function is only fired once per player and it can be used to reward that player with a [badge](../../production/publishing/badges.md), access to a new area, [in-experience currency](../../production/monetization/developer-products.md), etc.
 
-```lua title='Script' highlight='5-7, 9-11'
+```lua title="Script" highlight="5-7, 9-11"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.collected:Connect(function(player, itemName)
 	print(player.DisplayName, itemName)
@@ -139,11 +133,11 @@ This module exposes several options to customize its default GUI, but you can op
 
 When `useCustomModals` is set to `true` in the [configureClient](#configureclient) function, the [showInfoModal](#showinfomodal) event fires every time the player activates the token tracker. Similarly, the [showCompleteModal](#showcompletemodal) event fires when the player has collected everything in the scavenger hunt. Both of these events can be listened to in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='6-10, 12-16'
+```lua title="LocalScript" highlight="6-10, 12-16"
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.showInfoModal:Connect(function()
 	-- Show a custom info modal
@@ -166,12 +160,12 @@ When using custom modals, be sure to provide a way for players to close/hide the
 
 By default, the scavenger hunt hides all `Class.ScreenGui|ScreenGuis` and `Class.CoreGui|CoreGuis` (except for the player list) when the info modal or completion modal appears. If you want to override this auto-hiding behavior and programmatically decide which GUIs should remain visible, include the [hideOtherGuis](#hideotherguis) and [showOtherGuis](#showotherguis) callbacks and respond with your own custom logic.
 
-```lua title='LocalScript' highlight='24, 37'
+```lua title="LocalScript" highlight="24, 37"
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
@@ -310,7 +304,7 @@ Overrides default client-side configuration options through the following keys/v
 	</tr>
 	<tr>
 		<td>`useRegions`</td>
-		<td>Instead of [tokens](#using-tokens), use [regions](#using-regions).</td>
+		<td>Instead of [tokens](#use-tokens), use [regions](#use-regions).</td>
 		<td>false</td>
 	</tr>
 </tbody>
@@ -459,10 +453,10 @@ Overrides default client-side configuration options through the following keys/v
 </TabItem>
 </Tabs>
 
-```lua title='LocalScript'
+```lua title="LocalScript"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.configureClient({
 	infoModalText = "Welcome to my Scavenger Hunt!",
@@ -512,10 +506,10 @@ Overrides default server-side configuration options through the following keys/v
 </tbody>
 </table>
 
-```lua title='Script' highlight='5-7'
+```lua title="Script" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.configureServer({
 	tokenTag = "GreenGem",
@@ -530,10 +524,10 @@ disable()
 
 Hides all UI for the scavenger hunt, disconnects all input event listeners, and prevents players from collecting tokens or interacting with regions. This function can only be called from a `Class.Script`.
 
-```lua title='Script' highlight='5'
+```lua title="Script" highlight="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.disable()
 ```
@@ -546,10 +540,10 @@ enable()
 
 Shows all UI for the scavenger hunt, connects all input event listeners, and allows players to collect tokens and interact with regions. This function can only be called from a `Class.Script`.
 
-```lua title='Script' highlight='5'
+```lua title="Script" highlight="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.enable()
 ```
@@ -582,10 +576,10 @@ Fires when a player collides with a token or enters a region. The connected func
 </tbody>
 </table>
 
-```lua title='Script' highlight='5-7'
+```lua title="Script" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.collected:Connect(function(player, itemName, totalCollected)
 	print(player.DisplayName, itemName, totalCollected)
@@ -610,10 +604,10 @@ Fires when a player collects all tokens or enters all regions in the scavenger h
 </tbody>
 </table>
 
-```lua title='Script' highlight='5-7'
+```lua title="Script" highlight="5-7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.allCollected:Connect(function(player)
 	print(player.DisplayName .. " completed the hunt!")
@@ -624,11 +618,11 @@ end)
 
 Fires when the player clicks on the token tracker when the `useCustomModals` [configuration](#configureclient) option is set to true. This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='6-9'
+```lua title="LocalScript" highlight="6-9"
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.showInfoModal:Connect(function()
 	local infoModal = Players.LocalPlayer.PlayerGui.InfoModal
@@ -640,11 +634,11 @@ end)
 
 Fires when the player clicks on the token tracker when the `useCustomModals` [configuration](#configureclient) option is set to `true` and the player has collected all tokens in the scavenger hunt. This event can only be connected in a `Class.LocalScript`.
 
-```lua title='LocalScript' highlight='6-9'
+```lua title="LocalScript" highlight="6-9"
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local ScavengerHunt = require(ReplicatedStorage:WaitForChild("ScavengerHunt"))
+local ScavengerHunt = require(ReplicatedStorage.ScavengerHunt)
 
 ScavengerHunt.showCompleteModal:Connect(function()
 	local completeModal = Players.LocalPlayer.PlayerGui.CompleteModal

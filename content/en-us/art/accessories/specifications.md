@@ -14,9 +14,9 @@ When ready to export, see [Export requirements](../../art/accessories/export-set
 <Alert severity = 'warning'>
 <AlertTitle>If creating other types of 3D models:</AlertTitle>
 <ul>
-<li>When creating a generic mesh, your model must meet [General Mesh Specifications](../modeling/specifications.md).</li> <br />
-<li>When creating a clothing accessory model, see [Clothing Specifications](../../art/accessories/clothing-specifications.md).</li> <br />
-<li>When creating avatar characters, see [Avatar Specifications](../../art/characters/specifications.md).</li>
+<li>For generic meshes, see [general mesh specifications](../modeling/specifications.md) and [general export settings](../modeling/export-requirements.md).</li> <br />
+<li>For layered accessories, see [layered accessory specifications](../accessories/clothing-specifications.md) and [layered export settings](../accessories/clothing-export-settings.md).</li> <br />
+<li>For avatar characters, see [avatar specifications](../characters/specifications.md) and [avatar export settings](../characters/export-settings.md).</li>
 </ul>
 </Alert>
 
@@ -30,12 +30,12 @@ When ready to export, see [Export requirements](../../art/accessories/export-set
 
 ### Body scale
 
-Roblox supports 3 types of body scales: `Classic`, `Normal`, and `Slender`. When designing your accessory, the size of your accessory cannot exceed the following sizes based on body scale and accessory asset type.
+Roblox supports 3 types of body scales: `Classic`, `Normal`, and `Slender`. When designing your accessory, the size of your accessory cannot exceed the following sizes based on body scale and accessory asset type. Accessory size is measured based on attachment orientation.
 
 See [Body scale](../accessories/body-scale.md) for more information on the different types of body proportions Roblox supports.
 
 <Alert severity = 'info'>
-You can use tools like the [Accessory fitting tool](../../art/accessories/accessory-fitting-tool.md) to help visualize and adjust the scale of your mesh on a mannequin within a visualized boundary before uploading and publishing the asset.
+You can use tools like the [Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md) to help visualize and adjust the scale of your mesh on a mannequin within a visualized boundary before uploading and publishing the asset.
 </Alert>
 
 #### Classic
@@ -275,12 +275,18 @@ You can use tools like the [Accessory fitting tool](../../art/accessories/access
 </tbody>
 </table>
 
-### Attachment points
+## Textures
 
-`Class.Attachment` objects indicate where an accessory model attaches to a point on a character body. Whether you are creating rigid or [layered](./layered-clothing.md) accessories, Studio's [Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md) automatically adds and configures the appropriate `Class.Attachment` with the following specifications:
+Textures created for accessories must meet Roblox's [texture specifications](../../art/modeling/texture-specifications.md).
+
+- Non-albedo maps (RGH, MTL, NOR) for rigid accessories cannot exceed 256x256.
+
+## Attachment points
+
+`Class.Attachment` objects indicate where an accessory model attaches to a point on a character body. Whether you are creating rigid or [layered](./layered-clothing.md) accessories, Studio's [Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md) (AFT) automatically adds and configures the appropriate `Class.Attachment` with the following specifications:
 
 - **One attachment** - Each accessory, including layered clothing, require at least one attachment point to its associated body part.
-- **Naming Convention** - The `Class.Attachment` name must follow a specific naming convention depending on the `Class.Accessory.AccessoryType`. The Accessory Fitting Tool generates an appropriate `Class.Attachment` name automatically.
+- **Naming Convention** - The `Class.Attachment` name must follow a specific naming convention depending on the `Class.Accessory.AccessoryType`. The AFT generates an appropriate `Class.Attachment` name automatically.
 
 If setting or configuring attachments manually in Studio, use the following names for your `Class.Attachment` object depending on the accessory type:
 
@@ -343,8 +349,6 @@ Accessories, such as clothing items, which stretch and fit around any character 
 
 Your items must meet the following requirements before you upload them to the Marketplace to sell:
 
-- Rigid accessories that you intend to sell on the Marketplace require a `Class.SpecialMesh` and don't support [SurfaceAppearance](../../art/modeling/surface-appearance.md).
-  - Use the [generate legacy accessory](./accessory-fitting-tool.md#generate-legacy-accessory) option when creating your accessory.
 - Ensure that your items adhere to the [Marketplace program guidelines](../../marketplace/marketplace-policy.md).
 - Whenever applicable, ensure that your items adhere to Roblox's [custom mesh specifications](../../art/modeling/specifications.md).
 - Object `Class.MeshPart.Material|Material` is set to `Plastic`.

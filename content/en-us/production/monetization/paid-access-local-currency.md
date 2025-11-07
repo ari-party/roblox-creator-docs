@@ -24,7 +24,7 @@ To charge users for paid access in local currency, you must:
 - Have a verified email address.
 - Be 13 years of age or older with a [verified ID](./../publishing/account-verification.md#verify-through-government-id).
 - Successfully [set up an account with Roblox's third-party payment provider Tipalti](#set-up-your-account-to-receive-payouts).
-- Reside in a country supported by Tipalti. See [Payment methods coverage](https://support.tipalti.com/Content/Topics/UserGuide/PaymentInformation/PaymentMethodsCoverage/IntroUSD.htm?Highlight=payment%20coverage#USD) for a list of eligible countries.
+- Reside in a country supported by Tipalti. See [Payment methods coverage](https://support.tipalti.com/Content/Topics/UserGuide/PaymentInformation/PaymentMethodsCoverage/IntroUSD.htm) for a list of eligible countries.
 
 <Alert severity="warning">
 Users residing in Argentina, China, Colombia, India, Indonesia, Russia, Taiwan, Turkey, UAE, Ukraine, or Vietnam are not able to purchase paid access experiences in local currency.
@@ -78,7 +78,7 @@ Refunds aren't available after 48 hours.
 You must set up a Tipalti account to receive payouts for purchases of paid access in local currency. To set up a Tipalti account:
 
 1. In the Creator Hub, go to **Creations** and select an experience.
-2. Go to **Audience** > **Access Settings**.
+2. Go to **Audience** ⟩ **Access Settings**.
 3. Under **Payment**, select **Send Request**.
 4. Enter your legal first and last name.
 
@@ -95,7 +95,7 @@ For experiences owned by groups, the group owner must be the one to set up a Tip
 To enable paid access in the Creator Hub:
 
 1. Go to **Creations** and select an experience.
-2. Go to **Audience** > **Access Settings**.
+2. Go to **Audience** ⟩ **Access Settings**.
 3. Under **Payment**, select **Requires Local Currency** and then select one of the available revenue share tiers.
 4. Under **Devices**, select which devices you want to enable paid access for. Desktop devices are automatically enabled.
 5. Click **Save Changes**.
@@ -108,7 +108,7 @@ Before becoming available to users, your paid access experience must undergo a p
 
 To enable paid access in Roblox Studio:
 
-1. In Studio, go to **Home** > **Game Settings**.
+1. Open Studio's **File**&nbsp;⟩ **Game Settings** window.
 2. Under **Monetization**, click **Configure on Creator Hub**.
 3. Follow the steps to [enable paid access in the Creator Hub](#enable-paid-access-in-the-creator-hub).
 
@@ -116,7 +116,7 @@ To enable paid access in Roblox Studio:
 
 To view your transaction history for local currency paid access purchases:
 
-1. In the Creator Hub, go to **Finances** > **Transactions**.
+1. In the Creator Hub, go to **Finances** ⟩ **Transactions**.
 2. Select **Paid access in local currency**. The transaction table displays the date of the transaction, the user who made the purchase, the experience name, how much the user paid, and the user's refund status.
 
 ## Policies

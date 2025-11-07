@@ -39,9 +39,9 @@ After you supply the texture maps to these properties, you can apply your new cu
 
 To create `Class.MaterialVariant` objects for your tileable textures:
 
-1. In the **Home** or **Model** tab of the menu bar, click the **Material Manager** button. The **Material Manager** window opens.
+1. From the **Window** ⟩ **3D** menu, select **Material** to open the **Material Manager**.
 2. In the **Materials** list, select the base material that most aligns with your tileable texture. For example, if you were creating a `Class.MaterialVariant` object for the Lumpy Moss tileable texture, choose the default ground material so the material inherits its physical properties.
-3. In the **Toolbar**, click the **⊕** icon. A new `Class.MaterialVariant` displays in the palette with an icon in the bottom-right corner that indicates it's a custom material.
+3. In the upper toolbar, click the **⊕** icon. A new `Class.MaterialVariant` displays in the palette with an icon in the bottom-right corner that indicates it's a custom material.
 
    <img src="../../../assets/studio/material-manager/Custom-Material-Icon.png" width="100%" alt="New MaterialVariant tile in Material Manager with icon to indicate a custom material" />
 
@@ -53,7 +53,7 @@ To create `Class.MaterialVariant` objects for your tileable textures:
 
    <img src="../../../assets/tutorials/environmental-art-curriculum/Section3/CustomMaterials-5.jpg" alt="The Texture Maps section of the Inspector view with the Import button highlighted." width="40%"/>
 
-6. In the file browser, select the **Albedo** texture map `.png` file for the corresponding tileable texture, then the **Open** button. The file browser closes, and the new color map displays with its assetID.
+6. In the file browser, select the **Albedo** texture map `.png` file for the corresponding tileable texture, then the **Open** button. The file browser closes, and the new color map displays with its asset ID.
 7. Repeat this process for the **Metalness**, **Normal**, and **Roughness** texture maps. The custom material updates to reflect the texture maps.
 
    <GridContainer numColumns="2">
@@ -101,7 +101,7 @@ To create `Class.SurfaceAppearance` packages that you can child to your modular 
 
    <img src="../../../assets/tutorials/environmental-art-curriculum/Section3/SAPackages-3.jpg" alt="The ColorMap pop-up with the Add Image button highlighted." width="30%"/>
 
-4. Select the **Albedo** texture map for the corresponding tileable texture, then the **Open** button. The file browser closes, and the **ColorMap** property updates with a new assetID.
+4. Select the **Albedo** texture map for the corresponding tileable texture, then the **Open** button. The file browser closes, and the **ColorMap** property updates with a new asset ID.
 5. Repeat this process for the **MetalnessMap**, **NormalMap**, and **RoughnessMap** properties, selecting their respective texture maps from the file browser.
 6. In the **Explorer** window, right-click the **SurfaceAppearance** object, then select **Convert to Packag**e from the contextual menu. The **Convert to Package** dialog displays.
 7. Fill out the **Title** and **Description** fields, set the ownership to yourself or a group, then click the **Submit** button. Once complete, a chain link symbol displays over the SurfaceAppearance object's icon to identify it as a package.
@@ -120,10 +120,7 @@ Using the 3D Importer, you can import the sample modular kit and props into Stud
 
 To import your modular assets and props into the experience:
 
-1. In the **Home** or **Avatar** tab, click the **Import 3D** button. A file browser displays.
-
-   <img src="../../../assets/studio/general/Avatar-Tab-Import-3D.png" alt="Studio's Avatar tab with the 3D Importer highlighted." width="100%" />
-
+1. From the **File** menu, select **Import 3D**. A file browser displays.
 2. Select a `.fbx` file for either a modular asset or prop.
 3. Verify the object preview and check that the import settings are correct for your object.
 
@@ -227,7 +224,7 @@ The `Class.MeshPart.CollisionFidelity` property determines how closely the physi
   </figure>
 </GridContainer>
 
-You can set this property to a different value to reduce the precision of a mesh's hitbox. For example, when you set this property to **Hull**, the Roblox Engine significantly reduces the vertices of the mesh's hitbox, and when you set this property to **Box**, the engine reduces the mesh's hitbox to a cube that surrounds the mesh. In addition, if you want to increase the precision of a mesh's hitbox, you can set this property to **PreviseConvexDecomposition** to increase the amount of vertices in the hitbox
+You can set this property to a different value to reduce the precision of a mesh's hitbox. For example, when you set this property to **Hull**, the Roblox Engine significantly reduces the vertices of the mesh's hitbox, and when you set this property to **Box**, the engine reduces the mesh's hitbox to a cube that surrounds the mesh. In addition, if you want to increase the precision of a mesh's hitbox, you can set this property to **PreciseConvexDecomposition** to increase the amount of vertices in the hitbox.
 
 <GridContainer numColumns="3">
   <figure>

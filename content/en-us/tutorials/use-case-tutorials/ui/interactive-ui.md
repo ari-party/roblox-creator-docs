@@ -25,10 +25,7 @@ As noted in [Create HUD meters](../ui/create-hud-meters.md), phones and tablets 
 
    <UseStudioButton variant="" buttonTextTranslationKey="Action.EditInStudio" placeId="104506915856758" universeId="6690464830" />
 
-2. From the **Test** tab, toggle on the **Device** tool.
-
-   <img src="../../../assets/studio/general/Test-Tab-Emulation-Device.png" width="800" alt="Device button indicated in Test tab" />
-
+2. From Studio's **View** menu, toggle on **Device Emulator**.
 3. From the bar directly above the main viewport, select a phone emulation such as **iPhone&nbsp;X** or **Samsung&nbsp;Galaxy&nbsp;A51**. Then, set the view size to **Fit&nbsp;to&nbsp;Window** to utilize the maximum space in Studio.
 
    <img src="../../../assets/studio/general/Device-Emulator-Phone.png" width="800" alt="Device Emulator settings options indicated at top of viewport window." />
@@ -408,7 +405,7 @@ The following stateful object controller module lets you attach behavior to UI o
 
 2. Paste the following code inside the module:
 
-		```lua title='StatefulObjectController'
+		```lua title="StatefulObjectController"
 		local TweenService = game:GetService("TweenService")
 
 		local StatefulObjectController = {}
@@ -501,7 +498,7 @@ An additional module initializes and controls the two volume sliders. It also al
 
 2. Paste the following code inside the module:
 
-		```lua title='SliderController'
+		```lua title="SliderController"
 		local SliderController = {}
 		SliderController.__index = SliderController
 
@@ -601,7 +598,7 @@ With the [settings button](#create-the-settings-button) and [settings menu](#cre
 
 2. Paste the following code inside the script:
 
-		```lua title='SettingsScript'
+		```lua title="SettingsScript"
 		local ReplicatedStorage = game:GetService("ReplicatedStorage")
 		local SoundService = game:GetService("SoundService")
 

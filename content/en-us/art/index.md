@@ -334,13 +334,13 @@ The following is a list of common 3D art resources ordered by subject, as well a
 
 <a href="./modeling/3d-importer.md"><Typography variant='body1' style={{marginBottom: 12}}>3D Importer</Typography></a>
 
-<a href="./accessories/accessory-fitting-tool.md"><Typography variant='body1' style={{marginBottom: 12}}>Accessory Fitting tool</Typography></a>
+<a href="./accessories/accessory-fitting-tool.md"><Typography variant='body1' style={{marginBottom: 12}}>Accessory Fitting Tool</Typography></a>
 
 <a href="../animation/editor.md"><Typography variant='body1' style={{marginBottom: 12}}>Animation Editor</Typography></a>
 
 <a href="../animation/capture.md"><Typography variant='body1' style={{marginBottom: 12}}>Animation Capture</Typography></a>
 
-<a href="./modeling/avatar-setup.md"><Typography variant='body1' style={{marginBottom: 12}}>Avatar Setup</Typography></a>
+<a href="../avatar-setup/"><Typography variant='body1' style={{marginBottom: 12}}>Avatar Setup</Typography></a>
 
 <a href="../parts/materials.md"><Typography variant='body1' style={{marginBottom: 12}}>Material Generator</Typography></a>
 
@@ -361,8 +361,10 @@ The following is a list of common 3D art resources ordered by subject, as well a
 <a href="../tutorials/curriculums/environmental-art/index.md"><Typography variant='body1' style={{marginBottom: 12}}>Environmental art curriculum</Typography></a>
 <a href="../tutorials/use-case-tutorials/modeling/assemble-modular-environments.md"><Typography variant='body1' style={{marginBottom: 12}}>Assemble modular environments</Typography></a>
 <a href="../effects/light-sources.md"><Typography variant='body1' style={{marginBottom: 12}}>Light with props</Typography></a>
-<a href="../tutorials/use-case-tutorials/audio/in-game-sounds.md"><Typography variant='body1' style={{marginBottom: 12}}>In-game sounds</Typography></a>
-<a href="../tutorials/use-case-tutorials/lighting/enhance-outdoor-environments-with-future-lighting.md"><Typography variant='body1' style={{marginBottom: 12}}>Enhance outdoor environments with future lighting</Typography></a>
+<a href="../tutorials/use-case-tutorials/audio/add-3D-audio.md"><Typography variant='body1' style={{marginBottom: 12}}>Add 3D audio</Typography></a>
+<a href="../tutorials/use-case-tutorials/audio/add-2D-audio.md"><Typography variant='body1' style={{marginBottom: 12}}>Add 2D audio</Typography></a>
+<a href="../tutorials/use-case-tutorials/audio/add-text-to-speech.md"><Typography variant='body1' style={{marginBottom: 12}}>Add text-to-speech</Typography></a>
+<a href="../tutorials/use-case-tutorials/lighting/enhance-outdoor-environments.md"><Typography variant='body1' style={{marginBottom: 12}}>Enhance outdoor environments with realistic lighting</Typography></a>
 <a href="https://devforum.roblox.com/t/custom-skyboxes-101/2849003"><Typography variant='body1' style={{marginBottom: 12}}>Custom skyboxes 101 (Staff)</Typography></a>
 
 <br />

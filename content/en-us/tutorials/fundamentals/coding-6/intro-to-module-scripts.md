@@ -23,9 +23,9 @@ Module scripts are actually their own separate object compared to script objects
 
 ModuleScripts are commonly placed in **ServerScriptService** when used by server-side scripts and **ReplicatedStorage** when used by client-side local scripts (such as GUI interactions).
 
-1. Create a **ModuleScript** in **ServerStorage**.
+1. Create a **ModuleScript** in **ServerScriptService**.
 
-<img src="../../../assets/education/coding-6/intro-to-module-scripts/create-module-script.png" width="50%" />
+<img src="../../../assets/education/coding-6/intro-to-module-scripts/create-module-script.png" width="35%" />
 
 ### Structure of module scripts
 
@@ -141,7 +141,7 @@ end
 return RewardManager
 ```
 
-```lua title='Script - TreasureChestScript'
+```lua title="Script - TreasureChestScript"
 local ServerStorage = game:GetService("ServerStorage")
 
 -- Load module script

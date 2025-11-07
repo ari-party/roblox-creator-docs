@@ -34,7 +34,7 @@ To create a particle emitter on a part or attachment:
 By experimenting with the following properties, you can customize a particle's visual appearance to make unique gameplay elements like bursting volcanos, magical dust, and dust motes.
 
 <Alert severity="info">
-The visual quality of your particles can change depending on the graphic settings on the player's device. To review your particles across quality levels, it's recommended to open **Studio Settings**, search for **Editor Quality Level**, and set it to the both the lowest and highest level after you finish customizing your particles.
+The visual quality of your particles can change depending on the graphic settings on the player's device. To review your particles across quality levels, it's recommended to open [Studio Settings](../studio/setup.md#customization), search for **Editor Quality Level**, and set it to the both the lowest and highest level after you finish customizing your particles.
 </Alert>
 
 ### Texture
@@ -53,15 +53,12 @@ If you're creating an image to use as a particle texture, it's best to use `.png
 
 <Alert severity="info">
 For steps on how to import an image for use as a particle texture,
-see [Import assets](../projects/assets/manager.md#import-assets).
+see [here](../projects/assets/manager.md#asset-import).
 </Alert>
 
 To insert an image into a particle emitter:
 
-1. In the menu bar, navigate to the **Home** tab and select **Toolbox**. The **Toolbox** window displays.
-
-   <img src="../assets/studio/general/Home-Tab-Toolbox.png" width="716" alt="Toolbox indicated in Home tab" />
-
+1. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../projects/assets/toolbox.md).
 2. If you want to insert an image that you have previously imported, click the **Inventory** tab. If you want to insert an image from another creator, click the **Creator Store** tab.
 
    <img src="../assets/studio/toolbox/Inventory-Tab.png" width="360" alt="Inventory tab indicated in Studio's Toolbox" />
@@ -103,12 +100,12 @@ The `Class.ParticleEmitter.Color|Color` property tints each particle's texture t
    **keypoint** that determines the color value of the property at that point in
    the particle's lifetime.
 
-	 <img src="../assets/studio/general/ColorSequence-White-Keypoints-Labeled.png" width="640" alt="Keypoints labeled in color sequence popup" />
+    <img src="../assets/studio/general/ColorSequence-White-Keypoints-Labeled.png" width="640" alt="Keypoints labeled in color sequence popup" />
 
 1. Click the keypoint at the start of the color sequence, click the
    small square next to **Color**, and select a color from the popup window.
 
-	 <img src="../assets/studio/general/ColorSequence-Red-White.png" width="640" alt="Color sequence popup from red to white" />
+ <img src="../assets/studio/general/ColorSequence-Red-White.png" width="640" alt="Color sequence popup from red to white" />
 
 1. If you want particles to change their color near the end of their
    lifetime, click the keypoint at the end of the color sequence, click the small square next to **Color**, and select a color from the popup window.
@@ -207,7 +204,7 @@ Note that changing `Class.ParticleEmitter.Speed|Speed` does not affect active pa
 
 ### Rate
 
-The `Class.ParticleEmitter.Rate|Rate` property sets the number of particles that emit per second. A single particle emitter can create up to 500 particles per second. For best performance, keep the particle rate as low as possible and experiment with [size](#size) and [other properties](#other-properties) to achieve the desired visual effect.
+The `Class.ParticleEmitter.Rate|Rate` property sets the number of particles that emit per second. A single particle emitter can create up to 400 particles per second (100 per second on mobile). For best performance, keep the particle rate as low as possible and experiment with [size](#size) and [other properties](#other-properties) to achieve the desired visual effect.
 
 <Alert severity="warning">
 Particle count can impact performance due to overdraw, especially when particles are overlapping. The more layers of transparent effects on screen, the more costly it is on the GPU.
@@ -264,7 +261,7 @@ The `Class.ParticleEmitter.SpreadAngle|SpreadAngle` property has an **X** and a 
 
 ### WindAffectsDrag
 
-If you've enabled [global&nbsp;wind](../environment/global-wind.md) in an experience, particles will follow the global wind vector as long as the emitter's `Class.ParticleEmitter.WindAffectsDrag|WindAffectsDrag` property is enabled and its `Class.ParticleEmitter.Drag|Drag` property is greater than 0.
+If you've enabled [global wind](../environment/global-wind.md) in an experience, particles will follow the global wind vector as long as the emitter's `Class.ParticleEmitter.WindAffectsDrag|WindAffectsDrag` property is enabled and its `Class.ParticleEmitter.Drag|Drag` property is greater than 0.
 
 <img src="../assets/studio/properties/ParticleEmitter-WindAffectsDrag.png" width="320" alt="Drag and WindAffectsDrag properties shown in Properties window of Studio" />
 
@@ -396,9 +393,24 @@ Particle flipbook textures let you animate a particle's texture over its lifetim
 
 <video src="../assets/lighting-and-effects/particle-emitter/Flipbook.mp4" controls width="800" alt="Flipbook looping over the four particles in its texture"></video>
 
-To use particle flipbooks, the flipbook texture must be of pixel dimensions 8×8, 16×16, 32×32, 64×64, 128×128, 256×256, 512×512, or 1024×1024. If the texture isn't a square with one of these dimensions, you can't set flipbook's properties in the [Properties](../studio/properties.md) window.
+To use particle flipbooks, the texture's dimensions must be divisible by the number of frames in the layout grid. If the texture's dimensions are not compatible with the layout grid size, a warning appears next to the `Class.ParticleEmitter.FlipbookLayout|FlipbookLayout` property in the [Properties](../studio/properties.md) window.
 
-The flipbook texture can have a frame layout of 2×2, 4×4, or 8×8. For example, the following 1024×1024 image has an 8×8 layout, so it's suitable for a 64‑frame animation.
+<GridContainer numColumns="2">
+	<figure>
+		<Alert severity="success">
+		<AlertTitle style={{paddingBottom: '8px'}}>Compatible flipbook texture size</AlertTitle>
+		An example compatible texture is 1024&times;1024 in size with a `Enum.ParticleFlipbookLayout.Grid4x4|Grid4x4` layout, since the texture's dimensions are divisible by 4 and each frame becomes 256&times;256. Similarly, a 1024&times;512 texture with a custom layout of 8&times;4 is compatible because 1024 is divisible by 8 and 512 is divisible by 4.
+		</Alert>
+	</figure>
+	<figure>
+		<Alert severity="error">
+		<AlertTitle style={{paddingBottom: '8px'}}>Incompatible flipbook texture size</AlertTitle>
+		An example incompatible texture is 100&times;100 in size with a `Enum.ParticleFlipbookLayout.Grid8x8|Grid8x8` layout, since the texture's dimensions are not evenly divisible by 8 and the frames cannot be divided evenly. Similarly, a 1024&times;1024 texture with a custom layout of 10&times;10 is incompatible because 1024 is not evenly divisible by 10.
+		</Alert>
+	</figure>
+</GridContainer>
+
+The flipbook texture can have a frame layout of 2×2, 4×4, 8×8, or custom. For example, the following 1024×1024 image has an 8×8 layout, so it's suitable for a 64‑frame animation.
 
 <img src="../assets/lighting-and-effects/particle-emitter/8x8-Explosion.png" width="512" alt="Sample texture for particle flipbooks" />
 
@@ -416,6 +428,7 @@ Once you've specified a valid flipbook [texture](#texture) for the emitter's `Cl
 - **Grid2x2** &mdash; 2&times;2 frames for a 4-frame animation.
 - **Grid4x4** &mdash; 4&times;4 frames for a 16-frame animation.
 - **Grid8x8** &mdash; 8&times;8 frames for a 64-frame animation.
+- **Custom** &mdash; A custom grid size defined by `Class.ParticleEmitter.FlipbookSizeX|FlipbookSizeX` and `Class.ParticleEmitter.FlipbookSizeY|FlipbookSizeY`.
 
 To further customize the flipbook behavior, you can adjust the following properties:
 
@@ -430,7 +443,9 @@ The `Class.ParticleEmitter.FlipbookMode|FlipbookMode` property determines the ty
 - **OneShot** &mdash; Play through the animation only once across the particle's lifetime. With this setting, the `Class.ParticleEmitter.FlipbookFramerate|FlipbookFramerate` property doesn't apply; instead, the framerate is determined by the particle's `Class.ParticleEmitter.Lifetime|Lifetime` divided evenly by the number of frames in the animation. **OneShot** animations are useful for clear non-repeating animations, such as an explosion that creates a puff of smoke and then fades out.
 - **PingPong** &mdash; Play from the first to the last frame, then in reverse from the last to the first, repeating throughout the `Class.ParticleEmitter.Lifetime|Lifetime` of the particle.
 - **Random** &mdash; Play the frames in a random order, blending/crossfading from one frame to the next. This can be useful for organic particle textures at low framerates, such as stars slowly twinkling between subtly different shapes.
+
 </TabItem>
+
 <TabItem label="FlipbookStartRandom">
 The `Class.ParticleEmitter.FlipbookStartRandom|FlipbookStartRandom` property determines whether each particle begins at a random frame of the animation instead of always starting at the first frame. One use case is to enable this property and also set `Class.ParticleEmitter.FlipbookFramerate|FlipbookFramerate` to zero, causing each emitted particle to be a static frame chosen randomly from the flipbook texture.
 </TabItem>

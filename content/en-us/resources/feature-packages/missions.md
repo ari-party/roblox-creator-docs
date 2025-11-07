@@ -9,7 +9,11 @@ This feature package is in beta.
 
 The **Missions** feature package offers out-of-the-box functionality to create missions that players can complete to achieve rewards and progress in your experience. All missions must have an ID, category, and a list of tasks that players must complete to finish the mission. However, the tasks list can be empty, allowing the mission's rewards to be claimed immediately.
 
-Using the package's customization options, you can personalize all missions to meet your unique gameplay requirements.
+Using the package's customization options, you can personalize all missions to meet your unique gameplay requirements, such as:
+
+- Creating missions that [onboard](../../production/game-design/onboarding.md) new players into your experience and improve [D1 retention](../../production/game-design/analytics-essentials.md#retention-metrics).
+- Targetting [D7 and D30 retention](../../production/game-design/analytics-essentials.md#retention-metrics) by adding mid- to long-term goals and a sense of progression.
+- Increasing [engagement](../../production/game-design/analytics-essentials.md#engagement-metrics) by surfacing the various systems in your game and rewarding players for interacting with them.
 
 <img src="../../assets/resources/feature-packages/Missions/Missions-Intro.png" width="100%" />
 
@@ -19,7 +23,7 @@ For information on how to provide players with fresh goals and incentives so tha
 
 ## Get package
 
-The **Creator Store** is a tab of the Toolbox that you can use to find all assets that are made by Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. You can use the Creator Store to add one or more assets directly into an open experience, including feature packages!
+The **Creator Store** is a tab of the **Toolbox** that you can use to find all assets that are made by Roblox and the Roblox community for use within your projects, including model, image, mesh, audio, plugin, video, and font assets. You can use the Creator Store to add one or more assets directly into an open experience, including feature packages!
 
 Every feature package requires the **Core** feature package to function properly. Once the **Core** and **Missions** feature package assets are within your inventory, you can reuse them in any project on the platform.
 
@@ -31,7 +35,7 @@ To get the packages from your inventory into your experience:
 
 	<Grid item container xs={12} sm={6} direction='row'>
 	<Grid item container direction='column'>
-	<BrowseSampleCard href='https://create.roblox.com/store/asset/94918533221001' description='The Core Feature Package offers shared DataStore table logic for all feature packages.' title='Core Feature Package' assetId={94918533221001}  />
+	<BrowseSampleCard href='https://create.roblox.com/store/asset/94918533221001' description='The Core feature package offers shared data store logic for all feature packages.' title='Core Feature Package' assetId={94918533221001}  />
 	</Grid>
 	</Grid>
 
@@ -43,17 +47,13 @@ To get the packages from your inventory into your experience:
 
 	</Grid>
 
-2. In the menu bar, select the **View** tab.
-3. In the **Show** section, click **Toolbox**. The **Toolbox** window displays.
-
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" alt="Studio's View tab with the Toolbox tool highlighted." width="876" />
-
-4. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
+2. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../projects/assets/toolbox.md).
+3. In the **Toolbox** window, click the **Inventory** tab. The **My Models** sort displays.
 
    <img src="../../assets/studio/toolbox/Inventory-Tab.png" alt="Studio's Toolbox window with the Inventory tab highlighted." width="360" />
 
-5. Click the **Feature Package Core** tile, then the **Missions Feature Package** tile. Both package folders display in the **Explorer** window.
-6. Drag the package folders into **ReplicatedStorage**.
+4. Click the **Feature Package Core** tile, then the **Missions Feature Package** tile. Both package folders display in the **Explorer** window.
+5. Drag the package folders into `Class.ReplicatedStorage`.
 
 ## Define missions
 
@@ -230,7 +230,7 @@ Both task types share the following fields:
    <tr>
    <td>`counter`</td>
    <td>`object`</td>
-   <td>(Optional) The counter this task tracks. Counters are player-specific persistent storage for a number or a timer. Multiple tasks can track a single counter; for example, if more than one task tracks how many coins a player has collected, then they all can share the same “coins” counter. These tasks can independently track new coins collected, starting from zero, or continue counting from the counter value (all coins already collected).<br></br><ul><li>`counterId` (`string`) - The ID of the counter to be tracked. Use this id to get or set the value of the counter.</li><li>`continueFromCounter` (Optional `bool`) - If set to true, the task progress will directly match the value of the counter rather than the amount it has increased.</li></ul></td>
+   <td>(Optional) The counter this task tracks. Counters are player-specific persistent storage for a number or a timer. Multiple tasks can track a single counter; for example, if more than one task tracks how many coins a player has collected, then they all can share the same “coins” counter. These tasks can independently track new coins collected, starting from zero, or continue counting from the counter value (all coins already collected).<br></br><ul><li>`counterId` (`string`) - The ID of the counter to be tracked. Use this ID to get or set the value of the counter.</li><li>`continueFromCounter` (Optional `bool`) - If set to true, the task progress will directly match the value of the counter rather than the amount it has increased.</li></ul></td>
    </tr>
    <tr>
    <td>`metadata`</td>

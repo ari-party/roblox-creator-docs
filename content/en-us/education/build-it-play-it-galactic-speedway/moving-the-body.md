@@ -22,17 +22,10 @@ There are six different bodies to choose from in the scrapyard. Each body can be
   </figure>
 </GridContainer>
 
-1. In the **Home** tab, select the **Move** tool.
-   <img
-   src="../../assets/education/build-it-play-it-galactic-speedway/moving-the-body/move-tool.png"
-   width="100%" />
-2. Select the body you want. Then, drag the **directional arrows** to move it into the center of the work area.
-   <video controls src="../../assets/education/build-it-play-it-galactic-speedway/moving-the-body/move-body.mp4" width="100%"></video>
+1. In the toolbar, select the **Move** tool.
 
-<Alert severity="warning">
-<AlertTitle>Parts getting stuck or moving slowly?</AlertTitle>
-Check in the Model tab that **Collisions** and **Move** snapping are turned **off**. Your settings should look like the picture below.
-<img
-src="../../assets/education/build-it-play-it-galactic-speedway/moving-the-body/correct-snap-collide.png"
-width="100%" />
-</Alert>
+   <img src="../../assets/education/general/Move-Tool.png" width="328" />
+
+2. Select the body you want. Then, drag the **directional arrows** to move it into the center of the work area.
+
+   <video controls src="../../assets/education/build-it-play-it-galactic-speedway/moving-the-body/move-body.mp4" width="80%"></video>

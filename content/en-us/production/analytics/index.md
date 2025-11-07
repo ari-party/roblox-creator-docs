@@ -38,7 +38,7 @@ You can use the following chart to track the percent of users who have a qualifi
     <figcaption>Comparing conversion rates.</figcaption>
   </figure>
 
-Roblox experiences are inherently social, and users love trying them out with their friends. Consider using features like [experience events](../../production/promotion/experience-events.md) and [player invite prompts](../../production/promotion/invite-prompts.md) to invite users to bring their friends to your experience.
+Roblox experiences are inherently social, and users love trying them out with their connections. Consider using features like [experience events](../../production/promotion/experience-events.md) and [player invite prompts](../../production/promotion/invite-prompts.md) to invite users to bring their connections to your experience.
 
 <h4>Step 3: Monitor metrics after each experience update</h4>
 
@@ -49,7 +49,7 @@ After you update your experience, visit analytics to understand how the update i
 3. [Monetization](../../production/analytics/monetization.md): Payer conversion, ARPPU, and revenue.
 4. [Acquisition](../../production/analytics/acquisition.md): New users and qualified play through rate.
 
-You can monitor major weekly changes and benchmark movement on your experience overview page. [Insights](#analytics-insights) highlights large movements in key metrics such as DAU, new users, and revenue.
+You can monitor major weekly changes and benchmark movement on your experience overview page. [Insights](./insights.md) highlights large movements in key metrics such as DAU, new users, and revenue.
 
 <figure>
     <img src="../../assets/analytics/overview/step3.png" width="80%"/>
@@ -71,6 +71,7 @@ Your similar experience benchmarks are updated daily. Roblox does not use these 
 
 - Monitor the analytics of multiple experiences at once
 - Track avatar item sales and revenue
+- Track user acquisition through off-platform share links
 
 ### Monitor experiences
 
@@ -97,7 +98,7 @@ Watchlists are applied on the account level, are private, and persist when toggl
     <figcaption>Experience watchlist on Analytics Home.</figcaption>
 </figure>
 
-Clicking on an experience you're monitoring takes you to the experience overview page. If applicable, [analytics insights](#analytics-insights) offer direction on next steps and redirect you to applicable documentation and relevant analytics.
+Clicking on an experience you're monitoring takes you to the experience overview page. If applicable, [analytics insights](./insights.md) offer direction on next steps and redirect you to applicable documentation and relevant analytics.
 
 ### Track avatar sales and revenue
 
@@ -112,22 +113,6 @@ Avatar items you've sold automatically appear within the **Avatar Items** tab. H
     <figcaption>Avatar Items on Analytics Home.</figcaption>
 </figure>
 
-## Analytics insights
+### Track user acquisition
 
-In each experience's overview page, there are insights that highlight major weekly changes in key metrics and areas of improvement.
-
-For example, the insight below shows that your revenue declined 21%, but similar experiences' revenue increased by 15%. This is a sign that you'll want to take action and look deeper into your monetization to diagnose potential issues. You can click "Explore this metric" to slice and dice your revenue by platform, country, and more. These insights are updated daily and are available for experiences with 100+ DAU.
-
-<figure>
-    <img src="../../assets/analytics/overview/Insights.png" width="80%"/>
-</figure>
-
-### Achievement panel
-
-Your achievement panel highlights key metric milestones that you've reached over the past 6 months. This insight is meant to help you celebrate progress when a metric has reached a six month high. Note that if a metric is at a six month high but below benchmark comparisons, you should still continue to improve it.
-
-<figure>
-    <img src="../../assets/analytics/overview/Achievements.png" width="50%"/>
-</figure>
-
-For more information on how analytics works, see [Analytics dashboard](../../production/analytics/analytics-dashboard.md). For more information on how to use analytics to optimize your experience's design, see [Analytics essentials](../../production/game-design/analytics-essentials.md).
+The **Share Links** tab provides information about the **Link Visits** metric, which tracks how many users have arrived on your experience details page by clicking on the share link you created.

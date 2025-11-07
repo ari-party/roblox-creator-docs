@@ -27,7 +27,7 @@ description: Prototyping
 - Office supplies
 
 <figure>
-    <img src="../../assets/game-design/prototyping/prototyping-1.png" alt="A stack of cardboard cards, a number 2 pencil, and a handful of semi-transluscent cyan blue dice sit on top of a dark brown table to signify common household objects you can use to prototype your gameplay." width="70%"/>
+    <img src="../../assets/game-design/prototyping/prototyping-1.png" alt="A stack of cardboard cards, a number 2 pencil, and a handful of semi-translucent cyan blue dice sit on top of a dark brown table to signify common household objects you can use to prototype your gameplay." width="70%"/>
     <figcaption>Examples of paper prototyping tools.</figcaption>
   </figure>
 
@@ -76,7 +76,7 @@ Despite its benefits, the limitations of Studio prototyping include:
 
 The difference between working on a feature and prototyping is scope. Prototyping should be fast and quick, hitting certain aspects of the feature being tested but not the entire feature itself.
 
-When prototyping, have several playtest sessions with your team to confirm your findings. Share your prototype with friends, family, and social media to garner feedback and fresh perspectives. Iterate on your experience until you're happy with it.
+When prototyping, have several playtest sessions with your team to confirm your findings. Share your prototype with connections, family, and social media to garner feedback and fresh perspectives. Iterate on your experience until you're happy with it.
 
 When prototyping, take extra care to explore the following parts of your experience:
 

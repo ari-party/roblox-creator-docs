@@ -24,7 +24,7 @@ Roblox has built-in tools that allow anyone to screenshots or record video. Thes
 Additionally, some virtual learning experiences may have built-in assessments, such as quizzes. Some lesson plans on Roblox Education also have reflection questions, handouts, or quizzes.
 
 <figure>
-<img src="../../assets/education/legacy/module4-luaLearningQuiz.png" />
+<img src="../../assets/education/legacy/module4-luaLearningQuiz.png" width="80%" />
 <figcaption>Quiz in <a href="https://www.roblox.com/games/1334669864/" target="_blank" rel="noopener">Lua Learning</a></figcaption>
 </figure>
 
@@ -119,11 +119,7 @@ Social networks with member lists and post boards. Also allows for collaboration
 
 ### Roblox chat
 
-Most Roblox experiences offer basic chat features.
-
-<img src="../../assets/education/legacy/module4-showChat.jpg" width="80%" />
-
-These features include:
+Most Roblox experiences offer basic chat features. These include:
 
 - Being able to chat among all players in an experience server.
 - Send private messages to a specific player.

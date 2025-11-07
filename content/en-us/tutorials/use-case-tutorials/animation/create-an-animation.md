@@ -12,7 +12,7 @@ Using the [Walking Character Animations](https://www.roblox.com/games/1343833248
 - Looping the animation to test how it looks at different speeds, angles, and easing styles.
 - Publishing the animation so that you can use it across projects in different scripts and contexts.
 
-After you complete this tutorial, you will have an assetID for your animation, and skills to create additional types of animations that meet the needs for your own characters and experiences.
+After you complete this tutorial, you will have an asset ID for your animation, and skills to create additional types of animations that meet the needs for your own characters and experiences.
 
 <img src="../../../assets/tutorials/creating-character-animations/Ref-All.jpg" alt="" width="100%" />
 
@@ -20,7 +20,7 @@ After you complete this tutorial, you will have an assetID for your animation, a
 
 ## Add rig
 
-**Rigs**, or collections of parts connected by joints like `Class.Bone` or `Class.Motor6D` objects, are necessary to create character animations because they include the internal structure you need to move and rotate body parts into different poses. While you can [create your own rigs](../../../art/modeling/rig-a-humanoid-model.md) using external 3D modeling tools, Studio provides several pre-built rigs that you can access through the [Rig Builder](../../../studio/rig-builder.md) plugin.
+**Rigs**, or collections of parts connected by joints like `Class.Bone` or `Class.Motor6D` objects, are necessary to create character animations because they include the internal structure you need to move and rotate body parts into different poses. While you can [create your own rigs](../../../art/modeling/rig-a-humanoid-model.md) using external 3D modeling tools, Studio provides several pre-built rigs that you can access through the [Rig Generator](../../../studio/rig-builder.md) tool.
 
 <GridContainer numColumns="3">
   <figure>
@@ -43,12 +43,7 @@ The rest of the tutorial provides an in-depth analysis of the different design d
 
 To add a pre-built rig to the 3D space:
 
-1. In the **Avatar** tab, click the **Rig Builder** button. The **Rig Builder** pop-up window displays.
-
-   <img src="../../../assets/studio/general/Avatar-Tab-Rig-Builder.png" width="760" />
-
-   <img src="../../../assets/tutorials/creating-character-animations/Generate-Rig.jpg" alt="" width="30%" />
-
+1. From the toolbar's **Home** or **Avatar** tab, click **Character**.
 1. Select a rig type, body shape, then an avatar option. For example, this tutorial uses a **R15** rig type, a **masculine** body shape, and an **Rthro Avatar**. The rig displays in the viewport.
 
    <img src="../../../assets/tutorials/creating-character-animations/Add-Rig-2.jpg" alt="" width="80%" />
@@ -102,32 +97,29 @@ This is an important moment in a character's stride because both feet equally su
 
 To create a first pass Contact pose for the left foot cycle:
 
-1. Open the Animation Editor.
-   1. In the **Avatar** tab, select the **Animation Editor** button. The **Animation Editor** window displays.
-
-   <img src="../../../assets/studio/general/Avatar-Tab-Animation-Editor.png" width="760" />
-
-   1. Select your rig. A contextual menu displays.
-   1. In the **Animation Name** field, input a name for your animation, then click the **Create** button.
-   1. **(Optional)** Set the timeline to 24 frames per second.
-      1. In the **Animation Editor**'s playback tools, click the gear icon.
+1. From the toolbar's **Avatar** tab, click **Animation**. The [Animation Editor](../../../animation/editor.md) window displays.
+1. Select your rig. A contextual menu displays.
+1. In the **Animation Name** field, input a name for your animation, then click the **Create** button.
+1. **(Optional)** Set the timeline to 24 frames per second.
+   1. In the editor's playback tools, click the gear icon.
 
       <img src="../../../assets/tutorials/creating-character-animations/Gear-Icon.png" width="30%" />
 
-      1. From the contextual menu, set **Frame Rate** to **24 fps**.
+   1. From the contextual menu, set **Frame Rate** to **24 fps**.
 
-1. Add a keyframe for each of the rig's body parts to the Animation Editor's track list.
+1. Add a keyframe for each of the rig's body parts to the editor's track list.
    1. In the **Animation Editor**, click the **+** button. A contextual menu displays.
 
       <img src="../../../assets/tutorials/creating-character-animations/Left-Contact-2A.png" alt="" width="80%" />
 
-   1. Select **Add All Body**. The Animation Editor's track list updates with all the rig's body parts.
-   1. Right-click on the top bar beneath the timeline, then in the contextual menu, select **Add Keyframe**. The Animation Editor adds a keyframe for every body part in the timeline.
+   1. Select **Add All Body**. The editor's track list updates with all the rig's body parts.
+   1. Right-click on the top bar beneath the timeline, then in the contextual menu, select **Add Keyframe**. The editor adds a keyframe for every body part in the timeline.
 
       <video controls src="../../../assets/tutorials/creating-character-animations/Left-Contact-2C.mp4" width="90%"></video>
 
 1. Pose the rig's upper body in a bent position.
-   1. In the **Home** tab, select the **Rotate** tool.
+
+   1. From the toolbar, select the **Rotate** tool.
    1. In the viewport, select and angle the **UpperTorso** body part so that the torso is slightly bent forward.
 
       <img src="../../../assets/tutorials/creating-character-animations/Left-Contact-3A.jpg" alt="" width="80%" />
@@ -507,10 +499,8 @@ To test your poses:
 
       1. From the contextual menu, set **Playback Speed** to either **0.25x** or **0.5x**.
    1. Evaluate the animation from multiple angles.
-      1. In the **View** tab, select the **View Selector** button.
-      1. In the viewport, click any of View Selector's 14 faces to move your camera to a different world orientation.
-
-      <img src="../../../assets/studio/general/View-Tab-View-Selector.png" width="782" alt="View Selector tool selected in View tab of Studio" />
+      1. In Studio's **View** menu, enable **Show View Selector**.
+      1. In the viewport, click any of view selector's 14 faces to move your camera to a different world orientation.
 
    1. Select, move, and rotate your rig until the animation matches your character's personality.
 
@@ -518,7 +508,7 @@ To test your poses:
 
 ## Publish animation
 
-In order to play your animation in your open experience, as well as store it for reuse in other projects, you must publish the animation to the cloud. This process creates a unique assetID for your animation that you can reference in scripts, which is especially important if you want to replace any of Roblox's default character animations.
+In order to play your animation in your open experience, as well as store it for reuse in other projects, you must publish the animation to the cloud. This process creates a unique asset ID for your animation that you can reference in scripts, which is especially important if you want to replace any of Roblox's default character animations.
 
 To publish your animation:
 
@@ -528,10 +518,10 @@ To publish your animation:
 
 1. From the contextual menu, select **Publish to Roblox**. The **Asset Configuration** window displays.
 1. Fill out all applicable fields, then click the **Save** button.
-1. **(Optional)** You can copy the animation's assetID to use within scripts by clicking the copy icon.
+1. **(Optional)** You can copy the animation's asset ID to use within scripts by clicking the copy icon.
 
    <img src="../../../assets/tutorials/creating-character-animations/Publish-4.png" alt="" width="60%" />
 
-Now that your animation is in the cloud, you can find, edit, and reuse the asset across all of your projects through the [Creator Dashboard](https://create.roblox.com/dashboard/creations) under **Development Items** > **Animations**.
+Now that your animation is in the cloud, you can find, edit, and reuse the asset across all of your projects through the [Creator Dashboard](https://create.roblox.com/dashboard/creations) under **Development Items** ⟩ **Animations**.
 
    <img src="../../../assets/tutorials/creating-character-animations/Creations-Animations.png" alt="" width="100%" />

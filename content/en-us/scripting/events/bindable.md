@@ -133,10 +133,10 @@ bindableEvent:Fire({
 
 ### Table indexing
 
-If you pass a table of data, do not pass a mixed table of numeric and string keys. Instead, pass a table that consists **entirely** of key-value pairs (a dictionary) or **entirely** of numeric indices (an array).
+If you pass a table of data, do not pass a mixed table of numeric and string keys. Doing so can result in removed elements during the transfer. Instead, pass a table that consists **entirely** of key-value pairs (a dictionary) or **entirely** of numeric indices (an array).
 
 <Alert severity="warning">
-Whether passing a dictionary table **or** a numerically indexed table, avoid `nil` values for any index.
+In both cases, whether passing a dictionary table or a numerically indexed table, avoid `nil` values for any index.
 </Alert>
 
 ```lua title="Event Connection"
@@ -219,7 +219,7 @@ print(tostring(invokeReturn))  --> table: 0x9fcae7919563a0e9
 
 If a table has a metatable, all of the metatable information is lost in the transfer. In the following code sample, the `NumWheels` property is part of the `Car` metatable. When the server receives the following table, the `truck` table has the `Name` property but **not** the `NumWheels` property.
 
-```lua title='Event Connection'
+```lua title="Event Connection"
 local ServerScriptService = game:GetService("ServerScriptService")
 
 local bindableEvent = ServerScriptService:WaitForChild("TestBindableEvent")
@@ -232,7 +232,7 @@ end
 bindableEvent.Event:Connect(onEvent)
 ```
 
-```lua title='Event Firing'
+```lua title="Event Firing"
 local ServerScriptService = game:GetService("ServerScriptService")
 
 local bindableEvent = ServerScriptService:WaitForChild("TestBindableEvent")

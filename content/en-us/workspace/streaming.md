@@ -3,6 +3,8 @@ title: Instance streaming
 description: Instance streaming allows the Roblox Engine to dynamically load and unload 3D content in regions of the world.
 ---
 
+import BetaAlert from '../includes/beta-features/beta-alert.md'
+
 In-experience **instance streaming** allows the Roblox Engine to dynamically load and unload 3D content and related instances in regions of the world. This can improve the overall player experience in several ways, for example:
 
 - **Faster join times** &mdash; Players can start playing in one part of the world while more of the world loads in the background.
@@ -21,7 +23,7 @@ Once enabled, it's recommended that you adhere to the following practices:
 - Because clients will not typically have the entire `Class.Workspace` available locally, use the appropriate tool/API to ensure that instances exist before attempting to access them in a `Class.LocalScript`. For example, utilize [per‑model streaming controls](#per-model-streaming-controls), [detect instance streaming](#detect-instance-streaming), or use `Class.Instance:WaitForChild()|WaitForChild()` on objects that may not exist.
 - Minimize placement of 3D content outside of `Class.Workspace`. Content in containers such as `Class.ReplicatedStorage` or `Class.ReplicatedFirst` is ineligible for streaming and may negatively impact join time and memory usage.
 - If you move a player's character by setting its `Datatype.CFrame`, do so from a server-side `Class.Script` and use [streaming requests](#request-area-streaming) to more quickly load data around the character's new location.
-- Manually set the player's `Class.Player.ReplicationFocus|ReplicationFocus` only in unique situations such as in experiences that don't use a `Class.Player.Character`. In these cases, make sure the focus is near the object(s) that the player controls to ensure content continues to stream in around the player's interaction point.
+- Manually set [replication foci](#replication-focus) only in unique situations such as experiences that don't use a `Class.Player.Character` or where streaming should occur in multiple areas of the experience. In these cases, make sure the foci are near objects that the player controls or those that should continue simulating physically on the client, and try to minimize the overall number of foci used.
 
 ## Technical behavior
 
@@ -42,7 +44,7 @@ Then, during gameplay, the server may stream necessary instances to the client, 
 
 <h4>Model behavior</h4>
 
-Models set to non-default behavior like [Atomic](#atomic) stream in under special rules as outlined in [Per‑model streaming controls](#per-model-streaming-controls). However, default (nonatomic) models are sent differently based on whether [ModelStreamingBehavior](#modelstreamingbehavior) is set to **Default** (**Legacy**) or **Improved**.
+Models set to non-default behavior like [Atomic](#atomic) stream in under special rules as outlined in [per‑model streaming controls](#per-model-streaming-controls). However, default (nonatomic) models are sent differently based on whether [ModelStreamingBehavior](#modelstreamingbehavior) is set to **Default** (**Legacy**) or **Improved**.
 
 <Tabs>
 <TabItem label="Default / Legacy">
@@ -77,7 +79,7 @@ When [ModelStreamingBehavior](#modelstreamingbehavior) is set to **Improved**, m
 
 ### Stream out
 
-During gameplay, a client may stream out (remove from the player's `Class.Workspace`) regions and the `Class.BasePart|BaseParts` contained within them, based on the behavior set by [StreamOutBehavior](#streamoutbehavior). The process begins with regions furthest away from the player's character (or `Class.Player.ReplicationFocus|ReplicationFocus`) and moves in closer as needed. Regions inside the [StreamingMinRadius](#streamingminradius) range never stream out.
+During gameplay, a client may stream out (remove from the player's `Class.Workspace`) regions and the `Class.BasePart|BaseParts` contained within them, based on the behavior set by [StreamOutBehavior](#streamoutbehavior). The process begins with regions furthest away from the [replication foci](#replication-focus) and moves in closer as needed. Regions inside the [StreamingMinRadius](#streamingminradius) range never stream out.
 
 When an instance streams out, it is parented to `nil` so that any existing Luau state will reconnect if the instance streams back in. As a result, removal signals such as `Class.Instance.ChildRemoved|ChildRemoved` or `Class.Instance.DescendantRemoving|DescendantRemoving` fire on its **parent** or **ancestor**, but the instance itself is not destroyed in the same sense as an `Class.Instance:Destroy()` call.
 
@@ -197,11 +199,11 @@ Your experience may behave in unintended ways if a player moves into a region of
 
 ### StreamingMinRadius
 
-The **StreamingMinRadius** property indicates the radius around the player's character (or `Class.Player.ReplicationFocus|ReplicationFocus`) in which instances stream in at the highest priority. Care should be taken when increasing the default, as doing so will require more memory and more server bandwidth at the expense of other components.
+The **StreamingMinRadius** property indicates the radius around the [replication foci](#replication-focus) in which instances stream in at the highest priority. Care should be taken when increasing the default, as doing so will require more memory and more server bandwidth at the expense of other components.
 
 ### StreamingTargetRadius
 
-The **StreamingTargetRadius** property controls the maximum distance away from the player's character (or `Class.Player.ReplicationFocus|ReplicationFocus`) in which instances stream in. Note that the engine is allowed to retain previously loaded instances beyond the target radius, memory permitting.
+The **StreamingTargetRadius** property controls the maximum distance away from the [replication foci](#replication-focus) in which instances stream in. Note that the engine is allowed to retain previously loaded instances beyond the target radius, memory permitting.
 
 A smaller **StreamingTargetRadius** reduces server workload, as the server will not stream in additional instances beyond the set value. However, the target radius is also the maximum distance players will be able to see the full detail of your experience, so you should pick a value that creates a nice balance between these.
 
@@ -236,13 +238,37 @@ The **StreamOutBehavior** property sets the [streaming out](#stream-out) behavio
   </tbody>
 </table>
 
+## Replication focus
+
+By default, streaming occurs around the local player's character's `Class.Model.PrimaryPart|PrimaryPart`, although you can specify a different replication focus point through `Class.Player.ReplicationFocus`.
+
+You can also add and remove additional replication foci through `Class.Player:AddReplicationFocus()` and `Class.Player:RemoveReplicationFocus()` to dynamically enable streaming in multiple areas of the experience.
+
+<Alert severity="warning">
+Use caution when adding additional replication foci as each additional focus increases the server's workload for streaming and updating regions. For example, a single player with nine dynamically moving foci could generate server networking and streaming processing comparable to ten players moving around the experience.
+
+On the client, too many foci for a player can limit the engine's ability to adjust to memory limitations and make it more likely for clients to be killed by the OS for using too much memory.
+</Alert>
+
+<Tabs>
+<TabItem label="Physics Simulation">
+Client-side physics simulation only occurs in streamed areas, even for locally created instances and for [persistent](#persistent) instances. If you have instances that you'd like to keep simulating even when they're far away from the character, create an additional replication focus near those instances.
+</TabItem>
+<TabItem label="Movement Between Zones">
+In many experiences, it's common for players to move back and forth between the same areas frequently, for example between their "home&nbsp;base" and a "trading&nbsp;hub." In such cases, you can create a replication focus point in each area to ensure those areas are readily present on client devices.
+</TabItem>
+<TabItem label="Distant Viewpoints">
+Multiple replication points are useful when players can view specific, important regions through a scope, such as enemy bases scattered across a barren landscape. In such cases, you can create a replication focus point in each base to ensure players see details and simulated physics from afar.
+</TabItem>
+</Tabs>
+
 ## Per-model streaming controls
 
 Globally, the [ModelStreamingBehavior](#modelstreamingbehavior) property lets you control how models are streamed in on join. Additionally, to avoid issues with streaming on a per-model basis and minimize use of `Class.Instance:WaitForChild()|WaitForChild()`, you can customize how `Class.Model|Models` and their descendants stream through their `Class.Model.ModelStreamingMode|ModelStreamingMode` property.
 
 <img src="../assets/studio/properties/Model-ModelStreamingMode.png" width="320" alt="The Properties window with the ModelStreamingMode property set to Default. The property is also highlighted." />
 
-### Default / nonatomic
+### Default / Nonatomic
 
 When a `Class.Model` is set to **Default** or **Nonatomic**, streaming behavior varies based on whether [ModelStreamingBehavior](#modelstreamingbehavior) is set to **Default** (**Legacy**) or **Improved**.
 
@@ -275,7 +301,7 @@ An atomic model is only streamed out when all of its descendant parts are eligib
 
 <img src="../assets/optimization/streaming/ModelStreamingMode-Atomic.svg" width="800" height="336" alt="A diagram showing Atomic model streaming along with children." />
 
-```lua title='LocalScript' highlight='2, 5-6'
+```lua title="LocalScript" highlight="2, 5-6"
 local Workspace = game:GetService("Workspace")
 
 -- Atomic model does not exist at load time; use WaitForChild()
@@ -292,7 +318,7 @@ local part = model.Part
 
 <img src="../assets/optimization/streaming/ModelStreamingMode-Persistent.svg" width="800" height="336" alt="A diagram showing Persistent model streaming along with children." />
 
-```lua title='LocalScript' highlight='2, 5-6'
+```lua title="LocalScript" highlight="2, 5-6"
 local Workspace = game:GetService("Workspace")
 
 -- Persistent model does not exist at load time; use WaitForChild()
@@ -319,11 +345,11 @@ Models set to **PersistentPerPlayer** behave the same as [Persistent](#persisten
 
 ## Request area streaming
 
-If you set the `Datatype.CFrame` of a player character to a region which isn't currently loaded, [streaming pause](#customize-the-pause-screen) occurs, if enabled. If you know the character will be moving to a specific area, you can call `Class.Player:RequestStreamAroundAsync()` to request that the server sends regions around that location to the client.
+If you set the `Datatype.CFrame` of a player character to a region which isn't currently loaded, [streaming pause](#customize-the-pause-screen) occurs, if enabled through `Enum.StreamingIntegrityMode`. If you know the character will be moving to a specific area, you can call `Class.Player:RequestStreamAroundAsync()` to request that the server sends regions around that location to the client.
 
 The following scripts show how to fire a client-to-server [remote event](../scripting/events/remote.md) to teleport a player within a place, yielding at the streaming request before moving the character to a new `Datatype.CFrame`.
 
-```lua title='Script - Teleport Player Character' highlight='7, 10-14'
+```lua title="Script - Teleport Player Character" highlight="7, 10-14"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local teleportEvent = ReplicatedStorage:WaitForChild("TeleportEvent")
@@ -344,7 +370,7 @@ end
 teleportEvent.OnServerEvent:Connect(teleportPlayer)
 ```
 
-```lua title='LocalScript - Fire Remote Event'
+```lua title="LocalScript - Fire Remote Event"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local teleportEvent = ReplicatedStorage:WaitForChild("TeleportEvent")
@@ -355,18 +381,41 @@ teleportEvent:FireServer(teleportTarget)
 ```
 
 <Alert severity="error">
- Requesting streaming around an area is **not a guarantee** that the content will be present when the request completes, as streaming is affected by the client's network bandwidth, memory limitations, and other factors.
+Requesting streaming around an area is **not a guarantee** that the content will be present when the request completes, as streaming is affected by the client's network bandwidth, memory limitations, and other factors.
 </Alert>
+
+## Customize the pause screen
+
+If players can encounter streaming pauses in your experience, you might want to customize the pause screen. The `Class.Player.GameplayPaused` property indicates the player's current pause state. This property can be used with a `Class.Instance:GetPropertyChangedSignal()|GetPropertyChangedSignal()` connection to show or hide a custom GUI.
+
+```lua title="LocalScript"
+local Players = game:GetService("Players")
+local GuiService = game:GetService("GuiService")
+local player = Players.LocalPlayer
+
+-- Disable default pause modal
+GuiService:SetGameplayPausedNotificationEnabled(false)
+
+local function onPauseStateChanged()
+  if player.GameplayPaused then
+    -- Show custom GUI
+  else
+    -- Hide custom GUI
+  end
+end
+
+player:GetPropertyChangedSignal("GameplayPaused"):Connect(onPauseStateChanged)
+```
 
 ## Detect instance streaming
 
 In some cases, it's necessary to detect when an object streams in or out and react to that event. A useful pattern for streaming detection is as follows:
 
-1. Using the [Tags](../studio/properties.md#instance-tags) section of an instance's properties, or Studio's [Tag&nbsp;Editor](../studio/view-tab.md#windows-and-tools), assign a logical `Class.CollectionService` tag to all of the affected objects.
+1. Using the [Tags](../studio/properties.md#instance-tags) section of an instance's properties, assign a logical `Class.CollectionService` tag to all of the affected objects.
 
 2. From a single `Class.LocalScript`, detect when a tagged object streams in or out through `Class.CollectionService:GetInstanceAddedSignal()|GetInstanceAddedSignal()` and `Class.CollectionService:GetInstanceRemovedSignal()|GetInstanceRemovedSignal()`, then handle the object accordingly. For example, the following code adds tagged `Class.Light` objects into a "flicker" loop when they stream in and removes them when they stream out.
 
-   ```lua title='LocalScript - CollectionService Streaming Detection' highlight='10-15'
+   ```lua title="LocalScript - CollectionService Streaming Detection" highlight="10-15"
    local CollectionService = game:GetService("CollectionService")
 
    local tagName = "FlickerLightSource"
@@ -396,42 +445,25 @@ In some cases, it's necessary to detect when an object streams in or out and rea
    end
    ```
 
-## Customize the pause screen
-
-The `Class.Player.GameplayPaused` property indicates the player's current pause state. This property can be used with a `Class.Instance:GetPropertyChangedSignal()|GetPropertyChangedSignal()` connection to show or hide a custom GUI.
-
-```lua title='LocalScript'
-local Players = game:GetService("Players")
-local GuiService = game:GetService("GuiService")
-local player = Players.LocalPlayer
-
--- Disable default pause modal
-GuiService:SetGameplayPausedNotificationEnabled(false)
-
-local function onPauseStateChanged()
-	if player.GameplayPaused then
-		-- Show custom GUI
-	else
-		-- Hide custom GUI
-	end
-end
-
-player:GetPropertyChangedSignal("GameplayPaused"):Connect(onPauseStateChanged)
-```
-
 ## Model level of detail
 
-When streaming is enabled, `Class.Model|Models` outside of the currently streamed area will not be visible by default. However, you can instruct the engine to render lower resolution "imposter" meshes for models that are not present on clients through each model's `Class.Model.LevelOfDetail|LevelOfDetail` property.
+<BetaAlert betaName="SLIM" leadIn="SLIM meshes are currently in Studio beta. Enable them through " leadOut="." components={props.components} />
+
+When streaming is enabled, `Class.Model|Models` outside of the currently streamed area are not visible by default. However, you can instruct the engine to render lightweight "SLIM" meshes or low resolution "imposter" meshes for models that are not present on clients. You control this behavior through each model's `Class.Model.LevelOfDetail|LevelOfDetail` property.
 
 <img src="../assets/studio/properties/Model-LevelOfDetail.png" width="320" alt="LevelOfDetail property indicated for Model instance"/>
 
-<GridContainer numColumns="2">
+<GridContainer numColumns="3">
   <figure>
-    <img src="../assets/modeling/model-objects/LevelOfDetail-Actual.jpg" alt="A globe model displays in its actual level of detail." />
-    <figcaption>Actual model</figcaption>
+    <img src="../assets/modeling/model-objects/LevelOfDetail-Original.jpg" alt="A globe model displays in its actual level of detail." />
+    <figcaption>Original model</figcaption>
   </figure>
   <figure>
-    <img src="../assets/modeling/model-objects/LevelOfDetail-StreamingMesh.jpg" alt="The same globe model displays as a low resolution imposter mesh with rough edges that obscure the globe's details." />
+    <img src="../assets/modeling/model-objects/LevelOfDetail-Slim.jpg" alt="The same globe model with a SLIM mesh, which is recognizable as the original globe." />
+    <figcaption>Lightweight "SLIM" mesh (beta)</figcaption>
+  </figure>
+  <figure>
+    <img src="../assets/modeling/model-objects/LevelOfDetail-Imposter.jpg" alt="The same globe model as a low resolution imposter mesh with rough edges that obscure the globe's details." />
     <figcaption>Low resolution "imposter" mesh</figcaption>
   </figure>
 </GridContainer>
@@ -440,28 +472,37 @@ When streaming is enabled, `Class.Model|Models` outside of the currently streame
   <thead>
     <tr>
       <th>Model setting</th>
-      <th>Streaming behavior</th>
+      <th>Behavior outside of streaming radius</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>**SLIM**</td>
+      <td>
+        Display a composite mesh of all child parts in the model when the original model is not present on the client. Roblox automatically generates many SLIM (Scalable Lightweight Interactive Model) meshes for the model and uses progressively less complex ones as distance from the camera increases.
+        - During the Studio beta, you must enable [Team Create](../projects/collaboration.md) in your experience for Roblox to generate SLIM meshes.
+        - Visual quality is superior to imposter meshes, with comparable performance.
+        - Whether SLIM meshes display at all depends on the position of the **character**. The quality level of SLIM meshes depends on the position of the **camera**.
+        - SLIM currently only supports models with static meshes, not skinned meshes, avatars, or animations.
+        - The first time a model set to `Enum.ModelLevelOfDetail.SLIM|SLIM` is loaded, Roblox generates its optimized assets in the cloud. This one-time process can take a few moments for very complex models. If you have a large place and don't see some models immediately, wait a few minutes and try again.
+        - SLIM relies on models to understand how to group geometry. For best results, use `Class.Model|Models` to group parts that are spatially and logically related (for example, all the parts of a car). For arbitrary organization in your project, use folders, which SLIM ignores.
+      </td>
+    </tr>
+    <tr>
       <td>**StreamingMesh**</td>
-      <td>Activates the asynchronous generation of an imposter mesh to display when the model is not present on clients.</td>
+      <td>
+        Display an imposter mesh when the model is not present on the client.
+        - If a model and its descendant models are all set to `Enum.ModelLevelOfDetail.StreamingMesh|StreamingMesh`, only the top-level model is rendered as an imposter mesh, wrapping all geometries under it as well as its descendant models. For better performance, set descendant models to **Disabled**.
+        - Imposter meshes look best at **1024 studs away from the camera** or further. If you reduce [StreamingTargetRadius](#streamingtargetradius) to smaller values, imposter meshes might not be an acceptable visual replacement for the model. Consider whether SLIM is a better fit for your use case.
+        - Imposter meshes do not support textures; they render as smooth meshes.
+        - If a model is not completely streamed in, the imposter mesh is rendered instead of individual parts of the model. After all individual parts are streamed in, they render and the imposter mesh is ignored.
+        - Imposter meshes have no physical significance and are non-existent with respect to [raycasting](../workspace/raycasting.md), [collision detection](./collisions.md), and physics simulation.
+        - Editing a model in Studio, such as adding, deleting, or repositioning child parts or resetting colors automatically updates the representative mesh.
+      </td>
     </tr>
     <tr>
       <td>**Disabled** / **Automatic**</td>
-      <td>The model disappears when outside the streaming radius.</td>
+      <td>The model isn't present until the player enters the streaming radius and can stream out at any time after the players leaves the radius.</td>
     </tr>
   </tbody>
 </table>
-
-When using imposter meshes, note the following:
-
-- Imposter meshes are designed to be seen at **1024 studs away from the camera** or further. If you've reduced [StreamingTargetRadius](#streamingtargetradius) to a much smaller value like 256, imposter meshes may not be visually acceptable for the model they replace.
-- If a model **and** its descendant models are all set to **StreamingMesh**, only the top-level ancestor model is rendered as an imposter mesh, wrapping all geometries under the ancestor as well as its descendant models. For better performance, it's recommended that you use **Disabled** for descendant models.
-- Textures are not supported; imposter meshes are rendered as smooth meshes.
-- While a `Class.Model` is not completely streamed in, the imposter mesh is rendered instead of individual parts of the model. Once all individual parts are streamed in, they render and the imposter mesh is ignored.
-- Imposter meshes have no physical significance and
-  they act as non-existent with respect to [raycasting](../workspace/raycasting.md), [collision detection](./collisions.md),
-  and physics simulation.
-- Editing a model in Studio, such as adding/deleting/repositioning child parts or resetting colors, automatically updates the representative mesh.

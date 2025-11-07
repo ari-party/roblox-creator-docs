@@ -1,6 +1,6 @@
 ---
-title: Error codes and limits
-description: Error codes you might come across and limits you might hit when using data stores to store data.
+title: Data store error codes and limits
+description: Error codes you might encounter and limits you might hit when using data stores (DataStores) to store data.
 ---
 
 Requests you make to data stores can fail due to poor connectivity or other issues. To handle errors and return messages with an error code, wrap data store functions in `Global.LuaGlobals.pcall()`.
@@ -324,57 +324,146 @@ Each queue has a limit of 30 requests. When the limit of a queue is reached, req
 
 ### Server limits
 
-Each server is allowed a certain number of data store requests based on the request type and number of users. Use `Class.DataStoreService:GetRequestBudgetForRequestType()|GetRequestBudgetForRequestType()` to confirm the number of data store requests that the current place can make.
+<Tabs>
+<TabItem label="Server limits">
+  Each server is allowed a certain number of data store requests based on the request type and number of users. Use `Class.DataStoreService:GetRequestBudgetForRequestType()|GetRequestBudgetForRequestType()` to confirm the number of data store requests that the current place can make.
 
-<table>
-<thead>
-  <tr>
-    <th>Request type</th>
-    <th>Functions</th>
-    <th>Requests per minute</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><b>Get</b></td>
-    <td>`Class.GlobalDataStore:GetAsync()|GetAsync()`</td>
-    <td>60 + numPlayers × 10</td>
-  </tr>
-  <tr>
-    <td><b>Set</b> (limit is shared among all listed functions)</td>
-    <td>`Class.GlobalDataStore:SetAsync()|SetAsync()`<br></br>`Class.GlobalDataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.GlobalDataStore:UpdateAsync()|UpdateAsync()`<br></br>`Class.GlobalDataStore:RemoveAsync()|RemoveAsync()`</td>
-    <td>60 + numPlayers × 10</td>
-  </tr>
-  <tr>
-    <td><b>Get Sorted</b></td>
-    <td>`Class.OrderedDataStore:GetSortedAsync()|GetSortedAsync()`</td>
-    <td>5 + numPlayers × 2</td>
-  </tr>
-  <tr>
-    <td><b>Get Version</b></td>
-    <td>`Class.DataStore:GetVersionAsync()|GetVersionAsync()`<br></br>`Class.DataStore:GetVersionAtTimeAsync()|GetVersionAtTimeAsync()`</td>
-    <td>5 + numPlayers × 2</td>
-  </tr>
-  <tr>
-    <td><b>List</b></td>
-    <td>`Class.DataStoreService:ListDataStoresAsync()|ListDataStoresAsync()`<br></br>`Class.DataStore:ListKeysAsync()|ListKeysAsync()`<br></br>`Class.DataStore:ListVersionsAsync()|ListVersionAsync()`</td>
-    <td>5 + numPlayers × 2</td>
-  </tr>
-  <tr>
-    <td><b>Remove</b></td>
-    <td>`Class.DataStore:RemoveVersionAsync()|RemoveVersionAsync()`</td>
-    <td>5 + numPlayers × 2</td>
-  </tr>
-</tbody>
-</table>
+  For each request type, the limit is shared among all listed functions.
+
+  <table>
+  <thead>
+    <tr>
+      <th>Request type</th>
+      <th>Functions</th>
+      <th>Requests per minute</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Get</b></td>
+      <td>`Class.GlobalDataStore:GetAsync()|GetAsync()`</td>
+      <td>60 + numPlayers × 10</td>
+    </tr>
+    <tr>
+      <td><b>Set</b></td>
+      <td>`Class.DataStore:SetAsync()|SetAsync()`<br></br>`Class.DataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.DataStore:UpdateAsync()|UpdateAsync()`<br></br>`Class.DataStore:RemoveAsync()|RemoveAsync()`</td>
+      <td>60 + numPlayers × 10</td>
+    </tr>
+    <tr>
+      <td><b>Get Sorted</b></td>
+      <td>`Class.OrderedDataStore:GetSortedAsync()|GetSortedAsync()`</td>
+      <td>5 + numPlayers × 2</td>
+    </tr>
+    <tr>
+      <td><b>Ordered Set</b></td>
+      <td>`Class.OrderedDataStore:SetAsync()|SetAsync()`<br></br>`Class.OrderedDataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.OrderedDataStore:UpdateAsync()|UpdateAsync()`<br></br>`Class.OrderedDataStore:RemoveAsync()|RemoveAsync()`</td>
+      <td>30 + numPlayers × 5</td>
+    </tr>
+    <tr>
+      <td><b>Get Version</b></td>
+      <td>`Class.DataStore:GetVersionAsync()|GetVersionAsync()`<br></br>`Class.DataStore:GetVersionAtTimeAsync()|GetVersionAtTimeAsync()`</td>
+      <td>5 + numPlayers × 2</td>
+    </tr>
+    <tr>
+      <td><b>List</b></td>
+      <td>`Class.DataStoreService:ListDataStoresAsync()|ListDataStoresAsync()`<br></br>`Class.DataStore:ListKeysAsync()|ListKeysAsync()`<br></br>`Class.DataStore:ListVersionsAsync()|ListVersionsAsync()`</td>
+      <td>5 + numPlayers × 2</td>
+    </tr>
+    <tr>
+      <td><b>Remove Version</b></td>
+      <td>`Class.DataStore:RemoveVersionAsync()|RemoveVersionAsync()`</td>
+      <td>5 + numPlayers × 2</td>
+    </tr>
+  </tbody>
+  </table>
+</TabItem>
+<TabItem label="Future experience limits">
+  The server limits will be replaced by experience-level limits starting in 2026.
+
+Each experience is allowed a certain number of data store requests based on the data store type, request type, and number of concurrent users. For each data store type and request type, the limit is shared among all listed functions.
+
+  <h5>Standard data stores</h5>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Request type</th>
+      <th>Functions</th>
+      <th>Requests per minute</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Read</b></td>
+      <td>`Class.DataStore:GetAsync()|GetAsync()`<br></br>`Class.DataStore:GetVersionAsync()|GetVersionAsync()`<br></br>`Class.DataStore:GetVersionAtTimeAsync()|GetVersionAtTimeAsync()`</td>
+      <td>250 + concurrentUsers × 40</td>
+    </tr>
+    <tr>
+      <td><b>Write</b></td>
+      <td>`Class.DataStore:SetAsync()|SetAsync()`<br></br>`Class.DataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.DataStore:UpdateAsync()|UpdateAsync()`</td>
+      <td>250 + concurrentUsers × 20</td>
+    </tr>
+    <tr>
+      <td><b>List</b></td>
+      <td>`Class.DataStoreService:ListDataStoresAsync()|ListDataStoresAsync()`<br></br>`Class.DataStore:ListKeysAsync()|ListKeysAsync()`<br></br>`Class.DataStore:ListVersionsAsync()|ListVersionsAsync()`</td>
+      <td>10 + concurrentUsers × 2</td>
+    </tr>
+    <tr>
+      <td><b>Remove</b></td>
+      <td>`Class.DataStore:RemoveAsync()|RemoveAsync()`</td>
+      <td>100 + concurrentUsers × 40</td>
+    </tr>
+    <tr>
+      <td><b>RemoveVersion (deprecated)</b></td>
+      <td>`Class.DataStore:RemoveVersionAsync()|RemoveVersionAsync()`</td>
+      <td>5 + rccPlayers × 2</td>
+    </tr>
+  </tbody>
+  </table>
+
+  <h5>Ordered data stores</h5>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Request type</th>
+      <th>Functions</th>
+      <th>Requests per minute</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Read</b></td>
+      <td>`Class.OrderedDataStore:GetAsync()|GetAsync()`</td>
+      <td>250 + concurrentUsers × 40</td>
+    </tr>
+    <tr>
+      <td><b>Write</b></td>
+      <td>`Class.OrderedDataStore:SetAsync()|SetAsync()`<br></br>`Class.OrderedDataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.OrderedDataStore:UpdateAsync()|UpdateAsync()`</td>
+      <td>250 + concurrentUsers × 20</td>
+    </tr>
+    <tr>
+      <td><b>List</b></td>
+      <td>`Class.OrderedDataStore:GetSortedAsync()|GetSortedAsync()`</td>
+      <td>100 + concurrentUsers × 2</td>
+    </tr>
+    <tr>
+      <td><b>Remove</b></td>
+      <td>`Class.OrderedDataStore:RemoveAsync()|RemoveAsync()`</td>
+      <td>100 + concurrentUsers × 40</td>
+    </tr>
+  </tbody>
+  </table>
+</TabItem>
+</Tabs>
 
 ### Data limits
 
 Data stores limit how much data can be used per entry.
 
-The data store name, key name, and [scope](../../cloud-services/data-stores/manage-data-stores.md#scopes) must all be under a certain character length. Use `Library.string.len()` to check their length.
+The data store name, key name, and [scope](./versioning-listing-and-caching.md#scopes) must all be under a certain character length. Use `Library.string.len()` to check their length.
 
-The data (key value) is also stored as a string, regardless of its initial type. You can check the size of the data with the `Class.HttpService:JSONEncode()|JSONEncode()` function, which converts Lua data into a serialized JSON table.
+The data (key value) is also stored as a string, regardless of its initial type. You can check the size of the data with the `Class.HttpService:JSONEncode()|JSONEncode()` function, which converts Luau data into a serialized JSON table.
 
 <table>
 <thead>
@@ -459,6 +548,25 @@ Roblox examines the usage of quota associated with the key over the last 60 seco
 </tbody>
 </table>
 
+In addition to the above throughput limits, Roblox organizes data into partitions based on an internal schema. As a result, when the backend server receives a high volume of requests to the same data store, it can result in further throttling. Regardless of the cause, throttling manifests as either `DatastoreThrottled` or `KeyThrottled` errors, depending on whether the throughput limit was exceeded for a single data store or a key. These error messages apply to both ordered and standard data stores.
+
 <Alert severity="info">
   For every request, Roblox rounds throughput up to the next kilobyte. For example, if you write 800 bytes and 1.2 KB in two requests, Roblox counts that as 3 KB total throughput (1 KB and 2 KB, respectively).
 </Alert>
+
+### Storage limits
+
+<Tabs>
+<TabItem label="Storage limits">
+  Currently, there are no enforced storage limits on data stores.
+</TabItem>
+<TabItem label="Future storage limits">
+  In the future, to provide a scalable and stable storage experience, data stores will implement an experience-level storage limit on your storage usage.
+
+This limit will be the sum of a base limit for each of your experiences and a per-user limit based on the number of lifetime users in your experience. A lifetime user is any user who has joined your experience at least once.
+
+The storage limit will be calculated using the formula `Total latest version storage limit = 100 MB + 1 MB * lifetime user count`.
+
+Any data that you delete or replace, even if still accessible through version APIs, will not count towards your experience's storage usage.
+</TabItem>
+</Tabs>

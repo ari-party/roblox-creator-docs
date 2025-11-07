@@ -8,7 +8,7 @@ next: /resources/beyond-the-dark/layered-clothing
 prev: /resources/beyond-the-dark/building-architecture
 ---
 
-You can import custom meshes to create everything from NPCs to an animated cloth of a sail boat. We used the custom setting of the Avatar Importer (now the [3D Importer](../../art/modeling/3d-importer.md)) to bring in more exotic custom characters, like the mysterious black hole creatures and the friendly, if unaware, service droids.
+You can import custom meshes to create everything from NPCs to an animated cloth of a sail boat. We used the custom setting of the [3D Importer](../../art/modeling/3d-importer.md) to bring in more exotic custom characters, like the mysterious black hole creatures and the friendly, if unaware, service droids.
 
 The following sections go over how we used [rigging and skinning](../../art/modeling/rigging.md), [PBR (surface
 appearance)](/art/modeling/surface-appearance), and VFX to build one of our more complicated characters that we named the "Creature." We wanted it to glow, emit some light, have trails of particle smoke, and a fluid motion that involved skinning a rig with enough joints to create the convincing waves of its tentacles.
@@ -140,7 +140,7 @@ The skinned character's mesh positions aren't updated when the Creature animates
 
 1. We placed the following `Class.LocalScript` in **StarterPlayer** → **StarterPlayerScripts**. This essentially runs the VFX update function.
 
-   ```lua title='Local Script'
+   ```lua title="Local Script"
    -- Add this snippet to an existing local script that makes PreSimulation
    -- connections
 
@@ -150,7 +150,7 @@ The skinned character's mesh positions aren't updated when the Creature animates
    RunService.PreSimulation:Connect(vfx.updateVfx)
    ```
 
-   ```lua title='Module Script'
+   ```lua title="Module Script"
    -- This module attached parts to animations so they are updated as the
    -- animation plays. It is a workaround for the current limitations
    -- with Joints and Bones and will not always be necessary.
@@ -207,7 +207,7 @@ The skinned character's mesh positions aren't updated when the Creature animates
    ```
 
 2. We created a **VFXUpdateModule** `Class.ModuleScript` to tell any objects tagged appropriately with **AnimatedVfxModel** to update on a play event.
-3. We tagged the necessary model groups with the **AnimatedVfxModel** using the **Tag&nbsp;Editor**, accessible from the [View](../../studio/view-tab.md) tab. Using tags allows the **VFXUpdateModule** to know which object to look for as the first VFX child and to apply the update.
+3. We tagged the necessary model groups with **AnimatedVfxModel** using the [Tags](../../studio/properties.md#instance-tags) section of its properties. Using tags allows the **VFXUpdateModule** to know which object to look for as the first VFX child and to apply the update.
 
    <img
    alt="VFX In Studio Example"
@@ -253,7 +253,7 @@ Here's how we created the surface appearance texture maps:
 
 ## Animate the creature
 
-Animating is very subjective and has a personal style. Options include motion capture, hand "key frame" animating in your DCC application, or using Studio's powerful Animation Editor.
+Animating is very subjective and has a personal style. Options include motion capture, hand "key frame" animating in your DCC application, or using Studio's powerful **Animation Editor**.
 
 As we mentioned earlier, we wanted to make sure we had enough joints for fluid motion as well as enough limbs, so the creature animation felt natural and "layered." Layering, also known as secondary motion, is something you see in everyday life — when you throw your arm out, every joint is reacting to the initial impulse from your upper arm, and every joint in your body doesn't move or rest at the same time.
 
@@ -270,22 +270,13 @@ If using an external DCC application for animation, we found the following guide
 - Create your animations with the same character you're applying it to.
 - Export your animation data as a separate `.fbx` file.
 
-Because we animated the character outside of Studio, we needed to use the Animation Editor to import the animation `.fbx` file. The editor lets you select any avatar with joints or motors and drive them via points in the timeline.
+Because we animated the character outside of Studio, we needed to use the **Animation Editor** to import the animation `.fbx` file. The editor lets you select any avatar with joints or motors and drive them via points in the timeline.
 
 To import an animation:
 
-1. In the Plugins tab, select the Animation Editor.
-   <img
-   alt="Animation Editor In Studio"
-   src="../../assets/resources/beyond-the-dark/custom-characters/Animation-Editor.png"
-   width="70%" />
-
+1. In the toolbar's **Avatar** tab, click **Animation**.
 2. Select the rigged character that you want to animate in Roblox. The character should be the same one you are rigging in your external DCC application.
-3. Click the button in the upper-left section of the editor window, select Import From FBX Animation, and locate your exported `.fbx` animation file.
-   <img
-   alt="Animation Import Example 1"
-   src="../../assets/resources/beyond-the-dark/custom-characters/Animation-Import.png"
-   width="60%" />
+3. Click the **&ctdot;** button in the upper-left section of the editor window, select **Import From FBX Animation**, and locate your exported `.fbx` animation file.
 
    <img
    alt="Animation Import Example 2"
@@ -316,7 +307,7 @@ To import an animation:
    ```
 
    <Alert severity="warning">
-   Check the character after you've closed the Animation Editor to ensure that the **AnimSaves** folder was deleted, as its files are only useful during editing.
+   Check the character after you've closed the **Animation Editor** to ensure that the **AnimSaves** folder was deleted, as its files are only useful during editing.
    </Alert>
 
 ## Final results

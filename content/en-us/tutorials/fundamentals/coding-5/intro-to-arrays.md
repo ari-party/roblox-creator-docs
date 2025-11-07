@@ -1,11 +1,11 @@
 ---
 title: Intro to arrays
-description: Learn how to use arrays in Roblox Lua to store multiple values at a time. This tutorial shows how to create and change arrays while making an interactive NPC in Roblox.
+description: Learn how to use arrays in Luau to store multiple values at a time. This tutorial shows how to create and change arrays while making an interactive NPC in Roblox.
 next: /tutorials/fundamentals/coding-5/loops-and-arrays
 prev: /tutorials/fundamentals/coding-5/landing
 ---
 
-**Data structures** are how coders store and organize entire sets of data. In Lua, data structures are created with tables. **Tables** can hold any number of values.
+**Data structures** are how coders store and organize entire sets of data. In Luau, data structures are created with tables. **Tables** can hold any number of values.
 
 This article covers using **arrays**, a specific table type, to create a talking character.
 
@@ -35,37 +35,41 @@ This project will use a pre-made NPC model, which includes a partial script and 
    <Button variant="contained">Download</Button>
    </a>
 
-2. In Explorer, import the NPC by right-clicking on **Workspace** > **Insert From File** and select the downloaded file.
+2. In Explorer, import the NPC by right-clicking on **Workspace** ⟩ **Insert From File** and select the downloaded file.
 
 ## Code a dialogue array
 
 These steps use an array to store different phrases for the NPC to say when players interact with it.
 
-1. In the **Explorer**, go to NPC > ProximityPrompt > ChatManager.
+1. In the **Explorer**, go to **NPC** ⟩ **ProximityPrompt** ⟩ **ChatManager**.
 
 2. In ChatManager, where marked in the script, create an **empty array** to store dialogue options.
 
    ```lua
-      -- Cycles through chat dialogue when prompt is used
+   -- Cycles through chat dialogue when prompt is used
 
-      local Chat = game:GetService("Chat")
+   local Chat = game:GetService("Chat")
 
-      local prompt = script.Parent
+   local prompt = script.Parent
 
-      local npc = prompt.Parent
-      local characterParts = npc.CharacterParts
-      local head = characterParts.Head
+   local npc = prompt.Parent
+   local characterParts = npc.CharacterParts
+   local head = characterParts.Head
 
-      -- Add array here
-      local dialogueArray = {}
+   -- Add array here
+   local dialogueArray = {}
 
-      local function speak()
-         local dialogue = "I've got one thing to say!"
-         Chat:Chat(head, dialogue)
-      end
+   local function speak()
+      local dialogue = "I've got one thing to say!"
+      Chat:Chat(head, dialogue)
+   end
 
-      prompt.Triggered:Connect(speak)
+   prompt.Triggered:Connect(speak)
    ```
+
+   <Alert severity="warning">
+   This lesson uses the legacy chat API and is strictly for demonstrating how to use arrays. In real experiences, use `Class.TextChatService`.
+   </Alert>
 
 3. Within the brackets `{}` of the array just created, type at least three strings of dialogue, separated by commas.
 
@@ -120,7 +124,7 @@ Use index values to assign specific pieces of dialogue to the NPC. To use a valu
    ```
 
    <Alert severity="warning">
-   If an index doesn't exist, a nil error will display in Output. For example, since this array only has three values, using `dialogueArray[4]` will result in an error.
+   If an index doesn't exist, a `nil` error will display in Output. For example, since this array only has three values, using `dialogueArray[4]` will result in an error.
    </Alert>
 
 2. Playtest and click the NPC. The second array value should appear in the chat bubble. Try changing the code to test out each value in the table.
@@ -212,7 +216,7 @@ Use the array size to check when it's time to cycle back to the first piece of d
 
 ## Summary
 
-Data structures are how sets of data are stored. Lua uses tables to create data structures. Arrays are a type of table that can hold ordered lists of information. Each value within the array is assigned an index number, starting with index 1.
+Data structures are how sets of data are stored. Luau uses tables to create data structures. Arrays are a type of table that can hold ordered lists of information. Each value within the array is assigned an index number, starting with index 1.
 
 This script used an array to create a list of possible dialogue lines for a Non-Playable Character (NPC).
 
@@ -252,7 +256,7 @@ If the character doesn't go through the array of dialogue, try the following tro
 
 Try one of the optional challenges below.
 
-- Code the script so the NPC's dialogue goes backward through the array. The dialogueIndex should start at the array and subtract each time instead of adding.
+- Code the script so the NPC's dialogue goes backward through the array. The dialogue index should start at the array length and subtract each time instead of adding.
 - Instead of showing dialogue in order, have the NPC show a random line of dialogue each time using `Datatype.Random.new()`. A sample script is included below to reference
 
 ```lua

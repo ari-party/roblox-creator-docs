@@ -17,7 +17,7 @@ Keep in mind, your 3D layered accessory must also follow Roblox's [clothing spec
 
 To import your asset:
 
-1. In Studio, navigate to the **Avatar tab** and select the **3D Importer**.
+1. From Studio's **File** menu, select **3D Importer**.
 2. In the file browser, select the `.fbx` or `.gltf` file saved locally. The 3D Importer loads a preview of the object.
 
    - If textures don't load for your asset, you can manually import your textures later.
@@ -30,15 +30,11 @@ To import your asset:
 <AccordionDetails>
  If textures didn't load correctly, add them manually. You may need to save and publish your experience in order to access the [Asset Manager](../../projects/assets/manager.md).
 
-1.  Open the Asset Manager. You may need to save and publish your experience before accessing your assets.
-2.  In the Asset Manager, select the **Bulk Import** button.
-
-    <img src="../../assets/studio/asset-manager/Import-Button.png" width = "60%"/>
-
-3.  Upload your image files.
-4.  After moderation clears for your image, select the `Class.MeshPart` parented within your imported `Class.Model`.
-5.  If you are using a single basic texture, set the `Class.MeshPart.TextureID` property to your uploaded texture image.
-6.  If you are using PBR Textures:
+1.  In the **Asset Manager**, click the **Import** button.
+2.  Upload your image files.
+3.  After moderation clears for your image, select the `Class.MeshPart` parented within your imported `Class.Model`.
+4.  If you are using a single basic texture, set the `Class.MeshPart.TextureID` property to your uploaded texture image.
+5.  If you are using PBR textures:
 
     1. Add a `Class.SurfaceAppearance` child to your `Class.MeshPart`.
 
@@ -62,21 +58,24 @@ After successful import, your model object should populate in your project as a 
 
 ## Convert layered accessories
 
-With the `Class.Model` in your project, the last step in the process of clothing creation requires you to use the Accessory Fitting Tool to convert this object to a standard `Class.Accessory` that avatar characters can equip.
+With the `Class.Model` in your project, the last step in the process of clothing creation requires you to use the [Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md) (AFT) to convert this object to a standard `Class.Accessory` that avatar characters can equip.
+
+<Alert severity = 'warning'>
+For shoes, you must convert the left shoe and the right shoe as separate accessories. Use the following instructions for each shoe before grouping both shoe accessories as a `Class.Model` when [saving to Roblox](../../marketplace/publish-to-marketplace.md#upload-an-asset).
+</Alert>
 
 To generate the accessory object:
 
-1. In the Avatar tab, select the [**Accessory Fitting Tool**](../accessories/accessory-fitting-tool.md). The Accessory Fitting Tool panel displays on the left side of the workspace.
-2. Select the `Class.Model` of the clothing item in the viewport. The tool's text field populates with the name of the object selected. Alternatively, you can select the object within the Explorer window.
+1. In the toolbar's **Avatar** tab, click **Accessory** to open the AFT.
+2. Select the `Class.Model` of the clothing item in the viewport. The tool's text field populates with the name of the object selected. Alternatively, you can select the object within the **Explorer** window.
 3. Test out various sample characters, clothing, and animations. See [Test accessories](../../art/accessories/accessory-fitting-tool.md#test-accessories) for additional information.
    - If required, make minor cage adjustments using the editing features. Larger cage changes may require returning to your third-party modeling software and re-exporting the asset.
-4. When ready to generate your accessory, click **Generate MeshPart Accessory**. The Accessory object with your model populates in your workspace.
-   For additional information and documentation on the tool, see [Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md).
+4. When ready to generate your accessory, click **Generate MeshPart Accessory**. The accessory object with your model populates in your workspace.
 
       <GridContainer numColumns="2">
       <figure>
          <img src="../../assets/art/accessories/creating/Exporting-Clothing-in-Studio-Highlight.png" />
-         <figcaption>Clothing accessory in Workspace</figcaption>
+         <figcaption>Clothing accessory in viewport</figcaption>
       </figure>
       <figure>
          <img src="../../assets/art/accessories/creating/Exporting-Accessory-Explorer.png" />
@@ -88,6 +87,6 @@ After successful fitting and converting, your 3D model should populate in your p
 
 - Begin the process of [uploading and publishing](../../marketplace/publish-to-marketplace.md#upload-an-asset) the clothing accessory to the Marketplace.
 
-- Use the accessory in your current experience by equipping it to character models with [HumanoidDescription](../../characters/appearance.md#humanoiddescription), or by dragging and dropping the accessory under the appropriate character `Class.Model` object.
+- Use the accessory in your current experience by equipping it to character models with [HumanoidDescription](../../characters/appearance.md#manually-modify-appearance), or by dragging and dropping the accessory under the appropriate character `Class.Model` object.
 
 - Save the accessory to your [Toolbox](../../projects/assets/toolbox.md) or make it public on the [Creator Store](../../production/creator-store.md) to share or use within any of your experiences.

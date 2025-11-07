@@ -10,7 +10,7 @@ You receive a commission every time users purchase your item. If users purchase 
 
 ## Upload fees
 
-When uploading, accessories, clothing, bodies, and heads require an upload fee of **750 Robux** per submission. In general, fees are not refunded if an item is rejected through moderation. If your asset clears the uploading process, your asset is ready to publish to the Marketplace.
+Uploading a 3D avatar item, such as accessories, bodies, and animations, requires an upload fee of **750 Robux** per submission. In general, fees are not refunded if an item is rejected through moderation. If your asset clears the uploading process, your asset is ready to publish to the Marketplace.
 
 ## Publishing advance
 
@@ -109,6 +109,16 @@ This publishing advance is dependent on the type of Marketplace item being sold:
   </tr>
   <tr>
     <td>Head</td>
+    <td>1500</td>
+    <td>10000</td>
+  </tr>
+  <tr>
+    <td>Shoes</td>
+    <td>600</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td>Emotes</td>
     <td>1500</td>
     <td>10000</td>
   </tr>
@@ -243,17 +253,162 @@ There is a 30 day escrow hold for each purchase. Roblox holds the commission fro
 | Item Type                                        | Marketplace Purchase |                 In-Experience Purchase                  |
 | :----------------------------------------------- | :------------------: | :-----------------------------------------------------: |
 | 3D assets (bodies, heads, clothing, accessories) | Creator receives 30% | Creator receives 30%<br />Experience owner receives 40% |
-| Classic Clothing                                 | Creator receives 70% | Creator receives 60%<br />Experience owner receives 10% |
+| Classic clothing                                 | Creator receives 70% | Creator receives 60%<br />Experience owner receives 10% |
 
 <Alert severity = 'info'>
 Limited items that are sold for free follow a different per-unit payout structure. See [Per-Unit Fee](#per-unit-fee) for more information.
 </Alert>
 
+### Progressive revenue share
+
+Avatar items sold in the Marketplace use a progressive revenue share system: the more an item is priced above its asset type's [price floor](#price-ranges), the greater the share of revenue the creator earns. <br /><br />
+
+Additional guidelines:
+
+- Progressive revenue share **only applies to purchases in the Marketplace**. In-experience purchases receive the base 30% commission.
+- The revenue share % is progressive. For example, an item priced at 1.15x the price floor will receive ~33% of the creator revenue share.
+- [Regional pricing](../production/monetization/regional-pricing.md) adjustments do not affect revenue share percentage. Revenue share is based solely on the listed price relative to current floor.
+
+<table><thead>
+  <tr>
+    <th>Price floor multiple</th>
+    <th>Total creator revenue share</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td>30%</td>
+  </tr>
+  <tr>
+    <td>1.3</td>
+    <td>37%</td>
+  </tr>
+  <tr>
+    <td>1.5</td>
+    <td>41%</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>50%</td>
+  </tr>
+  <tr>
+    <td>2.5</td>
+    <td>57%</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>62%</td>
+  </tr>
+  <tr>
+    <td>3.5</td>
+    <td>65%</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>67%</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>69%</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>70%</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>70%</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>70%</td>
+  </tr>
+</tbody>
+</table>
+
+<BaseAccordion>
+<AccordionSummary>Progressive commission example scenario</AccordionSummary>
+<AccordionDetails>
+The following is an example of a hypothetical breakdown of various item prices and expected creator share returns. The price floor in this scenario is set to 100.
+
+<table><thead>
+  <tr>
+    <th>**Item price** <br/> *(Price floor at 100)*</th>
+    <th>**Revenue share %**</th>
+    <th>**Creator share**</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>100</td>
+    <td>30%</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>130</td>
+    <td>37%</td>
+    <td>48</td>
+  </tr>
+  <tr>
+    <td>150</td>
+    <td>41%</td>
+    <td>62</td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>50%</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>250</td>
+    <td>57%</td>
+    <td>142</td>
+  </tr>
+  <tr>
+    <td>300</td>
+    <td>62%</td>
+    <td>186</td>
+  </tr>
+  <tr>
+    <td>350</td>
+    <td>65%</td>
+    <td>228</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>67%</td>
+    <td>268</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>69%</td>
+    <td>345</td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>70%</td>
+    <td>420</td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>70%</td>
+    <td>560</td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>70%</td>
+    <td>700</td>
+  </tr>
+</tbody>
+</table>
+
+</AccordionDetails>
+</BaseAccordion>
+
 ## Limiteds
 
 When setting assets on sale, you can [configure your creation](../marketplace/publish-to-marketplace.md#marketplace-settings) as a **Limited** item to set an available quantity for that asset.
 
-At this time, only Roblox-created Limiteds are tradeable, and bodies and heads are not eligible as Limiteds.
+At this time, only Roblox-created Limiteds are tradeable.
 
 ### Per-unit fee
 

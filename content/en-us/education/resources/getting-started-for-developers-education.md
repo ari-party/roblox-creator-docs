@@ -42,7 +42,7 @@ Engineer a rover to withstand challenges on the harsh martian landscape. Designe
 <Grid item XSmall={4} XLarge={4}>
 ![Logo of Lua Learning](../../assets/education/developer/thumbnail-luaLearning.png)
 <a href="https://www.roblox.com/games/1334669864/"><h4>Lua Learning</h4></a>
-Learn computational thinking, and Lua coding within Roblox. Users can complete interactive courses and even find user-created lessons on advanced technical concepts such as network security.
+Learn computational thinking, and Luau coding within Roblox. Users can complete interactive courses and even find user-created lessons on advanced technical concepts such as network security.
 </Grid>
 
 <Grid item XSmall={4} XLarge={4}>
@@ -111,7 +111,7 @@ In addition to documentation, Roblox Education has different programs that kicks
    </tr>
    <tr>
     <td>Learn and Explore Sort</td>
-    <td>Many Roblox users interested in education find new experiences in the curated Learn and Explore Sort. Experiences here can expect more significant traffic and visibility. Information about eligibility can be found on the <a href="../../production/promotion/nominate-for-the-discover-page.md#learn--explore-criteria" target="_blank" rel="noopener">Special Sort</a> page.</td>
+    <td>Many Roblox users interested in education find new experiences in the curated **Learn and Explore** sort. Experiences here can expect more significant traffic and visibility. <a href="https://roblox.qualtrics.com/jfe/form/SV_8313iVKrwkQUiGy" target="_blank" rel="noopener">Apply</a> for consideration.</td>
    </tr>
 </tbody>
 </table>

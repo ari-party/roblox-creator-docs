@@ -3,7 +3,7 @@ title: Assets
 description: An overview of how assets work on the platform.
 ---
 
-Almost everything in Roblox is represented as a cloud-based asset with a unique corresponding ID. This ID is typically in the form of `rbxassetid://[ID]`, which gets applied to various instances as a property that's appropriate for that particular asset type. For example, `Class.Texture`, `Class.MeshPart`, and `Class.Sound` instances reference image, mesh, and audio assets through their respective `Class.Texture.TextureID|TextureID`, `Class.MeshPart.MeshID|MeshID`, and `Class.Sound.SoundID|SoundID` properties.
+Almost everything in Roblox is represented as a cloud-based asset with a unique corresponding ID. This ID is typically in the form of `rbxassetid://[ID]`, which gets applied to various instances as a property that's appropriate for that particular asset type. For example, `Class.Texture`, `Class.MeshPart`, and `Class.AudioPlayer` instances reference image, mesh, and audio assets through their respective `Class.Texture.ColorMapContent|ColorMapContent`, `Class.MeshPart.MeshId|MeshId`, and `Class.AudioPlayer.Asset|Asset` properties.
 
 <GridContainer numColumns="3">
 	<figure>
@@ -61,15 +61,15 @@ For more information on both types of these assets for places, such as where and
 	<tbody>
 		<tr>
 			<td>**Model**</td>
-			<td>A `Class.Model` is a container object for geometric groupings such as `Class.BasePart|BaseParts`, `Class.MeshPart|MeshParts`, and other `Class.Model` objects. Models can also contain objects such as `Class.Script|Scripts`. Whenever you group objects together in Studio, they automatically become a `Class.Model` object. For more information, see [Models](../../parts/models.md).</td>
+			<td>A `Class.Model` is a container object for geometric groupings such as `Class.BasePart|BaseParts`, `Class.MeshPart|MeshParts`, and other `Class.Model` objects. Models can also contain objects such as `Class.Script|Scripts`. Whenever you group objects together in Studio, they automatically become a `Class.Model` object. For more information, see [models](../../parts/models.md).</td>
 		</tr>
 		<tr>
 			<td>**Mesh**</td>
-			<td>A `Class.MeshPart` is a type of part object that includes a physically-simulated custom mesh. For more information, see [Meshes](../../parts/meshes.md).</td>
+			<td>A `Class.MeshPart` is a type of part object that includes a physically-simulated custom mesh. For more information, see [meshes](../../parts/meshes.md).</td>
 		</tr>
 		<tr>
 			<td>**Audio**</td>
-			<td>A `Class.Sound` object is an object that emits audio when you apply an audio asset ID within its `Class.Sound.SoundId|SoundId` property. Where you place the `Class.Sound` object in the data model changes how and where the sound emits within the experience. For more information, see [Audio Assets](../../sound/assets.md) and [Sound Objects](../../sound/objects.md).</td>
+			<td>An `Class.AudioPlayer` instance loads and plays an audio file and passes the output through a `Class.Wire` to an `Class.AudioEmitter` or `Class.AudioDeviceOutput`. For more information, see [audio assets](../../audio/assets.md) and [audio objects](../../audio/objects.md).</td>
 		</tr>
 		<tr>
 			<td>**Image**</td>
@@ -81,7 +81,7 @@ For more information on both types of these assets for places, such as where and
 		</tr>
 		<tr>
 			<td>**Video**</td>
-			<td>A `Class.VideoFrame` object displays a video through its `Class.VideoFrame.Video|Video` asset property. See [Video Frames](../../ui/video-frames.md) for more information.</td>
+			<td>A `Class.VideoFrame` object displays a video through its `Class.VideoFrame.Video|Video` asset property. See [video frames](../../ui/video-frames.md) for more information.</td>
 		</tr>
 	</tbody>
 </table>
@@ -94,13 +94,13 @@ There are three categories of asset types for avatars that you can find in the [
 - **Clothing and Accessories** — Assets that represent clothing and accessories on top of body parts.
 - **Animations** — Assets that animate the avatar character model, such as how it runs, jumps, or swims.
 
-Every [character](../../characters/index.md) model contains a `Class.HumanoidDescription` object with asset IDs for the character's body parts, clothing, accessories, and animations. By default, a user's playable character references their personal Roblox avatar, but you can apply a custom `Class.HumanoidDescription` if desired. For more information, see [Character appearance](../../characters/appearance.md).
+Every [character](../../characters/index.md) model contains a `Class.HumanoidDescription` object with asset IDs for the character's body parts, clothing, accessories, and animations. By default, a user's playable character references their personal Roblox avatar, but you can apply a custom `Class.HumanoidDescription` if desired. For more information, see [character appearance](../../characters/appearance.md).
 
 ## Packages
 
 Within Studio, you can convert single assets or asset hierarchies into **packages** and reuse them in multiple experiences, letting you optimize asset management across your entire team or across multiple projects. When a package is updated, you or your team members can update specific copies to the most current version, update all copies across an experience, or set specific copies to auto update.
 
-For more information, see [Packages](../../projects/assets/packages.md).
+For more information, see [packages](../../projects/assets/packages.md).
 
 ## Asset URIs
 
@@ -114,7 +114,7 @@ The Roblox Engine supports several custom URI schemes for referencing content st
 
 ### rbxassetid
 
-`rbxassetid` points to a user-uploaded asset on Roblox. This format is a common standard for properties such as `Class.Decal.Texture`, `Class.ParticleEmitter.Texture`, and `Class.Sound.SoundId`.
+`rbxassetid` points to a user-uploaded asset on Roblox. This format is a common standard for properties such as `Class.Decal.ColorMapContent`, `Class.ParticleEmitter.Texture`, and `Class.AudioPlayer.Asset`.
 
 <GridContainer numColumns="3">
   <figure>
@@ -145,7 +145,8 @@ The content folder's location depends on the user's operating system:
 
 <Tabs>
   <TabItem label="Windows">
-    `%localappdata%\Roblox\Versions\<version>\content`
+    `%LOCALAPPDATA%\Roblox\Versions\<version>\content`<br />
+    (alternatively `C:\Program Files (x86)\Roblox\Versions\<version>\content`)
   </TabItem>
   <TabItem label="Mac">
     `Applications/RobloxStudio.app/Contents/Resources/content`
@@ -214,7 +215,7 @@ The content folder's location depends on the user's operating system:
 		</tr>
 		<tr>
 			<td>`GameThumbnail`</td>
-			<td>ID for an experience (`Class.DataModel.GameId`); shows the experience's primary [thumbnail](../../production/publishing/thumbnails.md)</td>
+			<td>ID for an experience (`Class.DataModel.PlaceId`); shows the experience's primary [thumbnail](../../production/publishing/thumbnails.md)</td>
 			<td scope="row">256&times;144, 384&times;216, 480&times;270, 576&times;324, 768&times;432</td>
 		</tr>
 		<tr>
@@ -230,7 +231,7 @@ The content folder's location depends on the user's operating system:
 	</tbody>
 </table>
 
-```lua title='Apply Avatar Head Shot Thumbnail'
+```lua title="Apply Avatar Head Shot Thumbnail"
 local Players = game:GetService("Players")
 
 local player = Players.LocalPlayer
@@ -295,7 +296,7 @@ In the above example, `Images` is the category/folder that appears in the [Asset
 An asset's privacy status determines who has permission to use the asset within their experiences. By default, all assets are **private** when you or your [group](../../projects/groups.md) members import them into Studio. If you want to grant everyone access to the asset ID, you must distribute the asset to the [Creator Store][CreatorMarketplaceURL].
 
 <Alert severity="warning">
-Special privacy rules and workflows apply to **audio** and **video** assets. See [Asset Privacy](../../projects/assets/privacy.md) for details on sharing these asset types among friends and experiences.
+Special privacy rules and workflows apply to **audio** and **video** assets. See [asset privacy](../../projects/assets/privacy.md) for details on sharing these asset types among connections and experiences.
 </Alert>
 
 ## Asset moderation
@@ -322,7 +323,7 @@ Roblox offers several tools to import, store, and publish your assets:
     <tbody>
         <tr>
             <td>[Asset Manager](../../projects/assets/manager.md)</td>
-            <td>Imports and stores [images](../../parts/textures-decals.md), [meshes](../../parts/meshes.md), [packages](../../projects/assets/packages.md), [audio](../../sound/assets.md), and [models](../../parts/models.md). Only displays assets that you've imported into the currently opened experience.</td>
+            <td>Imports and stores [images](../../parts/textures-decals.md), [meshes](../../parts/meshes.md), [audio](../../audio/assets.md), and more. Only displays assets that you've imported into the currently opened experience.</td>
         </tr>
 				<tr>
             <td>[Toolbox](../../projects/assets/toolbox.md)</td>
@@ -330,23 +331,21 @@ Roblox offers several tools to import, store, and publish your assets:
         </tr>
         <tr>
             <td>[3D Importer](../../art/modeling/3d-importer.md)</td>
-            <td>Imports `.fbx` or `.obj` 3D models from third-party modeling tools as a custom `Class.Model` instance. </td>
+            <td>Imports 3D models from third-party modeling tools as a custom `Class.Model` instance. </td>
         </tr>
     </tbody>
 </table>
 
-## Archiving Assets
+## Archive assets
 
-To further help with organization, you can archive most asset types in the **Development Items** section of the [Creator Dashboard][CreatorDashboardURL].
+To further help with organization, you can archive most asset types in the **Creations** &rang; **Development Items** section of the [Creator Dashboard][CreatorDashboardURL]. To archive an item, hover over an asset's thumbnail, click the **&ctdot;** button, and select **Archive** from the context menu.
 
-<img src="../../assets/creator-dashboard/Creations-Development-Items.png" width="780" alt="Development Items section on the Creator Dashboard" />
-
-<img src="../../assets/creator-dashboard/Asset-Context-Menu-Archive.png" width="400" alt="A close up view of a Splash Ring asset. The ellipsis button and the Archive menu item are highlighted." />
+<img src="../../assets/creator-dashboard/Options-Button-Asset.png" width="200" alt="Options button indicated for an asset." />
 
 After you archive an asset, it disappears from the website and is no longer usable or visible in Roblox experiences, including your own.
 
 <Alert severity = 'warning'>
-You can archive avatar item assets by [submitting an archiving request](../../marketplace/moderation.md#archiving-assets).
+For more information on how archiving works with Marketplace items, see [moderation](../../marketplace/moderation.md#archive-assets).
 </Alert>
 
 [CreatorMarketplaceURL]: https://create.roblox.com/store

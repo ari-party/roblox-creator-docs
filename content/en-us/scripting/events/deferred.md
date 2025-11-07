@@ -3,7 +3,7 @@ title: Deferred engine events
 description: Deferred engine events defer event handlers until certain resumption points.
 ---
 
-The `Class.Workspace.SignalBehavior` property controls whether event handlers are fired immediately or deferred. We recommend the `Enum.SignalBehavior.Deferred` option, which helps improve the performance and correctness of the engine. The event handlers for **deferred events** are resumed at the next [resumption point](#resumption-points), along with any newly triggered event handlers.
+The `Class.Workspace.SignalBehavior` property controls whether event handlers are fired immediately or deferred. The `Enum.SignalBehavior.Deferred` option is recommended which helps improve the performance and correctness of the engine. The event handlers for **deferred events** are resumed at the next [resumption point](#resumption-points), along with any newly triggered event handlers.
 
 <Alert severity="info">
 The `Enum.SignalBehavior.Default` value of `Class.Workspace.SignalBehavior` is currently equivalent to `Enum.SignalBehavior.Immediate`, but will eventually switch to being equivalent to `Enum.SignalBehavior.Deferred`. Template places are directly set to `Enum.SignalBehavior.Deferred` by default.
@@ -22,17 +22,17 @@ The total time taken does not change, but the ordering is different.
 
 ## Deferred event benefits
 
-The `Immediate` behavior has some disadvantages. For every instance added to your game, property that changes, or some other trigger that is invoked, the engine needs to run Lua code before anything else happens.
+The `Immediate` behavior has some disadvantages. For every instance added to your game, property that changes, or some other trigger that is invoked, the engine needs to run Luau code before anything else happens.
 
 - To change 1,000 properties, 1,000 snippets of code potentially need to run after each change.
 - Strange, hard-to-diagnose bugs can occur, such as a removing event firing before something was even added.
-- Performance-critical systems can fire events requiring them to yield back and forth to Lua.
+- Performance-critical systems can fire events requiring them to yield back and forth to Luau.
 - Event handlers can make changes to the place or trigger other events any time an event is fired.
 - An event can fire multiple times despite being redundant, such as a property changing twice.
 
-By having specific portions of the engine life cycle in which Lua can run, the engine can gain improved performance by using a number of assumptions:
+By having specific portions of the engine life cycle in which Luau can run, the engine can gain improved performance by using a number of assumptions:
 
-- Performance-critical systems don't need to yield to Lua, which leads to performance gains.
+- Performance-critical systems don't need to yield to Luau, which leads to performance gains.
 - Unless the engine itself changes it, the place never changes outside of a resumption point.
 
 ## Resumption points

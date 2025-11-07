@@ -32,8 +32,8 @@ Before a laser can be shot, you must first know where the player is aiming. This
    Models can be added into your Inventory to be used between any game.
 
    1. In a browser, open the [model](https://www.roblox.com/library/6571559694/Blaster) page, click the **Get** button. This adds the model into your inventory.
-   2. In Studio, go to the **View** tab and click on the **Toolbox**.
-   3. In the Toolbox window, click on the **Inventory** button. Then, make sure the dropdown is on **My Models**.
+   2. From Studio's **Window** menu or **Home** tab toolbar, open the [Toolbox](../../../../projects/assets/toolbox.md) and select the **Inventory** tab.
+   3. Make sure the dropdown is on **My Models**.
    4. Select the **Blaster** model to add it into the **StarterPack**.
 
    </Alert>
@@ -155,13 +155,13 @@ If the raycast operation finds an object hit by the ray, it will return a `Datat
     </tbody>
 </table>
 
-The **Position** property will be the position of the object that the mouse is hovering over. If the mouse isn't hovering over any object within a distance of `MAX_MOUSE_DISTANCE`, `raycastResult` will be nil.
+The **Position** property will be the position of the object that the mouse is hovering over. If the mouse isn't hovering over any object within a distance of `MAX_MOUSE_DISTANCE`, `raycastResult` will be `nil`.
 
 1. Create an if statement to check whether `raycastResult` exists.
 
 2. If `raycastResult` has a value, return its **Position** property.
 
-3. If `raycastResult` is nil then find the end of the raycast. Calculate the 3D position of the mouse by adding `screenToWorldRay.Origin` and `directionVector` together.
+3. If `raycastResult` is `nil` then find the end of the raycast. Calculate the 3D position of the mouse by adding `screenToWorldRay.Origin` and `directionVector` together.
 
 ```lua
 local function getWorldMousePosition()
@@ -230,7 +230,7 @@ This time, the direction vector for the raycast function will represent the dire
    local function fireWeapon()
    	local mouseLocation = getWorldMousePosition()
 
-   	-- Calculate a normalised direction vector and multiply by laser distance
+   	-- Calculate a normalized direction vector and multiply by laser distance
    	local targetDirection = (mouseLocation - tool.Handle.Position).Unit
    end
    ```
@@ -269,7 +269,7 @@ local function getWorldMousePosition()
 local function fireWeapon()
 	local mouseLocation = getWorldMousePosition()
 
-	-- Calculate a normalised direction vector and multiply by laser distance
+	-- Calculate a normalized direction vector and multiply by laser distance
 	local targetDirection = (mouseLocation - tool.Handle.Position).Unit
 
 	-- The direction to fire the weapon multiplied by a maximum distance
@@ -360,27 +360,15 @@ If you have other models in the game that contain humanoids, further checks will
    end
    ```
 
-Now the laser blaster should print `Player hit` to the Output window every time the raycast operation hits another player.
+Now the laser blaster should print `Player hit` to the **Output** window every time the raycast operation hits another player.
 
 ## Test with multiple players
 
-Two players are needed to test if the weapon raycast is finding other players, so you need to start a local server.
+Two players are needed to test if the weapon raycast is finding other players, so you need to start a local server. See [multi‑client simulation](../../../../studio/testing-modes.md#multi-client-simulation) for instructions.
 
-1. Select the **Test** tab in Studio.
+On one client, test shooting the other player with the weapon by clicking on them. "Player hit" should be displayed in the output each time a player is shot.
 
-   ![](../../../../assets/tutorials/hit-detection-with-lasers/Test-Tab.png)
-
-2. Make sure the players dropdown is set to '2 Players' and click the Start button to **start** a local server with 2 clients. Three windows will appear. The first window will be the local server, the other windows will be the clients for Player1 and Player2.
-
-   ![](../../../../assets/tutorials/hit-detection-with-lasers/Test-Tab-Start-Button.png)
-
-3. On one client, test shooting the other player with the weapon by clicking on them. "Player hit" should be displayed in the output each time a player is shot.
-
-   <video controls loop muted>
-    <source src="../../../../assets/tutorials/hit-detection-with-lasers/Output-Video.mp4" />
-   </video>
-
-You can find out more about the Test tab [here](../../../../studio/test-tab.md).
+<video src="../../../../assets/tutorials/hit-detection-with-lasers/Output-Video.mp4" controls width="80%"></video>
 
 ## Find the laser position
 
@@ -603,7 +591,7 @@ Clients can use a `Class.RemoteEvent` to tell the server that a character has be
    local MAX_LASER_DISTANCE = 500
    ```
 
-4. Replace the `"Player hit"` print statement in `fireWeapon` with a line of Lua to fire the **DamageCharacter** remote event with the `characterModel` variable as an argument.
+4. Replace the `"Player hit"` print statement in `fireWeapon` with a line of Luau to fire the **DamageCharacter** remote event with the `characterModel` variable as an argument.
 
    ```lua
        local characterModel = weaponRaycastResult.Instance:FindFirstAncestorOfClass("Model")
@@ -797,7 +785,7 @@ The shooting sound effect currently only plays on the client that's shooting the
 
 2. At the bottom of the `createLaser` function in **LaserRenderer**, declare a variable named **shootingSound** and use the `Class.Instance:FindFirstChild()|FindFirstChild()` method of `toolHandle` to check for the **Activate** sound.
 
-3. Use an **if** statement to check if `shootingSound` exists; if it does, call its **Play** function.
+3. Use an **if** statement to check if `shootingSound` exists; if it does, call its `Play()` function.
 
    ```lua
        laserPart.Parent = workspace
@@ -996,7 +984,7 @@ end
 local function fireWeapon()
 	local mouseLocation = getWorldMousePosition()
 
-	-- Calculate a normalised direction vector and multiply by laser distance
+	-- Calculate a normalized direction vector and multiply by laser distance
 	local targetDirection = (mouseLocation - tool.Handle.Position).Unit
 
 	-- The direction to fire the weapon, multiplied by a maximum distance

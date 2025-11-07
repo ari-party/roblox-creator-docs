@@ -27,7 +27,7 @@ The **Log** tool shows diagnostic messages from scripts.
 Using the client-server switch, you can toggle between **Client** and **Server** views:
 
 - The **Client** view shows output from client-side `Class.LocalScript|LocalScripts` and/or `Class.Script|Scripts` with `Class.Script.RunContext|RunContext` set to `Enum.RunContext.Client`. Anyone running an experience can view local output messages.
-- The **Server** view shows output from server-side `Class.Script|Scripts` (`Class.Script.RunContext|RunContext` set to `Enum.RunContext.Client` or `Enum.RunContext.Legacy`). Only the experience owner or [group](../projects/groups.md) members with editing permission can view server output messages.
+- The **Server** view shows output from server-side `Class.Script|Scripts` (`Class.Script.RunContext|RunContext` set to `Enum.RunContext.Server` or `Enum.RunContext.Legacy`). Only the experience owner or [group](../projects/groups.md) members with editing permission can view server output messages.
 
 </TabItem>
 <TabItem label="Output filters">
@@ -58,7 +58,7 @@ Using the checkboxes, you can filter output messages in the log:
 </TabItem>
 <TabItem label="Command bar">
 
-The **Server** view also includes a command bar that lets users with editing permissions run arbitrary Luau code. Unlike the [Command Bar](../studio/ui-overview.md#command-bar) in Studio, this console command bar has the same security restrictions as `Class.Script|Scripts` and `Class.LocalScript|LocalScripts`, so it can't run protected functions.
+The **Server** view also includes a command bar that lets users with editing permissions run arbitrary Luau code. Unlike the [Command&nbsp;Bar](../studio/ui-overview.md#command) in Studio, this console command bar has the same security restrictions as `Class.Script|Scripts` and `Class.LocalScript|LocalScripts`, so it can't run protected functions.
 
 </TabItem>
 </Tabs>

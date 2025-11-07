@@ -1,9 +1,9 @@
 ---
 title: Roblox Innovation Awards
-description: The Roblox Innovation Awards (RIAs) celebrates the most innovative creators, video stars, and experiences of each year.
+description: Roblox Innovation Awards is an annual event celebrating the most innovative creators, video stars, and experiences.
 ---
 
-The Roblox Innovation Awards (RIAs) celebrates the most innovative creators, video stars, and experiences of each year, nominated by the community.
+Roblox Innovation Awards is an annual event celebrating the most innovative creators, video stars, and experiences, nominated by Roblox staff and the community.
 
 <figure>
 <Chip
@@ -13,28 +13,8 @@ The Roblox Innovation Awards (RIAs) celebrates the most innovative creators, vid
     variant="filled"/>
 </figure><br />
 
-Watch the full recording of the 2024 RIAs [here](https://www.youtube.com/live/h8RD96Ciof0).
+You can watch the 2025 Roblox Innovation Awards [here](https://www.youtube.com/watch?v=7DXTQcA9G_A).
 
-The awards categories for 2024 were:
+## Nominations
 
-- Best New Experience
-- Best Branded Experience
-- People's Choice
-- Best UGC Creator
-- Best Video Star
-- Best Shooter Experience
-- Best Education Experience
-- Best Obby Experience
-- Best Strategy Experience
-- Best Action RPG Experience
-- Best Racing Experience
-- Best Roleplay/Life Sim Experience
-- Best Horror Experience
-- Best Tycoon Experience
-- Best Fashion Experience
-- Best Fighting Experience
-- Best Social/Hangout Experience
-
-See the full list of 2024 RIA winners [here](https://devforum.roblox.com/t/roblox-innovation-awards-2024-winners/3152047).
-
-Please check back here and on DevForum again next year to nominate your favorites.
+All nominees across every category are selected annually by Roblox staff. Nominations for the Roblox Innovation Awards are currently closed.

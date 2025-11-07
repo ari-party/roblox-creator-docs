@@ -9,7 +9,7 @@ description: Subscriptions within experiences let you offer users recurring bene
 - **Robux payout:** You receive subscription revenue in Robux. For more details, see [Earn with subscriptions](#earn-with-subscriptions).
 - **Single-tiered:** All subscriptions within an experience can be owned by users simultaneously. Mutually exclusive subscriptions are not supported.
 
-Users can purchase subscriptions on the desktop app or website using Roblox gift card credit or a credit or debit card, and through payment methods on the Apple and Google stores in qualifying regions. Users can view and manage their subscription purchases in the Subscriptions tab in their Roblox account settings.
+Users can purchase subscriptions on the desktop app or website using Roblox gift card credit or a credit or debit card, and through payment methods on the Apple and Google stores in qualifying regions. Users can view and manage their subscription purchases in the **Subscriptions** tab in their Roblox account settings.
 
 Subscriptions will be rolled out to more regions in the future.
 
@@ -34,7 +34,7 @@ Before creating your subscriptions, ensure they align with [Roblox's Terms of Us
 
 Before you can create a subscription, you must be phone or [ID verified](../publishing/account-verification.md). To create a subscription:
 
-1. Navigate to your experience in the [Creator Dashboard](https://create.roblox.com/) and select **Monetization Products** > **Subscriptions**. Then click **Create A Subscription**.
+1. Navigate to your experience in the [Creator Dashboard](https://create.roblox.com/) and select **Monetization Products** ⟩ **Subscriptions**. Then click **Create A Subscription**.
 
    <img src="../../assets/monetization/subscriptions/subscriptions-1.png" width="40%"/>
 
@@ -75,7 +75,7 @@ Before activating your subscription for the first time, you must confirm a short
 
 ## Edit subscriptions
 
-You can have up to 50 subscriptions per experience between active and inactive subscriptions. To edit subscriptions, navigate to your experience in the [Creator Dashboard](https://create.roblox.com/) and select **Monetization Products** > **Subscriptions**.
+You can have up to 50 subscriptions per experience between active and inactive subscriptions. To edit subscriptions, navigate to your experience in the [Creator Dashboard](https://create.roblox.com/) and select **Monetization Products** ⟩ **Subscriptions**.
 
 You can edit a subscription's image, description, or state. If you want to edit more than these properties, you need to delete and recreate the subscriptions with the desired changes.
 
@@ -342,9 +342,9 @@ Other relevant functions are available in `Class.MarketplaceService`:
 
 ## Earn with subscriptions
 
-Subscriptions are priced in local currency, but you earn Robux at a rate of US $0.01 to 1 Robux according to the base platform price you selected for the subscription after platform fees. Roblox takes a 30% platform fee for the first month only, meaning that you receive the full subscription earnings from the second month onward. This revenue split is consistent across all platforms.
+Subscriptions are priced in local currency, but you earn Robux at a rate of US \$0.01 to 1 Robux according to the base platform price you selected for the subscription after platform fees. Roblox takes a 30% platform fee for the first month only, meaning that you receive the full subscription earnings from the second month onward. This revenue split is consistent across all platforms.
 
-For example, if a user subscribes at the base price of US $9.99 (desktop) or $12.99 (mobile):
+For example, if a user subscribes at the base price of US \$9.99 (desktop) or \$12.99 (mobile):
 
 - **First month:** The creator of the subscription receives `999 * .7 = 699` (desktop) or `1299 * .7 = 909` (mobile).
 - **Second month onward:** The creator of the subscription receives `999 = 999` (desktop) or `1299 = 1299` (mobile).
@@ -361,7 +361,7 @@ Subscriptions are currently ineligible to be cross-sold by other experiences and
 
 ### Subscription payouts
 
-Payouts are found in **Robux Balance** > **My Transactions**:
+Payouts are found in **Robux Balance** ⟩ **My Transactions**:
 
 <img src="../../assets/monetization/subscriptions/subscriptions-my-transaction.png" width="30%"/>
 

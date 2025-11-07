@@ -59,6 +59,10 @@ To create a custom Roblox accessory for your own experience or to sell on the Ma
   - [Clothing creation tutorial](../../art/accessories/creating/index.md) - a step-by-step process of creating your own avatar-ready clothing from scratch in Blender.
 - [Additional tools, resources, and guides](#resources) provided by Roblox to standardize and expedite the creation process.
 
+<Alert severity = 'info'>
+If you are a developer and are looking for information on manually equipping or configuring layered clothing accessories within an experience, including implementing layered clothing on a non-standard character model, see [Character appearance](../../characters/appearance.md).
+</Alert>
+
 Roblox also supports [classic clothing](#classic-clothing), 2D images that can be applied to your character's surface.
 
 ## Components of a layered clothing accessory
@@ -170,7 +174,7 @@ If you are interested in specific avatar creation topics, use the following tabl
   </tr>
   <tr>
     <td>Cosmetic creation</td>
-    <td>[Accessories overview](../../art/accessories/specifications.md)<br /><br />[Layered clothing overview](../../art/accessories/index.md)<br /><br />[Create face accessories](../../art/characters/facial-animation/create-face-accessories.md)<br /><br />[Accessory fitting tool](../../art/accessories/accessory-fitting-tool.md)<br /><br />[Accessory specifications](../../art/accessories/specifications.md)<br /><br />[Marketplace requirements](../../marketplace/marketplace-policy.md)</td>
+    <td>[Accessories overview](../../art/accessories/specifications.md)<br /><br />[Layered clothing overview](../../art/accessories/index.md)<br /><br />[Create face accessories](../../art/characters/facial-animation/create-face-accessories.md)<br /><br />[Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md)<br /><br />[Accessory specifications](../../art/accessories/specifications.md)<br /><br />[Marketplace requirements](../../marketplace/marketplace-policy.md)</td>
   </tr>
   <tr>
     <td>Texturing</td>
@@ -195,4 +199,4 @@ If you are interested in specific avatar creation topics, use the following tabl
 
 Classic clothing assets are 2D images that you can apply to the surface of an avatar body as t-shirts, shirts, or pants. You can design these assets in any image processing software, test the textures in Studio, and then upload the designs to the Marketplace to sell. See [Classic clothing](../../art/classic-clothing.md) for more information on creating, uploading, and selling these assets.
 
-<img src="../../assets/accessories/classic-clothing/Dummy-Clothed.jpg" width="80%" />
+<img src="../../assets/accessories/classic-clothing/Block-Avatar-Dressed.jpg" width="800" />
